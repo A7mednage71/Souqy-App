@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_store/core/common/screens/no_network_connection.dart';
 
 class MyStore extends StatelessWidget {
   const MyStore({super.key});
@@ -8,14 +9,15 @@ class MyStore extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My Store',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('My Store'),
-        ),
-      ),
+      home: const NoNetworkConnetion(),
+      // home: const Scaffold(
+      //   body: Center(
+      //     child: Text('My Store'),
+      //   ),
+      // ),
     );
   }
 }
