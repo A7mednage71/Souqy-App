@@ -35,6 +35,7 @@ dependencies:
     sdk: flutter
   flutter_dotenv: ^5.2.1
   flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.3
   flutter_screenutil: ^5.9.3
   very_good_analysis: ^6.0.0
 
@@ -92,6 +93,18 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/core/appLogo.png"
-  min_sdk_android: 17 
+  min_sdk_android: 17
   adaptive_icon_background: "#ffffff" # Or path to a background image
   adaptive_icon_foreground: "assets/images/core/appLogo.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/core/app_light_splash.png
+  color_dark: "#000000"
+  image_dark: assets/images/core/app_dark_splash.png
+
+  android_12:
+    image: assets/images/core/app_light_splash.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/images/core/app_dark_splash.png
+    icon_background_color_dark: "#000000"
