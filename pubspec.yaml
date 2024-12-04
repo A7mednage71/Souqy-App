@@ -56,6 +56,7 @@ flutter:
   assets:
     - .env.dev
     - .env.prod
+    - assets/images/core/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
@@ -79,3 +80,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/core/style/images
+  filename: app_images.dart
+  classname: AppImages
+  field_prefix: null
+  ignore_comments: true
