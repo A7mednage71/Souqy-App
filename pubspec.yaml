@@ -79,3 +79,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/core/style/images
+  filename: app_images.dart
+  classname: AppImages
+  field_prefix: null
+  ignore_comments: true
