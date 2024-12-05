@@ -67,8 +67,8 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-      # Arabic font
+  fonts:
+    # Arabic font
     - family: Cairo
       fonts:
         - asset: assets/fonts/arabic/cairo/Cairo-Bold.ttf
@@ -78,7 +78,7 @@ fonts:
         - asset: assets/fonts/arabic/cairo/Cairo-Regular.ttf
           weight: 400
 
-      #English font
+    # English font
     - family: Poppins
       fonts:
         - asset: assets/fonts/english/poppins/Poppins-Bold.ttf
