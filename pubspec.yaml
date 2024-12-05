@@ -71,21 +71,21 @@ fonts:
       # Arabic font
     - family: Cairo
       fonts:
-        - asset: assets/fonts/arabic/cairo/._Cairo-Bold.ttf
+        - asset: assets/fonts/arabic/cairo/Cairo-Bold.ttf
           weight: 700
-        - asset: assets/fonts/arabic/cairo/._Cairo-Medium.ttf
+        - asset: assets/fonts/arabic/cairo/Cairo-Medium.ttf
           weight: 500
-        - asset: assets/fonts/arabic/cairo/._Cairo-Regular.ttf
+        - asset: assets/fonts/arabic/cairo/Cairo-Regular.ttf
           weight: 400
 
       #English font
     - family: Poppins
       fonts:
-        - asset: assets/fonts/english/poppins/._Poppins-Bold.ttf
+        - asset: assets/fonts/english/poppins/Poppins-Bold.ttf
           weight: 700
-        - asset: assets/fonts/english/poppins/._Poppins-Medium.ttf
+        - asset: assets/fonts/english/poppins/Poppins-Medium.ttf
           weight: 500
-        - asset: assets/fonts/english/poppins/._Poppins-Regular.ttf
+        - asset: assets/fonts/english/poppins/Poppins-Regular.ttf
           weight: 400
   #
   # For details regarding fonts from package dependencies,
