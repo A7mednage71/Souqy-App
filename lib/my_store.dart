@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_store/core/app/network_connection_checker.dart';
 import 'package:my_store/core/common/screens/no_network_connection.dart';
+import 'package:my_store/core/routes/app_router.dart';
+import 'package:my_store/core/routes/routes.dart';
 
 class MyStore extends StatelessWidget {
   const MyStore({super.key});
@@ -17,11 +19,8 @@ class MyStore extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
                   useMaterial3: true,
                 ),
-                home: const Scaffold(
-                  body: Center(
-                    child: Text('My Store'),
-                  ),
-                ),
+                onGenerateRoute: AppRouter.getRoute,
+                initialRoute: Routes.home,
               )
             : MaterialApp(
                 debugShowCheckedModeBanner: false,
