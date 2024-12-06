@@ -8,30 +8,38 @@ class MyStore extends StatelessWidget {
   const MyStore({super.key});
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: NetworkConnectionChecker.instance.isConnected,
-      builder: (context, isConnected, child) {
-        return isConnected
-            ? MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'My Store',
-                theme: ThemeData(
-                  colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-                  useMaterial3: true,
-                ),
-                onGenerateRoute: AppRouter.getRoute,
-                initialRoute: Routes.home,
-              )
-            : MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'No Network Connection',
-                theme: ThemeData(
-                  colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-                  useMaterial3: true,
-                ),
-                home: const NoNetworkConnetion(),
-              );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'My Store',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        useMaterial3: true,
+      ),
+      onGenerateRoute: AppRouter.getRoute,
+      initialRoute: Routes.home,
+      navigatorKey: GlobalKey<NavigatorState>(),
+      builder: (context, widget) {
+        return ValueListenableBuilder(
+          valueListenable: NetworkConnectionChecker.instance.isConnected,
+          builder: (context, value, child) {
+            if (value) {
+              return widget!;
+            } else {
+              return const NoNetworkConnetion();
+            }
+          },
+        );
       },
     );
+
+    // : MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     title: 'No Network Connection',
+    //     theme: ThemeData(
+    //       colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+    //       useMaterial3: true,
+    //     ),
+    //     home: const NoNetworkConnetion(),
+    //   );
   }
 }
