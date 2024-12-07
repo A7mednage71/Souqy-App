@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_store/core/languages/app_localizations.dart';
 
 class AppLocalizationsSetup {
+  /// This defines the list of locales (languages) supported by the app
   static const Iterable<Locale> supportedLocales = [
     Locale('en'),
     Locale('ar'),
@@ -16,6 +17,9 @@ class AppLocalizationsSetup {
     GlobalCupertinoLocalizations.delegate,
     DefaultCupertinoLocalizations.delegate,
   ];
+
+  /// This callback is used if the app is created with a
+  /// specific locale using the [WidgetsApp.new] locale parameter.
 
   static Locale? localeResolutionCallback(
     Locale? locale,
