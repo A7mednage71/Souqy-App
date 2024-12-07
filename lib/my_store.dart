@@ -31,7 +31,10 @@ class MyStore extends StatelessWidget {
             valueListenable: NetworkConnectionChecker.instance.isConnected,
             builder: (context, value, child) {
               if (value) {
-                return widget!;
+                return GestureDetector(
+                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                  child: widget,
+                );
               } else {
                 return const NoNetworkConnetion();
               }
