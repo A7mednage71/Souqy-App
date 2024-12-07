@@ -7,4 +7,6 @@ extension ThemeEx on BuildContext {
   MyColors get themeColors => Theme.of(this).extension<MyColors>()!;
   // get the theme assets by context
   MyAssets get themeAssets => Theme.of(this).extension<MyAssets>()!;
+  // get the theme text style by context
+  TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
 }
