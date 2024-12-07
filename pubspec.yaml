@@ -35,6 +35,8 @@ dependencies:
     sdk: flutter
   flutter_dotenv: ^5.2.1
   flutter_launcher_icons: ^0.13.1
+  flutter_localizations:
+    sdk: flutter
   flutter_native_splash: ^2.4.3
   flutter_screenutil: ^5.9.3
   very_good_analysis: ^6.0.0
@@ -89,7 +91,6 @@ flutter:
           weight: 500
         - asset: assets/fonts/english/poppins/Poppins-Regular.ttf
           weight: 400
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 flutter_assets:
