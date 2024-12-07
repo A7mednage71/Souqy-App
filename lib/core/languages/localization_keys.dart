@@ -1,3 +1,3 @@
 class LocalizationKeys {
-  static const appName = 'app_name';
+  static const String appName = 'app_name';
 }
