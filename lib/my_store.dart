@@ -14,44 +14,37 @@ class MyStore extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'My Store',
-        theme: AppTheme.lightTheme,
-        onGenerateRoute: AppRouter.getRoute,
-        initialRoute: Routes.home,
-        navigatorKey: GlobalKey<NavigatorState>(),
-        locale: const Locale('en'),
-        localeResolutionCallback:
-            AppLocalizationsSetup.localeResolutionCallback,
-        localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
-        supportedLocales: AppLocalizationsSetup.supportedLocales,
-        builder: (context, widget) {
-          return ValueListenableBuilder(
-            valueListenable: NetworkConnectionChecker.instance.isConnected,
-            builder: (context, value, child) {
-              if (value) {
-                return GestureDetector(
-                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                  child: widget,
-                );
-              } else {
-                return const NoNetworkConnetion();
-              }
-            },
-          );
-        },
-      ),
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'My Store',
+          theme: AppTheme.lightTheme,
+          onGenerateRoute: AppRouter.getRoute,
+          initialRoute: Routes.home,
+          navigatorKey: GlobalKey<NavigatorState>(),
+          locale: const Locale('en'),
+          localeResolutionCallback:
+              AppLocalizationsSetup.localeResolutionCallback,
+          localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+          supportedLocales: AppLocalizationsSetup.supportedLocales,
+          builder: (context, widget) {
+            return ValueListenableBuilder(
+              valueListenable: NetworkConnectionChecker.instance.isConnected,
+              builder: (context, value, child) {
+                if (value) {
+                  return GestureDetector(
+                    onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                    child: widget,
+                  );
+                } else {
+                  return const NoNetworkConnetion();
+                }
+              },
+            );
+          },
+        );
+      },
     );
-
-    // : MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     title: 'No Network Connection',
-    //     theme: ThemeData(
-    //       colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-    //       useMaterial3: true,
-    //     ),
-    //     home: const NoNetworkConnetion(),
-    //   );
   }
 }
