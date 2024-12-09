@@ -9,4 +9,8 @@ class MyValidator {
       r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$',
     ).hasMatch(password);
   }
+
+  static bool isNamevalidator(String value) {
+    return RegExp(r'^[a-zA-Z0-9._-]{3,}$').hasMatch(value);
+  }
 }
