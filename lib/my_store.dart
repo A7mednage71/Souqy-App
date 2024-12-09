@@ -20,10 +20,13 @@ class MyStore extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return BlocProvider(
-          create: (context) => getIt<AppCubit>()..loadTheme(),
+          create: (context) => getIt<AppCubit>()
+            ..loadTheme()
+            ..loadLanguage(),
           child: BlocBuilder<AppCubit, AppState>(
             builder: (context, state) {
               final isDarkTheme = context.read<AppCubit>().isDarkTheme;
+              final language = context.read<AppCubit>().language;
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 title: 'My Store',
@@ -31,7 +34,7 @@ class MyStore extends StatelessWidget {
                 onGenerateRoute: AppRouter.getRoute,
                 initialRoute: Routes.login,
                 navigatorKey: GlobalKey<NavigatorState>(),
-                locale: const Locale('en'),
+                locale: Locale(language),
                 localeResolutionCallback:
                     AppLocalizationsSetup.localeResolutionCallback,
                 localizationsDelegates:
