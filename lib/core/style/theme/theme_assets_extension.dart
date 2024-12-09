@@ -3,17 +3,21 @@ import 'package:my_store/core/style/images/app_images.dart';
 
 class MyAssets extends ThemeExtension<MyAssets> {
   const MyAssets({
-    required this.testImage,
+    required this.bigNavBar,
+    required this.homeBg,
   });
 
-  final String? testImage;
+  final String? bigNavBar;
+  final String? homeBg;
 
   @override
   ThemeExtension<MyAssets> copyWith({
-    String? testImage,
+    String? bigNavBar,
+    String? homeBg,
   }) {
     return MyAssets(
-      testImage: testImage,
+      bigNavBar: bigNavBar,
+      homeBg: homeBg,
     );
   }
 
@@ -31,15 +35,18 @@ class MyAssets extends ThemeExtension<MyAssets> {
     }
 
     return MyAssets(
-      testImage: testImage,
+      bigNavBar: bigNavBar,
+      homeBg: homeBg,
     );
   }
 
   static const MyAssets light = MyAssets(
-    testImage: AppImages.imagesCoreAppLightSplash,
+    bigNavBar: AppImages.imagesCustomerBigNavBarLight,
+    homeBg: AppImages.imagesCustomerHomeBgLight,
   );
 
   static const MyAssets dark = MyAssets(
-    testImage: AppImages.imagesCoreAppDarkSplash,
+    bigNavBar: AppImages.imagesCustomerBigNavBarDark,
+    homeBg: AppImages.imagesCustomerHomeBgDark,
   );
 }
