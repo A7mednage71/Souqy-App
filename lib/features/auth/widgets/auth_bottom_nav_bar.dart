@@ -11,7 +11,7 @@ class AuthBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      size: Size(double.infinity, 150.h),
+      size: Size(double.infinity, 140.h),
       painter: AuthNavBarCustomPainter(
         gradient: LinearGradient(
           colors: [

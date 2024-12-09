@@ -5,8 +5,8 @@ import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/helpers/my_validator.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 
-class LoginEmailTextFormField extends StatelessWidget {
-  const LoginEmailTextFormField({
+class UserNameTextFormField extends StatelessWidget {
+  const UserNameTextFormField({
     super.key,
   });
 
@@ -16,11 +16,11 @@ class LoginEmailTextFormField extends StatelessWidget {
       duration: 200,
       child: CustomTextField(
         controller: TextEditingController(),
-        hintText: LocalizationKeys.email,
-        keyboardType: TextInputType.emailAddress,
+        hintText: LocalizationKeys.fullName,
+        keyboardType: TextInputType.name,
         validator: (value) {
-          if (!MyValidator.isEmailValid(value!)) {
-            return context.translate(LocalizationKeys.validEmail);
+          if (!MyValidator.isNamevalidator(value!)) {
+            return context.translate(LocalizationKeys.validName);
           }
           return null;
         },

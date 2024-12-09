@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/animations/animate_do.dart';
+import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
-import 'package:my_store/core/extensions/navigation_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
-import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 
-class CreateAccountButton extends StatelessWidget {
-  const CreateAccountButton({
+class SighnUpButton extends StatelessWidget {
+  const SighnUpButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return CustomFadeInDown(
-      duration: 400,
-      child: TextButton(
-        onPressed: () {
-          context.pushReplacementNamed(Routes.sighnUp);
-        },
+    return CustomFadeInRight(
+      duration: 600,
+      child: CustomLinearButton(
+        onTap: () {},
+        width: double.infinity,
+        height: 50.h,
         child: Text(
-          context.translate(LocalizationKeys.createAccount),
+          context.translate(LocalizationKeys.signUp),
           style: context.textStyle.copyWith(
             fontSize: 16.sp,
-            fontWeight: FontWeightHelper.medium,
+            fontWeight: FontWeightHelper.bold,
           ),
         ),
       ),
