@@ -7,31 +7,38 @@ import 'package:my_store/core/style/theme/theme_assets_extension.dart';
 import 'package:my_store/core/style/theme/theme_colors_extension.dart';
 
 class AppTheme {
-  static ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: ColorsLight.mainColor,
-    extensions: const <ThemeExtension<dynamic>>[MyColors.light, MyAssets.light],
-    useMaterial3: true,
-    textTheme: TextTheme(
-      displaySmall: TextStyle(
-        color: ColorsLight.black,
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w500,
-        fontFamily: FontFamilyHelper.getFontFamily(),
+  static ThemeData lightTheme() {
+    return ThemeData(
+      scaffoldBackgroundColor: ColorsLight.mainColor,
+      extensions: const <ThemeExtension<dynamic>>[
+        MyColors.light,
+        MyAssets.light,
+      ],
+      useMaterial3: true,
+      textTheme: TextTheme(
+        displaySmall: TextStyle(
+          color: ColorsLight.black,
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w500,
+          fontFamily: FontFamilyHelper.getFontFamily(),
+        ),
       ),
-    ),
-  );
+    );
+  }
 
-  static ThemeData darkTheme = ThemeData(
-    scaffoldBackgroundColor: ColorsDark.mainColor,
-    extensions: const <ThemeExtension<dynamic>>[MyColors.dark, MyAssets.dark],
-    useMaterial3: true,
-    textTheme: TextTheme(
-      displaySmall: TextStyle(
-        color: ColorsDark.white,
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w500,
-        fontFamily: FontFamilyHelper.getFontFamily(),
+  static ThemeData darkTheme() {
+    return ThemeData(
+      scaffoldBackgroundColor: ColorsDark.mainColor,
+      extensions: const <ThemeExtension<dynamic>>[MyColors.dark, MyAssets.dark],
+      useMaterial3: true,
+      textTheme: TextTheme(
+        displaySmall: TextStyle(
+          color: ColorsDark.white,
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w500,
+          fontFamily: FontFamilyHelper.getFontFamily(),
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
