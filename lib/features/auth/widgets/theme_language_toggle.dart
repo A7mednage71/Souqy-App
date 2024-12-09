@@ -6,6 +6,7 @@ import 'package:my_store/core/app/app_cubit/cubit/app_cubit.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
+import 'package:my_store/core/languages/app_localizations.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 
@@ -50,7 +51,13 @@ class AppThemeAndLanguageToggle extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              if (AppLocalizations.of(context)!.isEnLocale) {
+                context.read<AppCubit>().changeLanguageToArabic();
+              } else {
+                context.read<AppCubit>().changeLanguageToEnglish();
+              }
+            },
           ),
         ),
       ],
