@@ -5,8 +5,8 @@ import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/helpers/my_validator.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 
-class EmailTextFormField extends StatelessWidget {
-  const EmailTextFormField({
+class LoginEmailTextFormField extends StatelessWidget {
+  const LoginEmailTextFormField({
     super.key,
   });
 

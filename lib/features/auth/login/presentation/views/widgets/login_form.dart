@@ -20,11 +20,11 @@ class _LoginFormState extends State<LoginForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          const EmailTextFormField(),
+          const LoginEmailTextFormField(),
           SizedBox(
             height: 20.h,
           ),
-          const PasswordTextFormField(),
+          const LoginPasswordTextFormField(),
         ],
       ),
     );

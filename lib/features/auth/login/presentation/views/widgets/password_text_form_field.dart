@@ -5,14 +5,15 @@ import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/helpers/my_validator.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 
-class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({super.key});
+class LoginPasswordTextFormField extends StatefulWidget {
+  const LoginPasswordTextFormField({super.key});
 
   @override
-  State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
+  State<LoginPasswordTextFormField> createState() =>
+      _PasswordTextFormFieldState();
 }
 
-class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
+class _PasswordTextFormFieldState extends State<LoginPasswordTextFormField> {
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
