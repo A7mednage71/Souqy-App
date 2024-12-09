@@ -63,4 +63,9 @@ class SharedPrefService {
     final sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(key) ?? '';
   }
+
+  static Future<bool> isfound(String key) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.containsKey(key);
+  }
 }
