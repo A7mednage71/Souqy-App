@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -82,7 +83,9 @@ class CustomTextField extends StatelessWidget {
         fillColor: fillColour,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
-        hintText: hintText,
+        hintText: hintText != null && hintText != ''
+            ? context.translate(hintText!)
+            : null,
         hintStyle: hintStyle ??
             context.textStyle.copyWith(
               color: context.themeColors.textColor,
