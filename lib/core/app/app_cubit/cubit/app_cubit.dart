@@ -15,7 +15,7 @@ class AppCubit extends Cubit<AppState> {
 
   /// Load theme from SharedPreferences
   Future<void> loadTheme() async {
-    isDarkTheme = await SharedPrefService.getBool(
+    isDarkTheme = SharedPrefService.getBool(
       SharedPrefKeys.appMode,
     );
     emit(AppState.themeChanged(isDarkTheme: isDarkTheme));
@@ -34,8 +34,8 @@ class AppCubit extends Cubit<AppState> {
 
   /// Load language from SharedPreferences
   Future<void> loadLanguage() async {
-    language = await SharedPrefService.isfound(SharedPrefKeys.language)
-        ? await SharedPrefService.getString(
+    language = SharedPrefService.isfound(SharedPrefKeys.language)
+        ? SharedPrefService.getString(
             SharedPrefKeys.language,
           )
         : 'en';
