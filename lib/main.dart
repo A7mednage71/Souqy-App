@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/app/bloc_observer.dart';
 import 'package:my_store/core/app/env_variables.dart';
 import 'package:my_store/core/app/network_connection_checker.dart';
+import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/firebase_options.dart';
 import 'package:my_store/my_store.dart';
 
@@ -18,6 +19,7 @@ void main() async {
   await NetworkConnectionChecker.instance.init();
   await ScreenUtil.ensureScreenSize();
   Bloc.observer = AppBlocObserver();
+  await setGetIt();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   );
