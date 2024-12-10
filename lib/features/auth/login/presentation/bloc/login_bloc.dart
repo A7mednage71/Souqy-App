@@ -3,6 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:my_store/core/networking/dio_factory.dart';
+import 'package:my_store/core/services/secure_storage/secure_storage.dart';
+import 'package:my_store/core/services/secure_storage/secure_storage_keys.dart';
+import 'package:my_store/core/services/shared_pref/shared_pref.dart';
+import 'package:my_store/core/services/shared_pref/shared_pref_keys.dart';
 import 'package:my_store/features/auth/login/data/models/login_request_model.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 
@@ -29,8 +34,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     );
 
     result.when(
-      success: (success) {
-        emit(const LoginState.success());
+      success: (loginResponse) async {
+        // get token and save it to secure storage
+        final accessToken = loginResponse.userData.login.accessToken;
+        await SecureStorage.setSecuredData(
+          SecureStorageKeys.accessToken,
+          accessToken ?? '',
+        );
+        // refresh dio with the new access token
+        await DioFactory.refreshHeaders(token: accessToken ?? '');
+        // get user role
+        final user = await _loginRepo.userRole();
+        // save user id to shared storage to use in get profile
+        await SharedPrefService.setData(SharedPrefKeys.userId, user.userId);
+        emit(LoginState.success(user.userRole));
       },
       failure: (failure) => emit(LoginState.failure(failure.errMessages)),
     );
