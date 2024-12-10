@@ -15,8 +15,8 @@ class LoginRepo {
     required LoginRequestModel loginRequest,
   }) async {
     try {
-      final result = await _apiService
-          .login(LoginQuery.instance.loginQuery(model: loginRequest));
+      final result =
+          await _apiService.login(LoginQuery.loginQuery(model: loginRequest));
       return ApiResult.success(result);
     } catch (e) {
       if (e is DioException) {

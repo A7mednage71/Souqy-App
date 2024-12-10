@@ -5,7 +5,7 @@ class LoginQuery {
 
   static final LoginQuery instance = LoginQuery._();
 
-  Map<String, dynamic> loginQuery({required LoginRequestModel model}) {
+  static Map<String, dynamic> loginQuery({required LoginRequestModel model}) {
     return {
       'query': r'''
         mutation Login($email: String!, $password: String!) {
