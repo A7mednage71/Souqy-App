@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
+import 'package:my_store/core/app/upload_image/repos/upload_image_repo.dart';
 import 'package:my_store/core/common/screens/no_route_screen.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/routes/base_material_page_route.dart';
@@ -27,7 +29,16 @@ class AppRouter {
           ),
         );
       case Routes.sighnUp:
-        return BaseRoute(page: const SighnUpScreen());
+        return BaseRoute(
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => UploadImageCubit(getIt<UploadImageRepo>()),
+              ),
+            ],
+            child: const SighnUpScreen(),
+          ),
+        );
       default:
         return BaseRoute(page: const NoRouteScreen());
     }
