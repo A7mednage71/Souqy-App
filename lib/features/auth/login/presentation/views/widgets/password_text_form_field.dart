@@ -25,9 +25,12 @@ class _PasswordTextFormFieldState extends State<LoginPasswordTextFormField> {
         controller: context.read<LoginBloc>().password,
         hintText: LocalizationKeys.password,
         keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
+        obscureText: _isObscure,
         suffixIcon: GestureDetector(
-          child: Icon(_isObscure ? Icons.visibility_off : Icons.visibility),
+          child: Icon(
+            _isObscure ? Icons.visibility_off : Icons.visibility,
+            color: Colors.grey,
+          ),
           onTap: () {
             setState(() {
               _isObscure = !_isObscure;
@@ -35,9 +38,10 @@ class _PasswordTextFormFieldState extends State<LoginPasswordTextFormField> {
           },
         ),
         validator: (value) {
-          if (!MyValidator.isEmailValid(value ?? '')) {
+          if (!MyValidator.isPasswordValid(value ?? '')) {
             return context.translate(LocalizationKeys.validPasswrod);
           }
+
           return null;
         },
       ),
