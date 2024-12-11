@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,10 +36,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       ),
     );
 
-    result.when(
+    await result.when(
       success: (loginResponse) async {
         // get token and save it to secure storage
         final accessToken = loginResponse.userData.login.accessToken;
+        log('Access token: $accessToken');
         await SecureStorage.setSecuredData(
           SecureStorageKeys.accessToken,
           accessToken ?? '',
@@ -52,7 +54,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         await SharedPrefService.setData(SharedPrefKeys.userRole, user.userRole);
         emit(LoginState.success(user.userRole));
       },
-      failure: (failure) => emit(LoginState.failure(failure.errMessages)),
+      failure: (failure) {
+        emit(LoginState.failure(failure.errMessages));
+      },
     );
   }
 }
