@@ -17,6 +17,7 @@
     "valid_name": "من فضلك إدخال اسمك كاملا",
     "valid_pick_image": "الرجاء تحديد الصورة الرمزية الخاصة بك",
     "image_uploaded": "تم تحميل الصورة بنجاح",
+    "image_error": "هناك خطاء في تحميل الصورة",
     "image_removed": "تم مسح الصورة",
     "choose_products": "اختر منتجاتك آلان",
     "application_features": "مميزات التطبيق",
@@ -35,5 +36,6 @@
     "notifications": "إشعارات",
     "subscribed_to_notifications": "تم الاشتراك في إشعارات",
     "unsubscribed_to_notifications": "تم إلغاء الاشتراك في إشعارات",
-    "view_all": "شاهد الكل"
+    "view_all": "شاهد الكل",
+    "":""
 }

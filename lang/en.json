@@ -17,6 +17,7 @@
     "valid_name": "Please enter your full name",
     "valid_pick_image": "Please Select Your Image Avatar",
     "image_uploaded": "The image has been uploaded successfully.",
+    "image_error": "There was an error uploading the image.",
     "image_removed": "The image has been Deleted.",
     "choose_products": "Choose Your Products",
     "application_features": "Application Features",

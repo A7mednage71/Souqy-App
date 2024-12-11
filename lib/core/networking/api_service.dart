@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:my_store/core/app/upload_image/models/upload_image_model.dart';
 import 'package:my_store/core/networking/api_constants.dart';
 import 'package:my_store/features/auth/login/data/models/login_response_model.dart';
 import 'package:my_store/features/auth/login/data/models/user_role_model.dart';
@@ -18,4 +19,9 @@ abstract class ApiService {
 
   @GET(ApiConstants.userPorfile)
   Future<UserRoleModel> userRole();
+
+  @POST(ApiConstants.uploadImage)
+  Future<UploadImageModel> uploadImage(
+    @Body() FormData file,
+  );
 }
