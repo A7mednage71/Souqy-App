@@ -45,8 +45,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         await DioFactory.refreshHeaders(token: accessToken ?? '');
         // get user role
         final user = await _loginRepo.userRole();
-        // save user id to shared storage to use in get profile
+        // save user id and user role to shared storage to use in get profile
         await SharedPrefService.setData(SharedPrefKeys.userId, user.userId);
+        await SharedPrefService.setData(SharedPrefKeys.userRole, user.userRole);
         emit(LoginState.success(user.userRole));
       },
       failure: (failure) => emit(LoginState.failure(failure.errMessages)),
