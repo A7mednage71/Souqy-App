@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/common/widgets/custom_text_field.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/helpers/my_validator.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
+import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 
 class LoginPasswordTextFormField extends StatefulWidget {
   const LoginPasswordTextFormField({super.key});
@@ -20,7 +22,7 @@ class _PasswordTextFormFieldState extends State<LoginPasswordTextFormField> {
     return CustomFadeInRight(
       duration: 300,
       child: CustomTextField(
-        controller: TextEditingController(),
+        controller: context.read<LoginBloc>().password,
         hintText: LocalizationKeys.password,
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
@@ -33,7 +35,7 @@ class _PasswordTextFormFieldState extends State<LoginPasswordTextFormField> {
           },
         ),
         validator: (value) {
-          if (!MyValidator.isEmailValid(value!)) {
+          if (!MyValidator.isEmailValid(value ?? '')) {
             return context.translate(LocalizationKeys.validPasswrod);
           }
           return null;

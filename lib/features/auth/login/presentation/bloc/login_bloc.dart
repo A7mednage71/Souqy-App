@@ -24,6 +24,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
+  GlobalKey<FormState> formKey = GlobalKey();
+
   FutureOr<void> login(LoginEvent event, Emitter<LoginState> emit) async {
     emit(const LoginState.loading());
     final result = await _loginRepo.login(
