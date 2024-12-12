@@ -3,6 +3,7 @@ import 'package:my_store/core/app/upload_image/models/upload_image_model.dart';
 import 'package:my_store/core/networking/api_constants.dart';
 import 'package:my_store/features/auth/login/data/models/login_response_model.dart';
 import 'package:my_store/features/auth/login/data/models/user_role_model.dart';
+import 'package:my_store/features/auth/register/data/models/sign_up_response_model.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
@@ -14,6 +15,11 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphQl)
   Future<LoginResponseModel> login(
+    @Body() Map<String, dynamic> body,
+  );
+  
+  @POST(ApiConstants.graphQl)
+  Future<SignUpResponseModel> sighnUp(
     @Body() Map<String, dynamic> body,
   );
 
