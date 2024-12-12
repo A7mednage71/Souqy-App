@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:my_store/core/app/upload_image/repos/upload_image_repo.dart';
 import 'package:my_store/core/helpers/image_picker.dart';
 
@@ -15,7 +14,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
   String uploadImageUrl = '';
 
   // Upload Image
-  Future<void> uploadImage({required XFile file}) async {
+  Future<void> uploadImage() async {
     // pick the image
     final image = await ImagePickerHelper.pickImage();
     if (image == null) return;
