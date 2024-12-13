@@ -21,6 +21,8 @@ class SighnUpBloc extends Bloc<SighnUpEvent, SighnUpState> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
+  GlobalKey<FormState> formKey = GlobalKey();
+
   FutureOr<void> sighnUp(SignUp event, Emitter<SighnUpState> emit) async {
     emit(const SighnUpState.loading());
     final result = await _sighnUpRepo.sighnUp(
