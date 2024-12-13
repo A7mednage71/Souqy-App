@@ -25,7 +25,7 @@ class _PasswordTextFormFieldState extends State<SighnUpPasswordTextFormField> {
         controller: context.read<SighnUpBloc>().password,
         hintText: LocalizationKeys.password,
         keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
+        obscureText: _isObscure,
         suffixIcon: GestureDetector(
           child: Icon(_isObscure ? Icons.visibility_off : Icons.visibility),
           onTap: () {
@@ -35,7 +35,7 @@ class _PasswordTextFormFieldState extends State<SighnUpPasswordTextFormField> {
           },
         ),
         validator: (value) {
-          if (!MyValidator.isEmailValid(value!)) {
+          if (!MyValidator.isPasswordValid(value!)) {
             return context.translate(LocalizationKeys.validPasswrod);
           }
           return null;

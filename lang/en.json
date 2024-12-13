@@ -10,6 +10,7 @@
     "logged_successfully": "You have been logged in successfully",
     "logged_error": "There was an error logging in. Try again",
     "sign_up_error": "There was an error creating an account",
+    "sign_up_success": "Account created successfully",
     "create_account": "Create account",
     "sign_up_welcome": "Welcome, Please add your information",
     "sign_up": "Sign Up",
