@@ -9,6 +9,8 @@ class LocalizationKeys {
   static const String validPasswrod = 'valid_passwrod';
   static const String loggedSuccessfully = 'logged_successfully';
   static const String loggedError = 'logged_error';
+  static const String signUpError = 'sign_up_error';
+  static const String signUpSuccess = 'sign_up_success';
   static const String createAccount = 'create_account';
   static const String signUpWelcome = 'sign_up_welcome';
   static const String signUp = 'sign_up';
@@ -17,6 +19,7 @@ class LocalizationKeys {
   static const String validName = 'valid_name';
   static const String validPickImage = 'valid_pick_image';
   static const String imageUploaded = 'image_uploaded';
+  static const String imageError = 'image_error';
   static const String imageRemoved = 'image_removed';
   static const String chooseProducts = 'choose_products';
   static const String applicationFeatures = 'application_features';
