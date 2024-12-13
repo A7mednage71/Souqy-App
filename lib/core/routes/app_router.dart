@@ -6,7 +6,7 @@ import 'package:my_store/core/common/screens/no_route_screen.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/routes/base_material_page_route.dart';
 import 'package:my_store/core/routes/routes.dart';
-import 'package:my_store/features/admin/admin_home.dart';
+import 'package:my_store/features/admin/home_admin/admin_home_screen.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/login/presentation/views/login_screen.dart';
