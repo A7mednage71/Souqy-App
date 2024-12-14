@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -6,8 +7,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      appBar: CustomAdminAppBar(title: 'Dashboard'),
       body: Center(
-        child: Text('Users Screen'),
+        child: Text('Dashboard Screen'),
       ),
     );
   }
