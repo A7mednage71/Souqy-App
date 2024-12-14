@@ -30,9 +30,10 @@ class MyStore extends StatelessWidget {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 title: 'My Store',
-                theme: isDarkTheme ? AppTheme.darkTheme() : AppTheme.lightTheme(),
+                theme:
+                    isDarkTheme ? AppTheme.darkTheme() : AppTheme.lightTheme(),
                 onGenerateRoute: AppRouter.getRoute,
-                initialRoute: Routes.login,
+                initialRoute: Routes.homeAdmin,
                 navigatorKey: GlobalKey<NavigatorState>(),
                 locale: Locale(language),
                 localeResolutionCallback:
