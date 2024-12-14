@@ -10,6 +10,12 @@ class UsersNumberResponse {
       _$UsersNumberResponseFromJson(json);
 
   final UsersNumberData data;
+  String get numberofcategories {
+    if (data.usersList.isEmpty) {
+      return '0';
+    }
+    return data.usersList.length.toString();
+  }
 }
 
 @JsonSerializable()

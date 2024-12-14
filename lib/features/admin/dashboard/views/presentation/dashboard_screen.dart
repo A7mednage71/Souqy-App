@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/style/images/app_images.dart';
-import 'package:my_store/features/admin/dashboard/presentation/widgets/dashboard_item.dart';
+import 'package:my_store/features/admin/dashboard/views/presentation/widgets/dashboard_item.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});

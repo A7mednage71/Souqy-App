@@ -10,6 +10,13 @@ class ProductsNumberResponse {
       _$ProductsNumberResponseFromJson(json);
 
   final ProductsNumberData data;
+
+  String get numberOfProducts {
+    if (data.productsList.isEmpty) {
+      return '0';
+    }
+    return data.productsList.length.toString();
+  }
 }
 
 @JsonSerializable()
