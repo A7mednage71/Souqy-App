@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
-import 'package:my_store/features/admin/dashboard/presentation/dashboard_screen.dart';
+import 'package:my_store/features/admin/dashboard/views/presentation/dashboard_screen.dart';
 import 'package:my_store/features/admin/home_admin/presentation/menu_screen.dart';
 
 class AdminHomeScreen extends StatefulWidget {

@@ -4,6 +4,10 @@ import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/app/upload_image/repos/upload_image_repo.dart';
 import 'package:my_store/core/networking/api_service.dart';
 import 'package:my_store/core/networking/dio_factory.dart';
+import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart';
+import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
+import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
+import 'package:my_store/features/admin/dashboard/views/bloc/number_of_users/fetch_number_of_users_bloc.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
@@ -32,5 +36,18 @@ Future<void> setGetIt() async {
     )
     // signup bloc
     ..registerLazySingleton<SighnUpRepo>(() => SighnUpRepo(getIt<ApiService>()))
-    ..registerFactory<SighnUpBloc>(() => SighnUpBloc(getIt<SighnUpRepo>()));
+    ..registerFactory<SighnUpBloc>(() => SighnUpBloc(getIt<SighnUpRepo>()))
+    // dashboard blocs / repo
+    ..registerLazySingleton<DashboardRepo>(
+      () => DashboardRepo(getIt<ApiService>()),
+    )
+    ..registerFactory<FetchNumberOfProductsBloc>(
+      () => FetchNumberOfProductsBloc(getIt<DashboardRepo>()),
+    )
+    ..registerFactory<FetchNumberOfCategoriesBloc>(
+      () => FetchNumberOfCategoriesBloc(getIt<DashboardRepo>()),
+    )
+    ..registerFactory<FetchNumberOfUsersBloc>(
+      () => FetchNumberOfUsersBloc(getIt<DashboardRepo>()),
+    );
 }

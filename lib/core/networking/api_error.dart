@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-abstract class ApiError {
+class ApiError {
   const ApiError(this.errMessages);
   final String errMessages;
 }
@@ -25,7 +25,7 @@ class ServerFailure extends ApiError {
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
           e.response!.statusCode!,
-          e.response!.data,
+          e.response?.data['errors'][0]['message'],
         );
 
       case DioExceptionType.cancel:
