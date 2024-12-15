@@ -10,7 +10,7 @@ class UsersNumberResponse {
       _$UsersNumberResponseFromJson(json);
 
   final UsersNumberData data;
-  String get numberofcategories {
+  String get numberofUsers {
     if (data.usersList.isEmpty) {
       return '0';
     }
