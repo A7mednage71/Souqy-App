@@ -19,6 +19,7 @@ class ProductsDashboarditem extends StatelessWidget {
               title: 'Products',
               count: '0',
               image: AppImages.imagesAdminProductsDrawer,
+              isloading: true,
             );
           },
           success: (count) {

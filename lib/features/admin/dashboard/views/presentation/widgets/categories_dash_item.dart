@@ -20,6 +20,7 @@ class CategoriesDashboardItem extends StatelessWidget {
               title: 'Categories',
               count: '0',
               image: AppImages.imagesAdminCategoriesDrawer,
+              isloading: true,
             );
           },
           success: (count) {

@@ -19,6 +19,7 @@ class UsersDashboardItem extends StatelessWidget {
               title: 'Users',
               count: '0',
               image: AppImages.imagesAdminUsersDrawer,
+              isloading: true,
             );
           },
           success: (count) {

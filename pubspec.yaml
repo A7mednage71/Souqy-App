@@ -55,6 +55,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.4.1
   shared_preferences: ^2.3.3
+  shimmer: ^3.0.0
   very_good_analysis: ^6.0.0
 
 dev_dependencies:
