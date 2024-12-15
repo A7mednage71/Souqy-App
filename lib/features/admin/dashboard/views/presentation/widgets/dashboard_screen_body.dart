@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/style/images/app_images.dart';
-import 'package:my_store/features/admin/dashboard/views/presentation/widgets/dashboard_item.dart';
+import 'package:my_store/features/admin/dashboard/views/presentation/widgets/categories_dash_item.dart';
+import 'package:my_store/features/admin/dashboard/views/presentation/widgets/products_dash_item.dart';
+import 'package:my_store/features/admin/dashboard/views/presentation/widgets/users_dash_item.dart';
 
 class DashBoardScreenBody extends StatelessWidget {
   const DashBoardScreenBody({
@@ -12,29 +13,17 @@ class DashBoardScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {},
-      child: Column(
+      child: ListView(
         children: [
-          const DashboardItem(
-            title: 'Products',
-            count: '50',
-            image: AppImages.imagesAdminProductsDrawer,
-          ),
+          const ProductsDashboarditem(),
           SizedBox(
             height: 20.h,
           ),
-          const DashboardItem(
-            title: 'Categories',
-            count: '50',
-            image: AppImages.imagesAdminCategoriesDrawer,
-          ),
+          const CategoriesDashboardItem(),
           SizedBox(
             height: 20.h,
           ),
-          const DashboardItem(
-            title: 'Users',
-            count: '50',
-            image: AppImages.imagesAdminUsersDrawer,
-          ),
+          const UsersDashboardItem(),
         ],
       ),
     );
