@@ -84,7 +84,9 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         hintText: hintText != null && hintText != ''
-            ? context.translate(hintText!)
+            ? context.translate(hintText!) != ''
+                ? context.translate(hintText!)
+                : hintText
             : null,
         hintStyle: hintStyle ??
             context.textStyle.copyWith(
