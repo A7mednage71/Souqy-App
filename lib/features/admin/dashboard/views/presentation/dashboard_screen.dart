@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
-import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_users/fetch_number_of_users_bloc.dart';
@@ -16,16 +15,15 @@ class DashboardScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FetchNumberOfProductsBloc(getIt<DashboardRepo>())
+          create: (context) => getIt<FetchNumberOfProductsBloc>()
             ..add(const FetchNumberOfProductsEvent.fetchNumberOfProducts()),
         ),
         BlocProvider(
-          create: (context) => FetchNumberOfCategoriesBloc(
-            getIt<DashboardRepo>(),
-          )..add(const FetchNumberOfCategoriesEvent.fetchNumberOfCategories()),
+          create: (context) => getIt<FetchNumberOfCategoriesBloc>()
+            ..add(const FetchNumberOfCategoriesEvent.fetchNumberOfCategories()),
         ),
         BlocProvider(
-          create: (context) => FetchNumberOfUsersBloc(getIt<DashboardRepo>())
+          create: (context) => getIt<FetchNumberOfUsersBloc>()
             ..add(const FetchNumberOfUsersEvent.fetchNumberOfUsers()),
         ),
       ],
