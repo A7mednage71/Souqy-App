@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/features/admin/categories/presentation/categories_screen.dart';
+import 'package:my_store/features/admin/categories/presentation/views/categories_screen.dart';
 import 'package:my_store/features/admin/dashboard/views/presentation/dashboard_screen.dart';
 import 'package:my_store/features/admin/home_admin/data/models/drawer_item_model.dart';
 import 'package:my_store/features/admin/notifications/presentation/notifications_screen.dart';
