@@ -4,6 +4,8 @@ import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/app/upload_image/repos/upload_image_repo.dart';
 import 'package:my_store/core/networking/api_service.dart';
 import 'package:my_store/core/networking/dio_factory.dart';
+import 'package:my_store/features/admin/categories/data/repos/categories_repo.dart';
+import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
@@ -49,5 +51,12 @@ Future<void> setGetIt() async {
     )
     ..registerFactory<FetchNumberOfUsersBloc>(
       () => FetchNumberOfUsersBloc(getIt<DashboardRepo>()),
+    )
+    // get all categories
+    ..registerLazySingleton<CategoriesRepo>(
+      () => CategoriesRepo(getIt<ApiService>()),
+    )
+    ..registerFactory<GetCategoriesBloc>(
+      () => GetCategoriesBloc(getIt<CategoriesRepo>()),
     );
 }
