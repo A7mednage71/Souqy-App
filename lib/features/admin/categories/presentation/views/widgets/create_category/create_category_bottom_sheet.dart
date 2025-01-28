@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_text_field.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/categories/presentation/views/widgets/create_category_button.dart';
-import 'package:my_store/features/admin/categories/presentation/views/widgets/pick_remove_category_image.dart';
+import 'package:my_store/features/admin/categories/presentation/views/widgets/create_category/create_category_button.dart';
+import 'package:my_store/features/admin/categories/presentation/views/widgets/create_category/pick_remove_category_image.dart';
 
-class AddCategryBottomSheet extends StatelessWidget {
-  const AddCategryBottomSheet({
+class CreateCategryBottomSheet extends StatelessWidget {
+  const CreateCategryBottomSheet({
     super.key,
   });
 

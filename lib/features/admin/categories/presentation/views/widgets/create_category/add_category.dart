@@ -4,7 +4,7 @@ import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/categories/presentation/views/widgets/add_category_bottom_sheet.dart';
+import 'package:my_store/features/admin/categories/presentation/views/widgets/create_category/create_category_bottom_sheet.dart';
 
 class AddCategory extends StatelessWidget {
   const AddCategory({super.key});
@@ -51,7 +51,7 @@ class AddCategory extends StatelessWidget {
       ),
       context: context,
       builder: (context) {
-        return const AddCategryBottomSheet();
+        return const CreateCategryBottomSheet();
       },
     );
   }

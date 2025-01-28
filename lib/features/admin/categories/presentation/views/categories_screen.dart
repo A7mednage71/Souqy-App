@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
-import 'package:my_store/features/admin/categories/presentation/views/widgets/add_category.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/category_item.dart';
+import 'package:my_store/features/admin/categories/presentation/views/widgets/create_category/add_category.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
