@@ -17,7 +17,18 @@ class CategoriesScreen extends StatelessWidget {
           children: [
             const AddCategory(),
             SizedBox(height: 20.h),
-            const CategoryItem(),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: () async {},
+                child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(top: index == 0 ? 0 : 20.h),
+                    child: const CategoryItem(),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
