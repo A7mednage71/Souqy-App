@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/categories/presentation/bloc/create_category/create_category_bloc.dart';
 
-class PickAndRemoveCategoryImage extends StatelessWidget {
-  const PickAndRemoveCategoryImage({super.key});
+class RemoveCategoryImage extends StatelessWidget {
+  const RemoveCategoryImage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,9 @@ class PickAndRemoveCategoryImage extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                context.read<CreateCategoryBloc>().categoryImage = '';
+              },
               borderRadius: BorderRadius.circular(10.r),
               child: Container(
                 height: 30.h,
@@ -42,25 +46,6 @@ class PickAndRemoveCategoryImage extends StatelessWidget {
               ),
             ),
           ],
-        ),
-        SizedBox(height: 10.h),
-        InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(10.r),
-          child: Container(
-            height: 150.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              color: Colors.grey.withOpacity(0.4),
-            ),
-            child: Center(
-              child: Icon(
-                Icons.add_a_photo_outlined,
-                size: 50.h,
-                color: Colors.white,
-              ),
-            ),
-          ),
         ),
       ],
     );
