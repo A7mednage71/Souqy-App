@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:my_store/core/app/upload_image/models/upload_image_model.dart';
 import 'package:my_store/core/networking/api_constants.dart';
 import 'package:my_store/features/admin/categories/data/models/categories_response_model.dart';
+import 'package:my_store/features/admin/categories/data/models/create_category_request_model.dart';
+import 'package:my_store/features/admin/categories/data/models/create_category_response_model.dart';
 import 'package:my_store/features/admin/dashboard/data/models/categories_number_response.dart';
 import 'package:my_store/features/admin/dashboard/data/models/products_number_response.dart';
 import 'package:my_store/features/admin/dashboard/data/models/users_number_response.dart';
@@ -52,6 +54,11 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphQl)
   Future<CategoriesResponseModel> getCategories(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<CreateCategoryResponseModel> createCategory(
     @Body() Map<String, dynamic> body,
   );
 }
