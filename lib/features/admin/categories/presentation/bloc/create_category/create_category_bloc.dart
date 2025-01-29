@@ -15,7 +15,7 @@ class CreateCategoryBloc
     extends Bloc<CreateCategoryEvent, CreateCategoryState> {
   CreateCategoryBloc(this._categoriesRepo)
       : super(const CreateCategoryState.initial()) {
-    on<CreateCategory>(createCategory);
+    on<CreateCategory>(createNewCategory);
   }
 
   final CategoriesRepo _categoriesRepo;
@@ -24,7 +24,7 @@ class CreateCategoryBloc
   String categoryImage = '';
   final formKey = GlobalKey<FormState>();
 
-  FutureOr<void> createCategory(
+  FutureOr<void> createNewCategory(
     CreateCategory event,
     Emitter<CreateCategoryState> emit,
   ) async {

@@ -20,15 +20,13 @@ class CategoriesGuery {
   }) {
     return {
       'query': r'''
-        {
-          mutation addCategory($name: String!, $image: String!){
-            addCategory(id: $id){
+          mutation CreateCategory($name: String!, $image: String!){
+            addCategory(data: {name: $name, image: $image}){
               id
               name
               image
             }
           }
-        }
       ''',
       'variables': {
         'name': model.name,

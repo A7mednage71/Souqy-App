@@ -38,7 +38,7 @@ class PickCategoryImage extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.4),
               ),
               child: const Center(
-                child: SpinKitSquareCircle(
+                child: SpinKitCircle(
                   color: Colors.white,
                 ),
               ),

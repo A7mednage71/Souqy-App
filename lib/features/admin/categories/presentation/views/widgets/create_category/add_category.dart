@@ -8,6 +8,7 @@ import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/create_category/create_category_bloc.dart';
+import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/create_category/create_category_bottom_sheet.dart';
 
 class AddCategory extends StatelessWidget {
@@ -45,6 +46,7 @@ class AddCategory extends StatelessWidget {
   }
 
   Future<dynamic> showBottomSheet(BuildContext context) {
+    // ignore: inference_failure_on_function_invocation
     return showModalBottomSheet(
       backgroundColor: ColorsDark.blueDark,
       isScrollControlled: true,
@@ -68,6 +70,10 @@ class AddCategory extends StatelessWidget {
           child: const CreateCategryBottomSheet(),
         );
       },
-    );
+    ).whenComplete(() {
+      context.read<GetCategoriesBloc>().add(
+            const GetCategoriesEvent.getCategories(),
+          );
+    });
   }
 }
