@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_store/features/admin/categories/data/models/create_category_request_model.dart';
 import 'package:my_store/features/admin/categories/data/models/create_category_response_model.dart';
