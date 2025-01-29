@@ -58,6 +58,7 @@ dependencies:
   retrofit: ^4.4.1
   shared_preferences: ^2.3.3
   shimmer: ^3.0.0
+  skeletonizer: ^1.4.3
   very_good_analysis: ^6.0.0
 
 dev_dependencies:

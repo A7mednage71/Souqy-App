@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_store/core/common/screens/empty_data.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
+import 'package:my_store/features/admin/categories/presentation/views/widgets/categories_listview_loading.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/category_item.dart';
 
 class CategoriesListView extends StatelessWidget {
@@ -34,11 +34,9 @@ class CategoriesListView extends StatelessWidget {
                         ),
                       );
               },
-              loading: () => const Center(
-                child: SpinKitFadingCircle(
-                  color: Colors.white,
-                ),
-              ),
+              loading: () {
+                return const CategoriesListViewLoading();
+              },
               failure: (message) => Center(child: Text(message)),
               initial: () => const SizedBox(),
             );
