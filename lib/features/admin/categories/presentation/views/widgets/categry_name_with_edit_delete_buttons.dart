@@ -4,6 +4,7 @@ import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/categories/data/models/categories_response_model.dart';
+import 'package:my_store/features/admin/categories/presentation/views/widgets/delete_category_button.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/edit_category/edit_category_bottom_sheet.dart';
 
 class CategoryNameWithDeleteAndEditCategory extends StatelessWidget {
@@ -41,12 +42,8 @@ class CategoryNameWithDeleteAndEditCategory extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
+              DeleteCategoryButton(
+                categoryId: category.id,
               ),
             ],
           ),
