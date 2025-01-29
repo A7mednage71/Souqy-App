@@ -34,16 +34,23 @@ class DeleteCategoryButton extends StatelessWidget {
       },
       builder: (context, state) {
         return state.maybeWhen(
-          loading: () {
-            return const IconButton(
-              onPressed: null,
-              icon: Center(
-                child: SpinKitDualRing(
-                  color: Colors.white,
-                  size: 20,
+          loading: (id) {
+            if (id == categoryId) {
+              return const IconButton(
+                onPressed: null,
+                icon: Center(
+                  child: SpinKitDualRing(
+                    color: Colors.white,
+                    size: 20,
+                  ),
                 ),
-              ),
-            );
+              );
+            } else {
+              return const Icon(
+                Icons.delete,
+                color: Colors.red,
+              );
+            }
           },
           orElse: () => IconButton(
             onPressed: () {
