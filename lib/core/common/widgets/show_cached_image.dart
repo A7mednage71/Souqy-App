@@ -1,19 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/features/admin/categories/data/models/categories_response_model.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CategoryCachedImage extends StatelessWidget {
-  const CategoryCachedImage({
-    required this.category,
+class ShowCachedNetworkImage extends StatelessWidget {
+  const ShowCachedNetworkImage({
+    required this.image,
     super.key,
   });
-  final Category category;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: category.image,
+      imageUrl: image,
       imageBuilder: (context, imageProvider) => Container(
         height: 90.h,
         width: 120.w,

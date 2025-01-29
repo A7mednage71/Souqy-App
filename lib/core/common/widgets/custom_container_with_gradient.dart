@@ -5,15 +5,18 @@ import 'package:my_store/core/style/colors/colors_dark.dart';
 class CustomContainerWithGradient extends StatelessWidget {
   const CustomContainerWithGradient({
     required this.child,
-    this.hight,
+    this.height,
     super.key,
+    this.width,
   });
-  final double? hight;
+  final double? height;
+  final double? width;
   final Widget child;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: hight ?? 120.h,
+      height: height ?? 120.h,
+      width: width ?? MediaQuery.of(context).size.width,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
