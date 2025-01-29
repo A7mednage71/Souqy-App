@@ -40,4 +40,18 @@ class CategoriesRepo {
       return ApiResult.failure(ServerFailure(e.toString()));
     }
   }
+
+  Future<ApiResult<void>> deleteCategory({required String id}) async {
+    try {
+      final response = await _apiService.deleteCategory(
+        CategoriesGuery.deleteCategoryQuery(id: id),
+      );
+      return ApiResult.success(response);
+    } catch (e) {
+      if (e is DioException) {
+        return ApiResult.failure(ServerFailure.fromDioError(e));
+      }
+      return ApiResult.failure(ServerFailure(e.toString()));
+    }
+  }
 }

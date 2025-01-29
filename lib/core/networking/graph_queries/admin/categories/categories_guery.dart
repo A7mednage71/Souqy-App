@@ -34,4 +34,20 @@ class CategoriesGuery {
       },
     };
   }
+
+  static Map<String, dynamic> deleteCategoryQuery({
+    required String id, 
+  }) {
+    return {
+      'query': r'''
+          mutation DeleteCategory($id: ID!){
+            deleteCategory(id: $id)
+          }
+      ''',
+      'variables': {
+        'id': id,
+      },
+    };
+  }
+
 }
