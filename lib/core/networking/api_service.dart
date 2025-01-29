@@ -65,4 +65,9 @@ abstract class ApiService {
   Future<void> deleteCategory(
     @Body() Map<String, dynamic> body,
   );
+
+  @POST(ApiConstants.graphQl)
+  Future<void> updateCategory(
+    @Body() Map<String, dynamic> body,
+  );
 }

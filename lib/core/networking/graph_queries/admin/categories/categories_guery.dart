@@ -1,3 +1,4 @@
+import 'package:my_store/features/admin/categories/data/models/categories_response_model.dart';
 import 'package:my_store/features/admin/categories/data/models/create_category_request_model.dart';
 
 class CategoriesGuery {
@@ -36,7 +37,7 @@ class CategoriesGuery {
   }
 
   static Map<String, dynamic> deleteCategoryQuery({
-    required String id, 
+    required String id,
   }) {
     return {
       'query': r'''
@@ -50,4 +51,24 @@ class CategoriesGuery {
     };
   }
 
+  static Map<String, dynamic> updateCategoryQuery({
+    required Category model,
+  }) {
+    return {
+      'query': r'''
+          mutation UpdateCategory($id: ID!, $name: String!, $image: String!){
+            updateCategory(id: $id, changes: {name: $name, image: $image}){
+              id
+              name
+              image
+            }
+          }
+      ''',
+      'variables': {
+        'id': model.id,
+        'name': model.name,
+        'image': model.image,
+      },
+    };
+  }
 }

@@ -54,4 +54,22 @@ class CategoriesRepo {
       return ApiResult.failure(ServerFailure(e.toString()));
     }
   }
+
+  Future<ApiResult<void>> updateCategory({
+    required Category categoryModel,
+  }) async {
+    try {
+      final response = await _apiService.updateCategory(
+        CategoriesGuery.updateCategoryQuery(
+          model: categoryModel,
+        ),
+      );
+      return ApiResult.success(response);
+    } catch (e) {
+      if (e is DioException) {
+        return ApiResult.failure(ServerFailure.fromDioError(e));
+      }
+      return ApiResult.failure(ServerFailure(e.toString()));
+    }
+  }
 }
