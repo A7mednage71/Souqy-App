@@ -59,7 +59,7 @@ class CreateCategryBottomSheet extends StatelessWidget {
               keyboardType: TextInputType.text,
               hintText: 'Category Name',
               validator: (value) {
-                if (!MyValidator.isNamevalidator(value!)) {
+                if (!MyValidator.isCategoryNameValid(value!)) {
                   return 'Please enter a valid name';
                 }
                 return null;

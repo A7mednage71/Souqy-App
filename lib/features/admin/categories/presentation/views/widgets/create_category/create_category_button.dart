@@ -27,7 +27,6 @@ class CreateCategeryButton extends StatelessWidget {
             ShowToast.showSuccessToast(
               'Category created successfully',
             );
-
             context.pop();
           },
         );
