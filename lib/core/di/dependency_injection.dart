@@ -8,6 +8,7 @@ import 'package:my_store/features/admin/categories/data/repos/categories_repo.da
 import 'package:my_store/features/admin/categories/presentation/bloc/create_category/create_category_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/delete_category/delete_category_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
+import 'package:my_store/features/admin/categories/presentation/bloc/update_category/update_category_bloc.dart';
 import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
@@ -68,5 +69,9 @@ Future<void> setGetIt() async {
     // delete category
     ..registerFactory<DeleteCategoryBloc>(
       () => DeleteCategoryBloc(getIt<CategoriesRepo>()),
+    )
+    // update category
+    ..registerFactory<UpdateCategoryBloc>(
+      () => UpdateCategoryBloc(getIt<CategoriesRepo>()),
     );
 }
