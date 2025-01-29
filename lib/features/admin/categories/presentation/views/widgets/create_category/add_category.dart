@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
@@ -55,8 +56,15 @@ class AddCategory extends StatelessWidget {
       ),
       context: context,
       builder: (context) {
-        return BlocProvider(
-          create: (context) => getIt<CreateCategoryBloc>(),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<UploadImageCubit>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<CreateCategoryBloc>(),
+            ),
+          ],
           child: const CreateCategryBottomSheet(),
         );
       },

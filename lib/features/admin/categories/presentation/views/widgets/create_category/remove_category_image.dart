@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/create_category/create_category_bloc.dart';
@@ -25,6 +26,8 @@ class RemoveCategoryImage extends StatelessWidget {
             InkWell(
               onTap: () {
                 context.read<CreateCategoryBloc>().categoryImage = '';
+                context.read<UploadImageCubit>().uploadImageUrl = '';
+                context.read<UploadImageCubit>().deleteImage();
               },
               borderRadius: BorderRadius.circular(10.r),
               child: Container(
