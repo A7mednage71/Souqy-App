@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/add_product.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/add_product.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/products_grid_view.dart';
 
 class ProductsScreen extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_bottom_sheet.dart';
 
 class AddProduct extends StatelessWidget {
   const AddProduct({
@@ -21,7 +22,20 @@ class AddProduct extends StatelessWidget {
           fontWeight: FontWeightHelper.bold,
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        showCreateProductBottomSheet(context);
+      },
+    );
+  }
+
+  void showCreateProductBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.r),
+      ),
+      builder: (context) => const CreateProductBottomSheet(),
     );
   }
 }
