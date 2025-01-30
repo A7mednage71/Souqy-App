@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'products_response_model.g.dart';
 
 @JsonSerializable()
@@ -39,12 +40,12 @@ class ProductModel {
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
       _$ProductModelFromJson(json);
 
-  final String id;
-  final String title;
-  final String price;
-  final String description;
-  final List<String> images;
-  final ProductCategory category;
+  final String? id;
+  final String? title;
+  final int? price;
+  final String? description;
+  final List<String>? images;
+  final ProductCategory? category;
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 }
@@ -56,8 +57,8 @@ class ProductCategory {
   factory ProductCategory.fromJson(Map<String, dynamic> json) =>
       _$ProductCategoryFromJson(json);
 
-  final String id;
-  final String name;
+  final String? id;
+  final String? name;
 
   Map<String, dynamic> toJson() => _$ProductCategoryToJson(this);
 }
