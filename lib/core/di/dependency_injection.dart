@@ -14,6 +14,7 @@ import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categorie
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_users/fetch_number_of_users_bloc.dart';
 import 'package:my_store/features/admin/products/data/repos/products_repo.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/get_products/get_products_bloc.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
@@ -83,5 +84,8 @@ Future<void> setGetIt() async {
     )
     ..registerFactory<GetProductsBloc>(
       () => GetProductsBloc(getIt<ProductsRepo>()),
+    )
+    ..registerFactory<CreateProductBloc>(
+      () => CreateProductBloc(getIt<ProductsRepo>()),
     );
 }
