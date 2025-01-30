@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DeleteProductButton extends StatelessWidget {
-  const DeleteProductButton({
+class DeleteProduct extends StatelessWidget {
+  const DeleteProduct({
     super.key,
   });
 

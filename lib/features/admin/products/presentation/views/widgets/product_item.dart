@@ -5,7 +5,7 @@ import 'package:my_store/core/common/widgets/show_cached_image.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/delet_product.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/edit_product.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/edit_product.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key});
@@ -23,8 +23,8 @@ class ProductItem extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                EditProductButton(),
-                DeleteProductButton(),
+                EditProduct(),
+                DeleteProduct(),
               ],
             ),
             const Align(
