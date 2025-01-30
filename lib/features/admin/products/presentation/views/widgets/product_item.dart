@@ -4,12 +4,13 @@ import 'package:my_store/core/common/widgets/custom_container_with_gradient.dart
 import 'package:my_store/core/common/widgets/show_cached_image.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/delet_product.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/edit_product.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
-
+  const ProductItem({required this.product, super.key});
+  final ProductModel? product;
   @override
   Widget build(BuildContext context) {
     return CustomContainerWithGradient(
@@ -27,14 +28,14 @@ class ProductItem extends StatelessWidget {
                 DeleteProduct(),
               ],
             ),
-            const Align(
+            Align(
               child: ShowCachedNetworkImage(
-                image: 'https://i.imgur.com/QkIa5tT.jpeg',
+                image: product?.images?.first ?? '',
               ),
             ),
             SizedBox(height: 5.h),
             Text(
-              'Classic Grey Hooded',
+              product?.title ?? '',
               style: context.textStyle.copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeightHelper.bold,
@@ -44,7 +45,7 @@ class ProductItem extends StatelessWidget {
             ),
             SizedBox(height: 5.h),
             Text(
-              'Price',
+              product?.category?.name ?? '',
               style: context.textStyle.copyWith(
                 fontSize: 14.sp,
                 color: Colors.grey,
@@ -52,7 +53,7 @@ class ProductItem extends StatelessWidget {
             ),
             SizedBox(height: 5.h),
             Text(
-              r'$ 10.00',
+              r'$' '${product?.price}',
               style: context.textStyle.copyWith(
                 fontSize: 12.sp,
               ),

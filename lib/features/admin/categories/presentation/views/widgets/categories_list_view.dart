@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/screens/empty_data.dart';
+import 'package:my_store/core/common/screens/failure_state.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/categories_listview_loading.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/category_item.dart';
@@ -37,7 +38,7 @@ class CategoriesListView extends StatelessWidget {
               loading: () {
                 return const CategoriesListViewLoading();
               },
-              failure: (message) => Center(child: Text(message)),
+              failure: (message) => const FailureState(),
               initial: () => const SizedBox(),
             );
           },
