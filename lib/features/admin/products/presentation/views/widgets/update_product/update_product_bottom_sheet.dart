@@ -9,8 +9,8 @@ import 'package:my_store/features/admin/products/presentation/views/widgets/prod
 import 'package:my_store/features/admin/products/presentation/views/widgets/product_image_listview.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/update_product_button.dart';
 
-class EditProductBottomSheet extends StatelessWidget {
-  const EditProductBottomSheet({
+class UpdateProductBottomSheet extends StatelessWidget {
+  const UpdateProductBottomSheet({
     super.key,
   });
 

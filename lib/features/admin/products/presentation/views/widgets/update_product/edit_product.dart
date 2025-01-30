@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/edit_product_bottom_sheet.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/update_product_bottom_sheet.dart';
 
 class EditProduct extends StatelessWidget {
   const EditProduct({
@@ -24,7 +24,7 @@ class EditProduct extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
       ),
-      builder: (context) => const EditProductBottomSheet(),
+      builder: (context) => const UpdateProductBottomSheet(),
     );
   }
 }
