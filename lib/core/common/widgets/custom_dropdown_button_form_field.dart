@@ -2,27 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
-import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 
-class ProductCategoryDropButton extends StatefulWidget {
-  const ProductCategoryDropButton({
-    this.createProductBloc,
+class CustomDropdownButtonFormField extends StatefulWidget {
+  const CustomDropdownButtonFormField({
+    required this.hint,
+    required this.vaidationText,
+    required this.items,
     super.key,
+    this.onChanged,
   });
-  final CreateProductBloc? createProductBloc;
+  final String hint;
+  final String vaidationText;
+  final List<String> items;
+  final void Function(String?)? onChanged;
   @override
-  State<ProductCategoryDropButton> createState() =>
-      _ProductCategoryDropButtonState();
+  State<CustomDropdownButtonFormField> createState() =>
+      _CustomDropdownButtonFormFieldState();
 }
 
-class _ProductCategoryDropButtonState extends State<ProductCategoryDropButton> {
+class _CustomDropdownButtonFormFieldState
+    extends State<CustomDropdownButtonFormField> {
   String? value;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      hint: const Text(
-        'Choose Category',
-        style: TextStyle(color: Colors.white),
+      hint: Text(
+        widget.hint,
+        style: const TextStyle(color: Colors.white),
       ),
       value: value,
       iconSize: 30.r,
@@ -33,7 +39,7 @@ class _ProductCategoryDropButtonState extends State<ProductCategoryDropButton> {
       ),
       validator: (value) {
         if (value == null) {
-          return 'Please choose product category';
+          return widget.vaidationText;
         }
         return null;
       },
@@ -61,24 +67,10 @@ class _ProductCategoryDropButtonState extends State<ProductCategoryDropButton> {
         ),
       ),
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      items: const [
-        DropdownMenuItem(
-          value: 'Category 1',
-          child: Text('Category 1'),
-        ),
-        DropdownMenuItem(
-          value: 'Category 2',
-          child: Text('Category 2'),
-        ),
-      ],
-      onChanged: (value) {
-        setState(() {
-          this.value = value;
-          if (widget.createProductBloc != null) {
-            widget.createProductBloc!.categoryId = value!;
-          }
-        });
-      },
+      items: widget.items
+          .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+          .toList(),
+      onChanged: widget.onChanged,
     );
   }
 }

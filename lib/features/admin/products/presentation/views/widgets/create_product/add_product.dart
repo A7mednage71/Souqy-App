@@ -5,6 +5,7 @@ import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_bottom_sheet.dart';
 
@@ -46,6 +47,10 @@ class AddProduct extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => getIt<UploadImageCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<GetCategoriesBloc>()
+              ..add(const GetCategoriesEvent.getCategories()),
           ),
         ],
         child: const CreateProductBottomSheet(),

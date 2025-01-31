@@ -9,7 +9,7 @@ import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_button.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_images_listview.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/product_category_drop_down.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/select_category_drop_down_button.dart';
 
 class CreateProductBottomSheet extends StatelessWidget {
   const CreateProductBottomSheet({
@@ -123,7 +123,7 @@ class CreateProductBottomSheet extends StatelessWidget {
                 },
               ),
               SizedBox(height: 20.h),
-              ProductCategoryDropButton(createProductBloc: createProductBloc),
+              const SelectCategoryDropDownButton(),
               SizedBox(height: 10.h),
               const CreateProductButton(),
               SizedBox(height: 10.h),
