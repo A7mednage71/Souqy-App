@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 
 class ProductCategoryDropButton extends StatefulWidget {
   const ProductCategoryDropButton({
+    this.createProductBloc,
     super.key,
   });
-
+  final CreateProductBloc? createProductBloc;
   @override
   State<ProductCategoryDropButton> createState() =>
       _ProductCategoryDropButtonState();
@@ -29,6 +31,12 @@ class _ProductCategoryDropButtonState extends State<ProductCategoryDropButton> {
         fontSize: 14.sp,
         color: Colors.white,
       ),
+      validator: (value) {
+        if (value == null) {
+          return 'Please choose product category';
+        }
+        return null;
+      },
       iconDisabledColor: Colors.transparent,
       dropdownColor: ColorsDark.navBarDark,
       decoration: InputDecoration(
@@ -52,7 +60,7 @@ class _ProductCategoryDropButtonState extends State<ProductCategoryDropButton> {
           borderSide: const BorderSide(color: Colors.red),
         ),
       ),
-      autovalidateMode: AutovalidateMode.always,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       items: const [
         DropdownMenuItem(
           value: 'Category 1',
@@ -66,6 +74,9 @@ class _ProductCategoryDropButtonState extends State<ProductCategoryDropButton> {
       onChanged: (value) {
         setState(() {
           this.value = value;
+          if (widget.createProductBloc != null) {
+            widget.createProductBloc!.categoryId = value!;
+          }
         });
       },
     );

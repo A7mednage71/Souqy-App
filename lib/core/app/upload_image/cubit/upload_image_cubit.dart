@@ -37,4 +37,26 @@ class UploadImageCubit extends Cubit<UploadImageState> {
     uploadImageUrl = '';
     emit(const UploadImageState.delete());
   }
+
+  // upload multiple images
+  List<String> imagesUrls = ['', '', ''];
+  Future<void> uploadMultipleImage(int index) async {
+    // pick the image
+    final image = await ImagePickerHelper.pickImage();
+    if (image == null) return;
+    // upload the image
+    emit(UploadImageState.loadingImageAtIndex(index));
+    final result = await uploadImageRepo.uploadImage(file: image);
+    result.when(
+      success: (data) {
+        imagesUrls
+          ..removeAt(index)
+          ..insert(index, data.location);
+        emit(const UploadImageState.success());
+      },
+      failure: (failure) {
+        emit(UploadImageState.failure(failure.errMessages));
+      },
+    );
+  }
 }

@@ -6,7 +6,7 @@ import 'package:my_store/core/helpers/my_validator.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/product_category_drop_down.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/product_image_listview.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_images_listview.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/update_product_button.dart';
 
 class UpdateProductBottomSheet extends StatelessWidget {
@@ -54,7 +54,7 @@ class UpdateProductBottomSheet extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10.h),
-            const ProdutImagesListView(),
+            const CreateProdutImagesListView(),
             SizedBox(height: 10.h),
             Text(
               'Tittle',

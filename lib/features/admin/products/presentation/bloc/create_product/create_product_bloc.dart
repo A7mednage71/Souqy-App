@@ -23,7 +23,7 @@ class CreateProductBloc extends Bloc<CreateProductEvent, CreateProductState> {
   TextEditingController productPriceController = TextEditingController();
   TextEditingController productDescriptionController = TextEditingController();
   String categoryId = '';
-  List<String> images = [];
+  List<String> images = ['', '', ''];
 
   final formKey = GlobalKey<FormState>();
 
