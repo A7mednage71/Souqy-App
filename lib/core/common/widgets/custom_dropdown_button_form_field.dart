@@ -10,11 +10,13 @@ class CustomDropdownButtonFormField extends StatefulWidget {
     required this.items,
     super.key,
     this.onChanged,
+    this.chosenValue,
   });
   final String hint;
   final String vaidationText;
   final List<String> items;
   final void Function(String?)? onChanged;
+  final String? chosenValue;
   @override
   State<CustomDropdownButtonFormField> createState() =>
       _CustomDropdownButtonFormFieldState();
@@ -30,7 +32,7 @@ class _CustomDropdownButtonFormFieldState
         widget.hint,
         style: const TextStyle(color: Colors.white),
       ),
-      value: value,
+      value: value ?? widget.chosenValue,
       iconSize: 30.r,
       iconEnabledColor: context.themeColors.textColor,
       style: context.textStyle.copyWith(
