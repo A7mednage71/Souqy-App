@@ -21,17 +21,24 @@ class ProductsGridView extends StatelessWidget {
             success: (products) {
               return products.isEmpty
                   ? const EmptyData()
-                  : GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 20.h,
-                        crossAxisSpacing: 10.w,
-                        childAspectRatio: 0.7,
-                      ),
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        return ProductItem(product: products[index]);
+                  : RefreshIndicator(
+                      onRefresh: () async {
+                        context
+                            .read<GetProductsBloc>()
+                            .add(const GetProductsEvent.getProducts());
                       },
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 20.h,
+                          crossAxisSpacing: 10.w,
+                          childAspectRatio: 0.7,
+                        ),
+                        itemCount: products.length,
+                        itemBuilder: (context, index) {
+                          return ProductItem(product: products[index]);
+                        },
+                      ),
                     );
             },
             loading: () {
