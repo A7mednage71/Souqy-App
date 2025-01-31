@@ -19,7 +19,7 @@ class DashboardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainerWithGradient(
-      hight: 130.h,
+      height: 130.h,
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Row(

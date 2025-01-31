@@ -6,6 +6,9 @@ import 'package:my_store/features/admin/categories/data/models/create_category_r
 import 'package:my_store/features/admin/dashboard/data/models/categories_number_response.dart';
 import 'package:my_store/features/admin/dashboard/data/models/products_number_response.dart';
 import 'package:my_store/features/admin/dashboard/data/models/users_number_response.dart';
+import 'package:my_store/features/admin/products/data/models/create_product_response_model.dart';
+import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
+import 'package:my_store/features/admin/products/data/models/update_product_response_model.dart';
 import 'package:my_store/features/auth/login/data/models/login_response_model.dart';
 import 'package:my_store/features/auth/login/data/models/user_role_model.dart';
 import 'package:my_store/features/auth/register/data/models/sign_up_response_model.dart';
@@ -68,6 +71,26 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphQl)
   Future<void> updateCategory(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<ProductsResponseModel> getAllProducts(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<CreateProductResponseModel> createProduct(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<void> deleteProduct(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<UpdateProductResponseModel> updateProduct(
     @Body() Map<String, dynamic> body,
   );
 }

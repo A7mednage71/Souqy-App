@@ -13,6 +13,11 @@ import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_users/fetch_number_of_users_bloc.dart';
+import 'package:my_store/features/admin/products/data/repos/products_repo.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/delete_product/delete_product_bloc.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/get_products/get_products_bloc.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/update_product/update_product_bloc.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
@@ -73,5 +78,22 @@ Future<void> setGetIt() async {
     // update category
     ..registerFactory<UpdateCategoryBloc>(
       () => UpdateCategoryBloc(getIt<CategoriesRepo>()),
+    )
+    // get all products
+    // products repo
+    ..registerLazySingleton<ProductsRepo>(
+      () => ProductsRepo(getIt<ApiService>()),
+    )
+    ..registerFactory<GetProductsBloc>(
+      () => GetProductsBloc(getIt<ProductsRepo>()),
+    )
+    ..registerFactory<CreateProductBloc>(
+      () => CreateProductBloc(getIt<ProductsRepo>()),
+    )
+    ..registerFactory<DeleteProductBloc>(
+      () => DeleteProductBloc(getIt<ProductsRepo>()),
+    )
+    ..registerFactory<UpdateProductBloc>(
+      () => UpdateProductBloc(getIt<ProductsRepo>()),
     );
 }
