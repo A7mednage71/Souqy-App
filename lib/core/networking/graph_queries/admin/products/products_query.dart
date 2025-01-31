@@ -10,6 +10,7 @@ class ProductsQuery {
             title
             price
             images
+            description
             category{
               id
               name
