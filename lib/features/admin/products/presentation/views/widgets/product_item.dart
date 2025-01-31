@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_container_with_gradient.dart';
 import 'package:my_store/core/common/widgets/show_cached_image.dart';
+import 'package:my_store/core/extensions/string_extension.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
@@ -30,7 +31,7 @@ class ProductItem extends StatelessWidget {
             ),
             Align(
               child: ShowCachedNetworkImage(
-                image: product?.images?.first ?? '',
+                image: product?.images?.first.fixImageFormate() ?? '',
               ),
             ),
             SizedBox(height: 5.h),

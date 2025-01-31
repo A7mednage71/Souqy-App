@@ -15,34 +15,34 @@ class CategoriesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: RefreshIndicator(
-        onRefresh: () async {
-          context
-              .read<GetCategoriesBloc>()
-              .add(const GetCategoriesEvent.getCategories());
-        },
-        child: BlocBuilder<GetCategoriesBloc, GetCategoriesState>(
-          builder: (context, state) {
-            return state.when(
-              success: (categories) {
-                return categories.isEmpty
-                    ? const EmptyData()
-                    : ListView.builder(
+      child: BlocBuilder<GetCategoriesBloc, GetCategoriesState>(
+        builder: (context, state) {
+          return state.when(
+            success: (categories) {
+              return categories.isEmpty
+                  ? const EmptyData()
+                  : RefreshIndicator(
+                      onRefresh: () async {
+                        context
+                            .read<GetCategoriesBloc>()
+                            .add(const GetCategoriesEvent.getCategories());
+                      },
+                      child: ListView.builder(
                         itemCount: categories.length,
                         itemBuilder: (context, index) => Padding(
                           padding: EdgeInsets.only(top: index == 0 ? 0 : 20.h),
                           child: CategoryItem(category: categories[index]),
                         ),
-                      );
-              },
-              loading: () {
-                return const CategoriesListViewLoading();
-              },
-              failure: (message) => const FailureState(),
-              initial: () => const SizedBox(),
-            );
-          },
-        ),
+                      ),
+                    );
+            },
+            loading: () {
+              return const CategoriesListViewLoading();
+            },
+            failure: (message) => const FailureState(),
+            initial: () => const SizedBox(),
+          );
+        },
       ),
     );
   }

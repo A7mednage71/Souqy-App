@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
+import 'package:my_store/core/extensions/string_extension.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
@@ -74,7 +75,9 @@ class UpdateCategoryImage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.4),
                       image: DecorationImage(
                         image: NetworkImage(
-                          image.isNotEmpty ? image : category.image,
+                          image.isNotEmpty
+                              ? image
+                              : category.image.fixImageFormate(),
                         ),
                         fit: BoxFit.fill,
                       ),

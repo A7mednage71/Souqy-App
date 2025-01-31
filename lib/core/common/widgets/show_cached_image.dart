@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/extensions/string_extension.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShowCachedNetworkImage extends StatelessWidget {
@@ -12,7 +13,7 @@ class ShowCachedNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: image,
+      imageUrl: image.fixImageFormate(),
       imageBuilder: (context, imageProvider) => Container(
         height: 90.h,
         width: 120.w,

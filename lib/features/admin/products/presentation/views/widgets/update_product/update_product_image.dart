@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
+import 'package:my_store/core/extensions/string_extension.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/update_product/update_product_bloc.dart';
@@ -58,7 +59,7 @@ class UpdateProductImage extends StatelessWidget {
                   image: uploadImageCubit.imagesUrls[imageIndex].isEmpty
                       ? DecorationImage(
                           image: NetworkImage(
-                            product!.images![imageIndex],
+                            product!.images![imageIndex].fixImageFormate(),
                           ),
                           fit: BoxFit.fill,
                         )
@@ -97,7 +98,7 @@ class UpdateProductImage extends StatelessWidget {
                   image: uploadImageCubit.imagesUrls[imageIndex].isEmpty
                       ? DecorationImage(
                           image: NetworkImage(
-                            product!.images![imageIndex],
+                            product!.images![imageIndex].fixImageFormate(),
                           ),
                           fit: BoxFit.fill,
                         )
