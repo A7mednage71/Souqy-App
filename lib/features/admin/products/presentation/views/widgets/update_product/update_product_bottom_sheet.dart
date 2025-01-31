@@ -1,17 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/widgets/custom_text_field.dart';
-import 'package:my_store/core/extensions/theme_context.dart';
-import 'package:my_store/core/helpers/my_validator.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
-import 'package:my_store/core/style/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_images_listview.dart';
-import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/update_product_button.dart';
+import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/update_product/update_product_bloc.dart';
+import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/update_product_form.dart';
 
-class UpdateProductBottomSheet extends StatelessWidget {
+class UpdateProductBottomSheet extends StatefulWidget {
   const UpdateProductBottomSheet({
     super.key,
+    this.product,
   });
+  final ProductModel? product;
+
+  @override
+  State<UpdateProductBottomSheet> createState() =>
+      _UpdateProductBottomSheetState();
+}
+
+class _UpdateProductBottomSheetState extends State<UpdateProductBottomSheet> {
+  @override
+  void initState() {
+    final updateProductBloc = context.read<UpdateProductBloc>();
+    fillUpdateProductBlocController(updateProductBloc);
+    super.initState();
+  }
+
+  void fillUpdateProductBlocController(UpdateProductBloc updateProductBloc) {
+    if (widget.product != null) {
+      updateProductBloc.updateProductTitleController.text =
+          widget.product!.title!;
+      updateProductBloc.updateProductPriceController.text =
+          widget.product!.price.toString();
+      updateProductBloc.updateProductDescriptionController.text =
+          widget.product!.description!;
+      updateProductBloc
+        ..categoryId = widget.product!.category!.id.toString()
+        ..updatedImages = widget.product!.images!;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,98 +57,8 @@ class UpdateProductBottomSheet extends StatelessWidget {
           topRight: Radius.circular(20.r),
         ),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Align(
-              child: Text(
-                'Update Product',
-                style: context.textStyle.copyWith(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeightHelper.bold,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              'Update a Photos',
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.medium,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            const CreateProdutImagesListView(),
-            SizedBox(height: 10.h),
-            Text(
-              'Tittle',
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.medium,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            CustomTextField(
-              controller: TextEditingController(),
-              keyboardType: TextInputType.text,
-              hintText: 'Enter a Tittle',
-              validator: (value) {
-                if (!MyValidator.isCategoryNameValid(value!)) {
-                  return 'Please enter a valid Tittle';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              'Price',
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.medium,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            CustomTextField(
-              controller: TextEditingController(),
-              keyboardType: TextInputType.number,
-              hintText: 'Enter a price',
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter a price';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              'Description',
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.medium,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            CustomTextField(
-              controller: TextEditingController(),
-              keyboardType: TextInputType.text,
-              maxLines: 3,
-              hintText: 'Enter a description',
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter a description';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 20.h),
-            // const CustomDropdownButtonFormField(),
-            SizedBox(height: 10.h),
-            const UpdateProductButton(),
-            SizedBox(height: 10.h),
-          ],
-        ),
+      child: UpdateProductForm(
+        product: widget.product,
       ),
     );
   }
