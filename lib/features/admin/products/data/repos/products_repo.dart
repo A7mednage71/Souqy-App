@@ -39,4 +39,19 @@ class ProductsRepo {
       return ApiResult.failure(ServerFailure(e.toString()));
     }
   }
+
+  Future<ApiResult<void>> deleteProduct({
+    required String productId,
+  }) async {
+    try {
+      final result = await _apiService
+          .deleteProduct(ProductsQuery.deleteProductQuery(id: productId));
+      return ApiResult.success(result);
+    } catch (e) {
+      if (e is DioException) {
+        return ApiResult.failure(ServerFailure.fromDioError(e));
+      }
+      return ApiResult.failure(ServerFailure(e.toString()));
+    }
+  }
 }
