@@ -17,6 +17,7 @@ import 'package:my_store/features/admin/products/data/repos/products_repo.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/delete_product/delete_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/get_products/get_products_bloc.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/update_product/update_product_bloc.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
@@ -91,5 +92,8 @@ Future<void> setGetIt() async {
     )
     ..registerFactory<DeleteProductBloc>(
       () => DeleteProductBloc(getIt<ProductsRepo>()),
+    )
+    ..registerFactory<UpdateProductBloc>(
+      () => UpdateProductBloc(getIt<ProductsRepo>()),
     );
 }

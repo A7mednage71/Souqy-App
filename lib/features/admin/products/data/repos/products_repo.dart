@@ -7,6 +7,7 @@ import 'package:my_store/features/admin/products/data/models/create_product_requ
 import 'package:my_store/features/admin/products/data/models/create_product_response_model.dart';
 import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/admin/products/data/models/update_product_request_model.dart';
+import 'package:my_store/features/admin/products/data/models/update_product_response_model.dart';
 
 class ProductsRepo {
   ProductsRepo(this._apiService);
@@ -56,7 +57,7 @@ class ProductsRepo {
     }
   }
 
-  Future<ApiResult<void>> updateProduct({
+  Future<ApiResult<UpdateProductResponseModel>> updateProduct({
     required UpdateProductRequestModel model,
   }) async {
     try {

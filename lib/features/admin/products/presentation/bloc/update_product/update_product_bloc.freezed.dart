@@ -330,7 +330,7 @@ mixin _$UpdateProductState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(UpdateProductModel model) success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -338,7 +338,7 @@ mixin _$UpdateProductState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(UpdateProductModel model)? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -346,7 +346,7 @@ mixin _$UpdateProductState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(UpdateProductModel model)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -442,7 +442,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(UpdateProductModel model) success,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -453,7 +453,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(UpdateProductModel model)? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -464,7 +464,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(UpdateProductModel model)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -559,7 +559,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(UpdateProductModel model) success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -570,7 +570,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(UpdateProductModel model)? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -581,7 +581,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(UpdateProductModel model)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -638,6 +638,8 @@ abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UpdateProductModel model});
 }
 
 /// @nodoc
@@ -650,36 +652,61 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
   /// Create a copy of UpdateProductState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? model = null,
+  }) {
+    return _then(_$SuccessImpl(
+      null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as UpdateProductModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl();
+  const _$SuccessImpl(this.model);
+
+  @override
+  final UpdateProductModel model;
 
   @override
   String toString() {
-    return 'UpdateProductState.success()';
+    return 'UpdateProductState.success(model: $model)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, model);
+
+  /// Create a copy of UpdateProductState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(UpdateProductModel model) success,
     required TResult Function(String message) failure,
   }) {
-    return success();
+    return success(model);
   }
 
   @override
@@ -687,10 +714,10 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(UpdateProductModel model)? success,
     TResult? Function(String message)? failure,
   }) {
-    return success?.call();
+    return success?.call(model);
   }
 
   @override
@@ -698,12 +725,12 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(UpdateProductModel model)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(model);
     }
     return orElse();
   }
@@ -747,7 +774,15 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements UpdateProductState {
-  const factory _Success() = _$SuccessImpl;
+  const factory _Success(final UpdateProductModel model) = _$SuccessImpl;
+
+  UpdateProductModel get model;
+
+  /// Create a copy of UpdateProductState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -820,7 +855,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(UpdateProductModel model) success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -831,7 +866,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(UpdateProductModel model)? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -842,7 +877,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(UpdateProductModel model)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {

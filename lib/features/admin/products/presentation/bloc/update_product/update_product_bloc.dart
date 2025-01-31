@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_store/features/admin/products/data/models/update_product_request_model.dart';
+import 'package:my_store/features/admin/products/data/models/update_product_response_model.dart';
 import 'package:my_store/features/admin/products/data/repos/products_repo.dart';
 
 part 'update_product_bloc.freezed.dart';
@@ -44,7 +45,8 @@ class UpdateProductBloc extends Bloc<UpdateProductEvent, UpdateProductState> {
       ),
     );
     result.when(
-      success: (response) => emit(const UpdateProductState.success()),
+      success: (response) =>
+          emit(UpdateProductState.success(response.data.updateProduct)),
       failure: (error) => emit(UpdateProductState.failure(error.errMessages)),
     );
   }
