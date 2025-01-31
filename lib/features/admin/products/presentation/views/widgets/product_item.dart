@@ -21,11 +21,11 @@ class ProductItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                EditProduct(),
-                DeleteProduct(),
+                const EditProduct(),
+                DeleteProduct(productId: product?.id ?? ''),
               ],
             ),
             Align(
