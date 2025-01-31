@@ -87,4 +87,9 @@ abstract class ApiService {
   Future<void> deleteProduct(
     @Body() Map<String, dynamic> body,
   );
+
+  @POST(ApiConstants.graphQl)
+  Future<void> updateProduct(
+    @Body() Map<String, dynamic> body,
+  );
 }
