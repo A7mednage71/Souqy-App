@@ -25,7 +25,7 @@ class CreateProductButton extends StatelessWidget {
           },
           success: (productModel) {
             ShowToast.showSuccessToast(
-              '${productModel.title} created successfully',
+              '${productModel.title} created successfully at category: ${productModel.category.name}',
             );
             context.pop();
           },

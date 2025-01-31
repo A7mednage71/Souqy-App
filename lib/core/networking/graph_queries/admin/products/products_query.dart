@@ -30,6 +30,9 @@ class ProductsQuery {
         mutation CreateProduct($title: String!, $price: Float!, $description: String!, $categoryId: Float!, $images: [String!]!){
           addProduct(data: {title: $title, price: $price,description: $description,categoryId: $categoryId,images: $images}){
             title
+            category{
+             name
+            }
           }
         }
       ''',

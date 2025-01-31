@@ -32,13 +32,13 @@ class CreateProductResponseData {
 
 @JsonSerializable()
 class AddProductModel {
-  AddProductModel({required this.title});
+  AddProductModel(this.category, {required this.title});
 
   factory AddProductModel.fromJson(Map<String, dynamic> json) =>
       _$AddProductModelFromJson(json);
 
   final String title;
-
+  final AddProductCategory category;
   Map<String, dynamic> toJson() => _$AddProductModelToJson(this);
 }
 

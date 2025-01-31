@@ -34,12 +34,14 @@ Map<String, dynamic> _$CreateProductResponseDataToJson(
 
 AddProductModel _$AddProductModelFromJson(Map<String, dynamic> json) =>
     AddProductModel(
+      AddProductCategory.fromJson(json['category'] as Map<String, dynamic>),
       title: json['title'] as String,
     );
 
 Map<String, dynamic> _$AddProductModelToJson(AddProductModel instance) =>
     <String, dynamic>{
       'title': instance.title,
+      'category': instance.category,
     };
 
 AddProductCategory _$AddProductCategoryFromJson(Map<String, dynamic> json) =>
