@@ -73,9 +73,8 @@ class CreateProductImage extends StatelessWidget {
           },
           orElse: () {
             if (uploadImageCubit.imagesUrls[imageIndex].isNotEmpty) {
-              createProductBloc.images
-                ..removeAt(imageIndex)
-                ..insert(imageIndex, uploadImageCubit.imagesUrls[imageIndex]);
+              createProductBloc.images[imageIndex] =
+                  uploadImageCubit.imagesUrls[imageIndex];
             }
             return InkWell(
               onTap: () {
