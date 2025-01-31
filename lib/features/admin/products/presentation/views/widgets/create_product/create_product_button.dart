@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:my_store/core/extensions/navigation_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
@@ -13,23 +15,63 @@ class CreateProductButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-        fixedSize: Size(double.maxFinite, 50.h),
-      ),
-      onPressed: () {
-        validateCreateProduct(context);
+    return BlocConsumer<CreateProductBloc, CreateProductState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failure: (message) {
+            ShowToast.showFailureToast(
+              message,
+            );
+          },
+          success: (productModel) {
+            ShowToast.showSuccessToast(
+              '${productModel.title} created successfully',
+            );
+            context.pop();
+          },
+        );
       },
-      child: Text(
-        'Create Product',
-        style: context.textStyle.copyWith(
-          color: ColorsDark.blueDark,
-          fontSize: 16.sp,
-        ),
-      ),
+      builder: (context, state) {
+        return state.maybeWhen(
+          loading: () {
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                fixedSize: Size(double.maxFinite, 50.h),
+              ),
+              onPressed: null,
+              child: const Center(
+                child: SpinKitDualRing(
+                  color: Colors.white,
+                  size: 20,
+                ),
+              ),
+            );
+          },
+          orElse: () {
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                fixedSize: Size(double.maxFinite, 50.h),
+              ),
+              onPressed: () {
+                validateCreateProduct(context);
+              },
+              child: Text(
+                'Create Product',
+                style: context.textStyle.copyWith(
+                  color: ColorsDark.blueDark,
+                  fontSize: 16.sp,
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 

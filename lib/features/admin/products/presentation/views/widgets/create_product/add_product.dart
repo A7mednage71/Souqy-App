@@ -7,6 +7,7 @@ import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
+import 'package:my_store/features/admin/products/presentation/bloc/get_products/get_products_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_bottom_sheet.dart';
 
 class AddProduct extends StatelessWidget {
@@ -55,6 +56,10 @@ class AddProduct extends StatelessWidget {
         ],
         child: const CreateProductBottomSheet(),
       ),
-    );
+    ).whenComplete(() {
+      context.read<GetProductsBloc>().add(
+            const GetProductsEvent.getProducts(),
+          );
+    });
   }
 }
