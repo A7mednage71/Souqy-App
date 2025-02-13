@@ -12,4 +12,17 @@ class UsersQuery {
           ''',
     };
   }
+
+  static Map<String, dynamic> deleteUserQuery({required String id}) {
+    return {
+      'query': r'''
+      mutation DeleteUser($id: ID!){
+        deleteUser(id: $id)
+      }
+    ''',
+      'variables': {
+        'id': id,
+      },
+    };
+  }
 }

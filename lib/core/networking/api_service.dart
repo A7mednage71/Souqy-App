@@ -99,4 +99,9 @@ abstract class ApiService {
   Future<GetUsersResponseModel> getUsers(
     @Body() Map<String, dynamic> body,
   );
+
+  @POST(ApiConstants.graphQl)
+  Future<void> deleteUser(
+    @Body() Map<String, dynamic> body,
+  );
 }
