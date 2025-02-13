@@ -18,6 +18,9 @@ import 'package:my_store/features/admin/products/presentation/bloc/create_produc
 import 'package:my_store/features/admin/products/presentation/bloc/delete_product/delete_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/get_products/get_products_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/update_product/update_product_bloc.dart';
+import 'package:my_store/features/admin/users/data/repos/users_repo.dart';
+import 'package:my_store/features/admin/users/presentation/bloc/delete_user/delete_user_bloc.dart';
+import 'package:my_store/features/admin/users/presentation/bloc/get_users/get_users_bloc.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
@@ -95,5 +98,16 @@ Future<void> setGetIt() async {
     )
     ..registerFactory<UpdateProductBloc>(
       () => UpdateProductBloc(getIt<ProductsRepo>()),
+    )
+    // get all users
+    // users repo
+    ..registerLazySingleton<UsersRepo>(
+      () => UsersRepo(getIt<ApiService>()),
+    )
+    ..registerFactory<GetUsersBloc>(
+      () => GetUsersBloc(getIt<UsersRepo>()),
+    )
+    ..registerFactory<DeleteUserBloc>(
+      () => DeleteUserBloc(getIt<UsersRepo>()),
     );
 }

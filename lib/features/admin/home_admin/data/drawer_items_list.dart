@@ -4,7 +4,7 @@ import 'package:my_store/features/admin/dashboard/views/presentation/dashboard_s
 import 'package:my_store/features/admin/home_admin/data/models/drawer_item_model.dart';
 import 'package:my_store/features/admin/notifications/presentation/notifications_screen.dart';
 import 'package:my_store/features/admin/products/presentation/views/products_screen.dart';
-import 'package:my_store/features/admin/users/presentation/users_screen.dart';
+import 'package:my_store/features/admin/users/presentation/views/users_screen.dart';
 
 class DrawerItemsList {
   static List<DrawerItemModel> drawerItems = [
