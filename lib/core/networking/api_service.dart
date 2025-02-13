@@ -9,6 +9,7 @@ import 'package:my_store/features/admin/dashboard/data/models/users_number_respo
 import 'package:my_store/features/admin/products/data/models/create_product_response_model.dart';
 import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/admin/products/data/models/update_product_response_model.dart';
+import 'package:my_store/features/admin/users/data/models/get_users_response_model.dart';
 import 'package:my_store/features/auth/login/data/models/login_response_model.dart';
 import 'package:my_store/features/auth/login/data/models/user_role_model.dart';
 import 'package:my_store/features/auth/register/data/models/sign_up_response_model.dart';
@@ -91,6 +92,11 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphQl)
   Future<UpdateProductResponseModel> updateProduct(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<GetUsersResponseModel> getUsers(
     @Body() Map<String, dynamic> body,
   );
 }
