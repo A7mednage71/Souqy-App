@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
 import 'package:googleapis_auth/auth_io.dart' as auth;
 import 'package:my_store/core/services/cloud_messaging/notification_request_body_model.dart';
+import 'package:my_store/features/auth/widgets/show_toast.dart';
 
 class FirebaseMessagingHelper {
   FirebaseMessagingHelper._();
@@ -14,18 +16,8 @@ class FirebaseMessagingHelper {
   final fcm = FirebaseMessaging.instance;
   static const String subscribeKey = 'Souqy';
 
-  // request permission
-  Future<void> requestPermission() async {
-    final settings = await fcm.requestPermission();
-    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      log('User granted permission');
-    } else if (settings.authorizationStatus ==
-        AuthorizationStatus.provisional) {
-      log('User granted provisional permission');
-    } else {
-      log('User declined or has not accepted permission');
-    }
-  }
+  bool isPermissionGranted = false;
+  ValueNotifier<bool> isTopicSubscribed = ValueNotifier<bool>(false);
 
   /// init FCM
   Future<void> initNotifications() async {
@@ -34,12 +26,42 @@ class FirebaseMessagingHelper {
     log('firebaseMessagingToken : $firebaseMessagingToken');
   }
 
-  Future<void> subscribeToTopic() async {
+  // request permission
+  Future<void> requestPermission() async {
+    final settings = await fcm.requestPermission();
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      isPermissionGranted = true;
+      await _subscribeToTopic();
+      log('🔔🔔 User accepted the notification permission 🔔🔔');
+    } else {
+      isPermissionGranted = false;
+      log('🔕🔕 User not accepted the notification permission 🔕🔕');
+    }
+  }
+
+  // control user subscription
+  Future<void> controlUserSubscription(BuildContext context) async {
+    if (!isPermissionGranted) {
+      await requestPermission();
+    } else {
+      if (isTopicSubscribed.value) {
+        await unsubscribeFromTopic();
+        ShowToast.showSuccessToast('Notification Unsubscribed');
+      } else {
+        await _subscribeToTopic();
+        ShowToast.showSuccessToast('Notification Subscribed');
+      }
+    }
+  }
+
+  Future<void> _subscribeToTopic() async {
+    isTopicSubscribed.value = true;
     await FirebaseMessaging.instance.subscribeToTopic(subscribeKey);
     log('====🔔 Notification Subscribed 🔔=====');
   }
 
   Future<void> unsubscribeFromTopic() async {
+    isTopicSubscribed.value = false;
     await FirebaseMessaging.instance.unsubscribeFromTopic(subscribeKey);
     log('====🔕 Notification Unsubscribed 🔕=====');
   }
