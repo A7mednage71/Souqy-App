@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
+import 'package:my_store/features/admin/users/presentation/bloc/delete_user/delete_user_bloc.dart';
 import 'package:my_store/features/admin/users/presentation/bloc/get_users/get_users_bloc.dart';
 import 'package:my_store/features/admin/users/presentation/views/widgets/get_users_table_data_bloc_builder.dart';
 import 'package:my_store/features/admin/users/presentation/views/widgets/search_for_users.dart';
@@ -12,9 +13,16 @@ class UsersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<GetUsersBloc>()..add(const GetUsersEvent.getUsers()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<GetUsersBloc>()..add(const GetUsersEvent.getUsers()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<DeleteUserBloc>(),
+        ),
+      ],
       child: Scaffold(
         appBar: const CustomAdminAppBar(title: 'Users'),
         body: Padding(

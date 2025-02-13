@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/features/admin/users/data/models/get_users_response_model.dart';
 import 'package:my_store/features/admin/users/presentation/bloc/get_users/get_users_bloc.dart';
+import 'package:my_store/features/admin/users/presentation/views/widgets/delete_user_button.dart';
 import 'package:my_store/features/admin/users/presentation/views/widgets/table_cell_title.dart';
 
 class UsersTable extends StatelessWidget {
@@ -75,10 +76,7 @@ class UsersTable extends StatelessWidget {
                   ),
                   TableCell(
                     verticalAlignment: TableCellVerticalAlignment.middle,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.delete, color: Colors.red),
-                    ),
+                    child: DeleteUserButton(userId: users[index].userId),
                   ),
                 ],
               );
