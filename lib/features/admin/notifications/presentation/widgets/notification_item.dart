@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_container_with_gradient.dart';
+import 'package:my_store/features/admin/notifications/presentation/widgets/edit_notification_item.dart';
 import 'package:my_store/features/admin/notifications/presentation/widgets/notification_item_row_text.dart';
 
 class NotificationItem extends StatelessWidget {
@@ -15,6 +16,7 @@ class NotificationItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Spacer(),
             const NotificatonItemRowText(
               title: 'Title',
               body: 'Big Offers Souqy Store %50',
@@ -39,13 +41,7 @@ class NotificationItem extends StatelessWidget {
                     color: Colors.red,
                   ),
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.edit,
-                    color: Colors.yellow,
-                  ),
-                ),
+                const EditNotificationItem(),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
