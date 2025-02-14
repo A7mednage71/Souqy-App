@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_container_with_gradient.dart';
-import 'package:my_store/features/admin/notifications/presentation/widgets/edit_notification_item.dart';
-import 'package:my_store/features/admin/notifications/presentation/widgets/notification_item_row_text.dart';
+import 'package:my_store/features/admin/notifications/presentation/views/widgets/edit_notification_item.dart';
+import 'package:my_store/features/admin/notifications/presentation/views/widgets/notification_item_row_text.dart';
 
 class NotificationItem extends StatelessWidget {
   const NotificationItem({super.key});

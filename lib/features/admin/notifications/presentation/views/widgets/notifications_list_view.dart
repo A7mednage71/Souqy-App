@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/features/admin/notifications/presentation/widgets/notification_item.dart';
+import 'package:my_store/features/admin/notifications/presentation/views/widgets/notification_item.dart';
 
 class NotificationsListView extends StatelessWidget {
   const NotificationsListView({super.key});

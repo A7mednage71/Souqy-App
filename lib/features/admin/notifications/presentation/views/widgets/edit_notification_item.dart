@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
-import 'package:my_store/features/admin/notifications/presentation/widgets/edit_notification_bottom_sheet.dart';
+import 'package:my_store/features/admin/notifications/presentation/views/widgets/edit_notification_bottom_sheet.dart';
 
 class EditNotificationItem extends StatelessWidget {
   const EditNotificationItem({
