@@ -21,8 +21,8 @@ Map<String, dynamic> _$NotificationContentToJson(
 
 NotificationData _$NotificationDataFromJson(Map<String, dynamic> json) =>
     NotificationData(
+      productId: json['productId'] as String,
       type: json['type'] as String?,
-      id: json['id'] as String?,
       clickAction:
           json['click_action'] as String? ?? 'FLUTTER_NOTIFICATION_CLICK',
     );
@@ -30,6 +30,6 @@ NotificationData _$NotificationDataFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$NotificationDataToJson(NotificationData instance) =>
     <String, dynamic>{
       'type': instance.type,
-      'id': instance.id,
+      'productId': instance.productId,
       'click_action': instance.clickAction,
     };

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'notification_request_body_model.g.dart';
 
 class NotificationPayload {
@@ -51,13 +52,13 @@ class NotificationContent {
 @JsonSerializable()
 class NotificationData {
   NotificationData({
+    required this.productId,
     this.type,
-    this.id,
     this.clickAction = 'FLUTTER_NOTIFICATION_CLICK',
   });
 
   final String? type;
-  final String? id;
+  final String productId;
   @JsonKey(name: 'click_action', defaultValue: 'FLUTTER_NOTIFICATION_CLICK')
   final String clickAction;
 

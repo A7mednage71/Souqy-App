@@ -116,7 +116,8 @@ class FirebaseMessagingHelper {
   Future<void> sendNotificationsToTopic({
     required String title,
     required String notificationBody,
-    required String topic,
+    required String productId,
+    String? topic,
   }) async {
     try {
       final serverKeyAuthorization = await getAccessToken();
@@ -130,10 +131,9 @@ class FirebaseMessagingHelper {
       final response = await dio.post(
         urlEndPoint,
         data: NotificationPayload(
-          fcmToken: '/topics/$topic',
+          fcmToken: '/topics/${topic ?? subscribeKey}',
           data: NotificationData(
-            type: 'type',
-            id: 'userId',
+            productId: productId,
           ),
           notification: NotificationContent(
             title: title,
