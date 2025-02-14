@@ -8,6 +8,7 @@ import 'package:my_store/core/app/env_variables.dart';
 import 'package:my_store/core/app/network_connection_checker.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/services/cloud_messaging/firebase_messaging_helper.dart';
+import 'package:my_store/core/services/hive_database/hive_database.dart';
 import 'package:my_store/core/services/shared_pref/shared_pref.dart';
 import 'package:my_store/firebase_options.dart';
 import 'package:my_store/my_store.dart';
@@ -26,6 +27,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   );
+  await HiveDatabase.init();
   await FirebaseMessagingHelper.instance.initNotifications();
   runApp(const MyStore());
 }
