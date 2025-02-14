@@ -7,6 +7,7 @@ import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/notifications/presentation/bloc/add_notification/add_notifications_bloc.dart';
+import 'package:my_store/features/admin/notifications/presentation/bloc/get_notifications/get_notifications_bloc.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/add_notification_bottom_sheet.dart';
 
 class AddNotificationItem extends StatelessWidget {
@@ -46,6 +47,7 @@ class AddNotificationItem extends StatelessWidget {
   }
 
   Future<void> showAddNotificationBottomSheet(BuildContext context) async {
+    // ignore: inference_failure_on_function_invocation
     await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -59,6 +61,11 @@ class AddNotificationItem extends StatelessWidget {
           child: const AddNotificationBottomSheet(),
         );
       },
-    );
+    ).whenComplete(() {
+      // ignore: use_build_context_synchronously
+      context.read<GetNotificationsBloc>().add(
+            const GetNotificationsEvent.getNotifications(),
+          );
+    });
   }
 }

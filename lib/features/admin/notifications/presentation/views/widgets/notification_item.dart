@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_container_with_gradient.dart';
+import 'package:my_store/features/admin/notifications/data/models/add_notification_model.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/edit_notification_item.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/notification_item_row_text.dart';
 
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({super.key});
-
+  const NotificationItem({required this.notification, super.key});
+  final AddNotificationModel notification;
   @override
   Widget build(BuildContext context) {
     return CustomContainerWithGradient(
@@ -17,19 +18,19 @@ class NotificationItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(),
-            const NotificatonItemRowText(
+            NotificatonItemRowText(
               title: 'Title',
-              body: 'Big Offers Souqy Store %50',
+              body: notification.title,
             ),
             const Spacer(),
-            const NotificatonItemRowText(
+            NotificatonItemRowText(
               title: 'Body',
-              body: 'Ramdan Kareem we have big offer go now',
+              body: notification.body,
             ),
             const Spacer(),
-            const NotificatonItemRowText(
+            NotificatonItemRowText(
               title: 'Created At',
-              body: '16-02-2024',
+              body: notification.createdAt.toString(),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
