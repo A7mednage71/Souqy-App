@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
+import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/notifications/presentation/bloc/add_notification/add_notifications_bloc.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/add_notification_bottom_sheet.dart';
 
 class AddNotificationItem extends StatelessWidget {
@@ -45,12 +48,16 @@ class AddNotificationItem extends StatelessWidget {
   Future<void> showAddNotificationBottomSheet(BuildContext context) async {
     await showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       backgroundColor: ColorsDark.blueDark,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
       ),
       builder: (context) {
-        return const AddNotificationBottomSheet();
+        return BlocProvider(
+          create: (context) => getIt<AddNotificationsBloc>(),
+          child: const AddNotificationBottomSheet(),
+        );
       },
     );
   }
