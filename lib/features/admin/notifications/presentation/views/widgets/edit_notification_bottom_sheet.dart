@@ -3,18 +3,58 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_text_field.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/notifications/data/models/add_notification_model.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/edit_notification_button.dart';
 
-class EditNotificationBottomSheet extends StatelessWidget {
-  const EditNotificationBottomSheet({super.key});
+class EditNotificationBottomSheet extends StatefulWidget {
+  const EditNotificationBottomSheet({required this.notification, super.key});
+  final AddNotificationModel notification;
+
+  @override
+  State<EditNotificationBottomSheet> createState() =>
+      _EditNotificationBottomSheetState();
+}
+
+class _EditNotificationBottomSheetState
+    extends State<EditNotificationBottomSheet> {
+  late GlobalKey<FormState> formKey;
+  late TextEditingController notificationTitle;
+  late TextEditingController notificationBody;
+  late TextEditingController notificationProductID;
+
+  @override
+  void initState() {
+    formKey = GlobalKey<FormState>();
+    notificationTitle = TextEditingController(text: widget.notification.title);
+    notificationBody = TextEditingController(text: widget.notification.body);
+    notificationProductID =
+        TextEditingController(text: widget.notification.productId.toString());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    notificationTitle.dispose();
+    notificationBody.dispose();
+    notificationProductID.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 20.w,
+        right: 20.w,
+        top: 20.h,
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: Form(
+        key: formKey,
+        autovalidateMode: AutovalidateMode.always,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Align(
               child: Text(
@@ -35,7 +75,7 @@ class EditNotificationBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             CustomTextField(
-              controller: TextEditingController(),
+              controller: notificationTitle,
               keyboardType: TextInputType.text,
               hintText: 'Tittle',
               validator: (value) {
@@ -55,7 +95,7 @@ class EditNotificationBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             CustomTextField(
-              controller: TextEditingController(),
+              controller: notificationBody,
               keyboardType: TextInputType.text,
               hintText: 'Body',
               validator: (value) {
@@ -75,7 +115,7 @@ class EditNotificationBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             CustomTextField(
-              controller: TextEditingController(),
+              controller: notificationProductID,
               keyboardType: TextInputType.text,
               hintText: 'product id',
               validator: (value) {
@@ -86,7 +126,14 @@ class EditNotificationBottomSheet extends StatelessWidget {
               },
             ),
             SizedBox(height: 20.h),
-            const EditNotificationButton(),
+            EditNotificationButton(
+              newNotificationTitle: notificationTitle.text.trim(),
+              newNotificationBody: notificationBody.text.trim(),
+              newNotificationproductId: notificationProductID.text.trim(),
+              oldNotificationModel: widget.notification,
+              formKey: formKey,
+            ),
+            SizedBox(height: 20.h),
           ],
         ),
       ),

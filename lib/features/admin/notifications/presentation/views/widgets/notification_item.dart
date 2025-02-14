@@ -43,7 +43,9 @@ class NotificationItem extends StatelessWidget {
                     color: Colors.red,
                   ),
                 ),
-                const EditNotificationItem(),
+                EditNotificationItem(
+                  notification: notification,
+                ),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
