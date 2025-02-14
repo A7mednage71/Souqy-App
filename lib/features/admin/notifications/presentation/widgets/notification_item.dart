@@ -9,9 +9,9 @@ class NotificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainerWithGradient(
-      height: 200.h,
+      height: 180.h,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -19,17 +19,16 @@ class NotificationItem extends StatelessWidget {
               title: 'Title',
               body: 'Big Offers Souqy Store %50',
             ),
-            SizedBox(height: 20.h),
+            const Spacer(),
             const NotificatonItemRowText(
               title: 'Body',
               body: 'Ramdan Kareem we have big offer go now',
             ),
-            SizedBox(height: 20.h),
+            const Spacer(),
             const NotificatonItemRowText(
               title: 'Created At',
               body: '16-02-2024',
             ),
-            SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

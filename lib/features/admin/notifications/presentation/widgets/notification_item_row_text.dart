@@ -18,14 +18,14 @@ class NotificatonItemRowText extends StatelessWidget {
         Text(
           '$title:  ',
           style: context.textStyle.copyWith(
-            fontSize: 18.sp,
+            fontSize: 16.sp,
           ),
         ),
         Flexible(
           child: Text(
             body,
             style: context.textStyle.copyWith(
-              fontSize: 16.sp,
+              fontSize: 14.sp,
               color: ColorsDark.blueLight,
             ),
             overflow: TextOverflow.ellipsis,
