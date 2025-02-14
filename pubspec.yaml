@@ -54,6 +54,8 @@ dependencies:
   freezed_annotation: ^2.4.4
   get_it: ^8.0.2
   googleapis_auth: ^1.6.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   image_picker: ^1.1.2
   json_annotation: ^4.9.0
   lottie: ^3.2.0
@@ -68,8 +70,10 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.1
   json_serializable: ^6.9.0
   retrofit_generator: ^9.1.5
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
