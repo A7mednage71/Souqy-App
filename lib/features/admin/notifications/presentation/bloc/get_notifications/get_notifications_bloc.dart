@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_store/core/services/hive_database/hive_database.dart';
-import 'package:my_store/features/admin/notifications/data/models/add_notification_model.dart';
+import 'package:my_store/features/admin/notifications/data/models/notification_model.dart';
 
 part 'get_notifications_bloc.freezed.dart';
 part 'get_notifications_event.dart';

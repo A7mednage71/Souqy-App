@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_store/core/services/hive_database/hive_database.dart';
-import 'package:my_store/features/admin/notifications/data/models/add_notification_model.dart';
+import 'package:my_store/features/admin/notifications/data/models/notification_model.dart';
 
 part 'add_notifications_bloc.freezed.dart';
 part 'add_notifications_event.dart';
@@ -29,7 +29,7 @@ class AddNotificationsBloc
     emit(const AddNotificationsState.loading());
     try {
       HiveDatabase.notificationsBox!.add(
-        AddNotificationModel(
+        NotificationModel(
           title: notificationTitle.text,
           body: notificationBody.text,
           productId: int.parse(productId.text),

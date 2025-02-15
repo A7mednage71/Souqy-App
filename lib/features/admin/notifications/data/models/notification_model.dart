@@ -1,10 +1,10 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-part 'add_notification_model.g.dart';
+part 'notification_model.g.dart';
 
 @HiveType(typeId: 0)
-class AddNotificationModel extends HiveObject {
-  AddNotificationModel({
+class NotificationModel extends HiveObject {
+  NotificationModel({
     required this.title,
     required this.body,
     required this.productId,

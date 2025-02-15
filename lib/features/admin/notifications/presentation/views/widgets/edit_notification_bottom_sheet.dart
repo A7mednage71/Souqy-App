@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_text_field.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/notifications/data/models/add_notification_model.dart';
+import 'package:my_store/features/admin/notifications/data/models/notification_model.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/edit_notification_button.dart';
 
 class EditNotificationBottomSheet extends StatefulWidget {
   const EditNotificationBottomSheet({required this.notification, super.key});
-  final AddNotificationModel notification;
+  final NotificationModel notification;
 
   @override
   State<EditNotificationBottomSheet> createState() =>

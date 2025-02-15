@@ -5,7 +5,7 @@ class GetNotificationsState with _$GetNotificationsState {
   const factory GetNotificationsState.initial() = _Initial;
   const factory GetNotificationsState.loading() = _Loading;
   const factory GetNotificationsState.success(
-    List<AddNotificationModel> notifications,
+    List<NotificationModel> notifications,
   ) = _Success;
   const factory GetNotificationsState.failure(String message) = _Failure;
 }

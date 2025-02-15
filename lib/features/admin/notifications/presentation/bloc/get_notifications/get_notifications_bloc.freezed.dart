@@ -294,7 +294,7 @@ mixin _$GetNotificationsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<AddNotificationModel> notifications) success,
+    required TResult Function(List<NotificationModel> notifications) success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -302,7 +302,7 @@ mixin _$GetNotificationsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<AddNotificationModel> notifications)? success,
+    TResult? Function(List<NotificationModel> notifications)? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -310,7 +310,7 @@ mixin _$GetNotificationsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<AddNotificationModel> notifications)? success,
+    TResult Function(List<NotificationModel> notifications)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -407,7 +407,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<AddNotificationModel> notifications) success,
+    required TResult Function(List<NotificationModel> notifications) success,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -418,7 +418,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<AddNotificationModel> notifications)? success,
+    TResult? Function(List<NotificationModel> notifications)? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -429,7 +429,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<AddNotificationModel> notifications)? success,
+    TResult Function(List<NotificationModel> notifications)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -524,7 +524,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<AddNotificationModel> notifications) success,
+    required TResult Function(List<NotificationModel> notifications) success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -535,7 +535,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<AddNotificationModel> notifications)? success,
+    TResult? Function(List<NotificationModel> notifications)? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -546,7 +546,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<AddNotificationModel> notifications)? success,
+    TResult Function(List<NotificationModel> notifications)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -604,7 +604,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<AddNotificationModel> notifications});
+  $Res call({List<NotificationModel> notifications});
 }
 
 /// @nodoc
@@ -626,7 +626,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == notifications
           ? _value._notifications
           : notifications // ignore: cast_nullable_to_non_nullable
-              as List<AddNotificationModel>,
+              as List<NotificationModel>,
     ));
   }
 }
@@ -634,12 +634,12 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<AddNotificationModel> notifications)
+  const _$SuccessImpl(final List<NotificationModel> notifications)
       : _notifications = notifications;
 
-  final List<AddNotificationModel> _notifications;
+  final List<NotificationModel> _notifications;
   @override
-  List<AddNotificationModel> get notifications {
+  List<NotificationModel> get notifications {
     if (_notifications is EqualUnmodifiableListView) return _notifications;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_notifications);
@@ -676,7 +676,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<AddNotificationModel> notifications) success,
+    required TResult Function(List<NotificationModel> notifications) success,
     required TResult Function(String message) failure,
   }) {
     return success(notifications);
@@ -687,7 +687,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<AddNotificationModel> notifications)? success,
+    TResult? Function(List<NotificationModel> notifications)? success,
     TResult? Function(String message)? failure,
   }) {
     return success?.call(notifications);
@@ -698,7 +698,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<AddNotificationModel> notifications)? success,
+    TResult Function(List<NotificationModel> notifications)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -747,10 +747,10 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements GetNotificationsState {
-  const factory _Success(final List<AddNotificationModel> notifications) =
+  const factory _Success(final List<NotificationModel> notifications) =
       _$SuccessImpl;
 
-  List<AddNotificationModel> get notifications;
+  List<NotificationModel> get notifications;
 
   /// Create a copy of GetNotificationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -829,7 +829,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<AddNotificationModel> notifications) success,
+    required TResult Function(List<NotificationModel> notifications) success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -840,7 +840,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<AddNotificationModel> notifications)? success,
+    TResult? Function(List<NotificationModel> notifications)? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -851,7 +851,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<AddNotificationModel> notifications)? success,
+    TResult Function(List<NotificationModel> notifications)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
