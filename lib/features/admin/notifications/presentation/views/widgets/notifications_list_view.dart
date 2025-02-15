@@ -33,7 +33,10 @@ class NotificationsListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.only(top: index == 0 ? 0 : 20.h),
-                  child: NotificationItem(notification: notifications[index]),
+                  child: NotificationItem(
+                    notification: notifications[index],
+                    index: index,
+                  ),
                 );
               },
             );

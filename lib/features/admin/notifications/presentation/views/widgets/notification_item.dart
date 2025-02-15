@@ -6,10 +6,16 @@ import 'package:my_store/features/admin/notifications/data/models/notification_m
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/delete_notification_item.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/edit_notification_item.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/notification_item_row_text.dart';
+import 'package:my_store/features/admin/notifications/presentation/views/widgets/send_notification_button.dart';
 
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({required this.notification, super.key});
+  const NotificationItem({
+    required this.notification,
+    required this.index,
+    super.key,
+  });
   final NotificationModel notification;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return CustomContainerWithGradient(
@@ -37,18 +43,15 @@ class NotificationItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                 DeleteNotificationItem(
+                DeleteNotificationItem(
                   notification: notification,
                 ),
                 EditNotificationItem(
                   notification: notification,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.send,
-                    color: Colors.green,
-                  ),
+                SendNotificationButton(
+                  notification: notification,
+                  index: index,
                 ),
               ],
             ),
