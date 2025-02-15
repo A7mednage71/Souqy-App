@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/features/admin/notifications/presentation/bloc/get_notifications/get_notifications_bloc.dart';
+import 'package:my_store/features/admin/notifications/presentation/bloc/send_notification/send_notification_bloc.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/add_notification_item.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/widgets/notifications_list_view.dart';
 
@@ -11,9 +12,16 @@ class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<GetNotificationsBloc>()
-        ..add(const GetNotificationsEvent.getNotifications()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<GetNotificationsBloc>()
+            ..add(const GetNotificationsEvent.getNotifications()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SendNotificationBloc>(),
+        ),
+      ],
       child: Scaffold(
         appBar: const CustomAdminAppBar(title: 'Notifications'),
         body: Padding(

@@ -13,8 +13,10 @@ import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_users/fetch_number_of_users_bloc.dart';
+import 'package:my_store/features/admin/notifications/data/repos/notifications_repo.dart';
 import 'package:my_store/features/admin/notifications/presentation/bloc/add_notification/add_notifications_bloc.dart';
 import 'package:my_store/features/admin/notifications/presentation/bloc/get_notifications/get_notifications_bloc.dart';
+import 'package:my_store/features/admin/notifications/presentation/bloc/send_notification/send_notification_bloc.dart';
 import 'package:my_store/features/admin/products/data/repos/products_repo.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/delete_product/delete_product_bloc.dart';
@@ -112,11 +114,18 @@ Future<void> setGetIt() async {
     ..registerFactory<DeleteUserBloc>(
       () => DeleteUserBloc(getIt<UsersRepo>()),
     )
-    // notifications
+    // get all notifications
+    // notifications repository
+    ..registerLazySingleton<NotificationsRepo>(
+      NotificationsRepo.new,
+    )
     ..registerFactory<AddNotificationsBloc>(
       AddNotificationsBloc.new,
     )
     ..registerFactory<GetNotificationsBloc>(
       GetNotificationsBloc.new,
+    )
+    ..registerFactory<SendNotificationBloc>(
+      () => SendNotificationBloc(getIt<NotificationsRepo>()),
     );
 }
