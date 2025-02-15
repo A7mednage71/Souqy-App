@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_store/core/common/widgets/custom_linear_button.dart';
+import 'package:my_store/core/extensions/theme_context.dart';
+import 'package:my_store/core/style/images/app_images.dart';
+
+class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomerAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      title: Text(
+        'Choose Your Product',
+        style: context.textStyle.copyWith(
+          color: Colors.white,
+          fontSize: 20.sp,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      actions: [
+        CustomLinearButton(
+          onTap: () {},
+          width: 40.w,
+          child: SvgPicture.asset(
+            AppImages.imagesSvgSearch,
+          ),
+        ),
+        SizedBox(
+          width: 10.w,
+        ),
+      ],
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(60.h);
+}
