@@ -37,7 +37,9 @@ class NotificationItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const DeleteNotificationItem(),
+                 DeleteNotificationItem(
+                  notification: notification,
+                ),
                 EditNotificationItem(
                   notification: notification,
                 ),

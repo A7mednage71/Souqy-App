@@ -11,13 +11,9 @@ class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<GetNotificationsBloc>()
-            ..add(const GetNotificationsEvent.getNotifications()),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => getIt<GetNotificationsBloc>()
+        ..add(const GetNotificationsEvent.getNotifications()),
       child: Scaffold(
         appBar: const CustomAdminAppBar(title: 'Notifications'),
         body: Padding(
