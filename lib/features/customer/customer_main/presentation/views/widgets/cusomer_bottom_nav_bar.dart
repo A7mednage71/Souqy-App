@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/images/app_images.dart';
-import 'package:my_store/features/customer/main/presentation/views/widgets/bottom_nav_bar_item.dart';
+import 'package:my_store/features/customer/customer_main/presentation/views/widgets/bottom_nav_bar_item.dart';
 
 class CustomerBottomNavBar extends StatelessWidget {
   const CustomerBottomNavBar({super.key});

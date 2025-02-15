@@ -12,7 +12,7 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: context.themeColors.mainColor,
       elevation: 0,
       title: CustomFadeInRight(
         duration: 200,
