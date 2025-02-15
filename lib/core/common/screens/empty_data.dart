@@ -5,8 +5,8 @@ import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/core/style/images/app_images.dart';
 
 class EmptyData extends StatelessWidget {
-  const EmptyData({super.key});
-
+  const EmptyData({super.key, this.message});
+  final String? message;
   @override
   Widget build(BuildContext context) {
     return Opacity(
@@ -20,7 +20,7 @@ class EmptyData extends StatelessWidget {
             width: 200.w,
           ),
           Text(
-            'No data',
+            message ?? 'No data',
             style: context.textStyle.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeightHelper.medium,
