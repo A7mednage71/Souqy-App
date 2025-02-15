@@ -33,7 +33,7 @@ class MyStore extends StatelessWidget {
                 theme:
                     isDarkTheme ? AppTheme.darkTheme() : AppTheme.lightTheme(),
                 onGenerateRoute: AppRouter.getRoute,
-                initialRoute: Routes.homeAdmin,
+                initialRoute: Routes.customerMainScreen,
                 navigatorKey: GlobalKey<NavigatorState>(),
                 locale: Locale(language),
                 localeResolutionCallback:

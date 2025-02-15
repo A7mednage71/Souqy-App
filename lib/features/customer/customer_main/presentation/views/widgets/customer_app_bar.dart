@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/images/app_images.dart';
@@ -13,20 +14,26 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      title: Text(
-        'Choose Your Product',
-        style: context.textStyle.copyWith(
-          color: Colors.white,
-          fontSize: 20.sp,
-          fontWeight: FontWeight.w600,
+      title: CustomFadeInRight(
+        duration: 200,
+        child: Text(
+          'Choose Your Product',
+          style: context.textStyle.copyWith(
+            color: Colors.white,
+            fontSize: 20.sp,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       actions: [
-        CustomLinearButton(
-          onTap: () {},
-          width: 40.w,
-          child: SvgPicture.asset(
-            AppImages.imagesSvgSearch,
+        CustomFadeInLeft(
+          duration: 200,
+          child: CustomLinearButton(
+            onTap: () {},
+            width: 40.w,
+            child: SvgPicture.asset(
+              AppImages.imagesSvgSearch,
+            ),
           ),
         ),
         SizedBox(
