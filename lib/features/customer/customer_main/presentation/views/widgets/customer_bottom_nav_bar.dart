@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/images/app_images.dart';
-import 'package:my_store/features/customer/customer_main/presentation/views/widgets/bottom_nav_bar_item.dart';
+import 'package:my_store/features/customer/customer_main/presentation/views/widgets/custom_bottom_nav_bar_items_bloc_builder.dart';
 
 class CustomerBottomNavBar extends StatelessWidget {
   const CustomerBottomNavBar({super.key});
@@ -26,33 +26,7 @@ class CustomerBottomNavBar extends StatelessWidget {
                   Row(
                     children: [
                       SizedBox(width: 80.w),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            BottomNavBarItem(
-                              icon: AppImages.imagesSvgHomeTabIcon,
-                              isSelected: true,
-                              onTap: () {},
-                            ),
-                            BottomNavBarItem(
-                              icon: AppImages.imagesSvgCategoriesTapIcon,
-                              isSelected: false,
-                              onTap: () {},
-                            ),
-                            BottomNavBarItem(
-                              icon: AppImages.imagesSvgFavouriteTabIcon,
-                              isSelected: false,
-                              onTap: () {},
-                            ),
-                            BottomNavBarItem(
-                              icon: AppImages.imagesSvgProfileTabIcon,
-                              isSelected: false,
-                              onTap: () {},
-                            ),
-                          ],
-                        ),
-                      ),
+                      const CustomBottomNavBarItemsBlocBuilder(),
                     ],
                   ),
                 ],
