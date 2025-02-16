@@ -29,6 +29,7 @@ import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
 import 'package:my_store/features/auth/register/presentation/bloc/sighn_up_bloc.dart';
+import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -127,5 +128,9 @@ Future<void> setGetIt() async {
     )
     ..registerFactory<SendNotificationBloc>(
       () => SendNotificationBloc(getIt<NotificationsRepo>()),
+    )
+    // customer Bottom Nav Bar cubit
+    ..registerFactory<BottomNavigationCubit>(
+      BottomNavigationCubit.new,
     );
 }
