@@ -11,8 +11,6 @@ class BuildDeveloperWebView extends StatefulWidget {
 }
 
 class _BuildDeveloperWebViewState extends State<BuildDeveloperWebView> {
-  late InAppWebViewController _webViewController;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +19,7 @@ class _BuildDeveloperWebViewState extends State<BuildDeveloperWebView> {
         initialUrlRequest: URLRequest(
           url: WebUri('https://github.com/A7mednage71'),
         ),
-        onWebViewCreated: (InAppWebViewController controller) {
-          _webViewController = controller;
-        },
+        onWebViewCreated: (InAppWebViewController controller) {},
       ),
     );
   }
