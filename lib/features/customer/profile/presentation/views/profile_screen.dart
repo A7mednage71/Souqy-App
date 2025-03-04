@@ -11,6 +11,7 @@ import 'package:my_store/features/customer/profile/presentation/bloc/get_user_pr
 import 'package:my_store/features/customer/profile/presentation/views/widgets/app_language.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/build_developer.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/dark_and_light_mode.dart';
+import 'package:my_store/features/customer/profile/presentation/views/widgets/notification_state.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/user_profile_info_bloc_builder.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -43,6 +44,8 @@ class ProfileScreen extends StatelessWidget {
             const DarkAndLightMode(),
             SizedBox(height: 20.h),
             const BuildDeveloper(),
+            SizedBox(height: 20.h),
+            const NotificationsState(),
           ],
         ),
       ),

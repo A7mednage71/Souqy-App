@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
@@ -20,47 +21,50 @@ class ApplicationFeaturesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Row(
-          children: [
-            SvgPicture.asset(
-              image,
-              // ignore: deprecated_member_use
-              color: context.themeColors.textColor,
-            ),
-            SizedBox(width: 10.w),
-            Text(
-              context.translate(leadingText),
-              style: context.textStyle.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeightHelper.regular,
-              ),
-            ),
-          ],
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: onTap,
-          child: Row(
+    return CustomFadeInRight(
+      duration: 400,
+      child: Row(
+        children: [
+          Row(
             children: [
-              Text(
-                context.translate(trailingText),
-                style: context.textStyle.copyWith(
-                  fontSize: 14.sp,
-                  color: context.themeColors.textColor,
-                ),
-              ),
-              SizedBox(width: 5.w),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 16,
+              SvgPicture.asset(
+                image,
+                // ignore: deprecated_member_use
                 color: context.themeColors.textColor,
+              ),
+              SizedBox(width: 10.w),
+              Text(
+                context.translate(leadingText),
+                style: context.textStyle.copyWith(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeightHelper.regular,
+                ),
               ),
             ],
           ),
-        ),
-      ],
+          const Spacer(),
+          InkWell(
+            onTap: onTap,
+            child: Row(
+              children: [
+                Text(
+                  context.translate(trailingText),
+                  style: context.textStyle.copyWith(
+                    fontSize: 14.sp,
+                    color: context.themeColors.textColor,
+                  ),
+                ),
+                SizedBox(width: 5.w),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: context.themeColors.textColor,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
