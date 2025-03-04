@@ -9,6 +9,7 @@ import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/customer/profile/presentation/bloc/get_user_profile/get_user_profile_bloc.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/app_language.dart';
+import 'package:my_store/features/customer/profile/presentation/views/widgets/dark_and_light_mode.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/user_profile_info_bloc_builder.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -37,6 +38,8 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: 30.h),
             const AppLanguage(),
+            SizedBox(height: 20.h),
+            const DarkAndLightMode(),
           ],
         ),
       ),
