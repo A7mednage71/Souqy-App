@@ -3,4 +3,5 @@ class Routes {
   static const String customerMainScreen = 'customer_Main_Screen';
   static const String login = 'login_Screen';
   static const String sighnUp = 'sighnUp_Screen';
+  static const String buildDeveloperWebView = 'Build_Developer_Web_View';
 }

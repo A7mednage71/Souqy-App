@@ -15,6 +15,7 @@ import 'package:my_store/features/auth/register/presentation/bloc/sighn_up_bloc.
 import 'package:my_store/features/auth/register/presentation/views/sighn_up_screen.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/customer_main/presentation/views/customer_main_screen.dart';
+import 'package:my_store/features/customer/profile/presentation/views/widgets/build_developer_web_view.dart';
 
 class AppRouter {
   static Route<void> getRoute(RouteSettings settings) {
@@ -49,6 +50,10 @@ class AppRouter {
             create: (context) => getIt<BottomNavigationCubit>(),
             child: const CustomerMainScreen(),
           ),
+        );
+      case Routes.buildDeveloperWebView:
+        return BaseRoute(
+          page: const BuildDeveloperWebView(),
         );
       default:
         return BaseRoute(page: const NoRouteScreen());
