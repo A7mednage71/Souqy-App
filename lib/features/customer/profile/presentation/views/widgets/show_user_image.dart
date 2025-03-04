@@ -9,6 +9,7 @@ class ShowUserImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      fit: BoxFit.cover,
       imageUrl: image ?? AppConstants.userAvatar,
       imageBuilder: (context, imageProvider) => CircleAvatar(
         backgroundImage: imageProvider,

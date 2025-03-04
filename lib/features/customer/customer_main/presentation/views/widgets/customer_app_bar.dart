@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
+import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
+import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/core/style/images/app_images.dart';
 
 class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +19,7 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: CustomFadeInRight(
         duration: 200,
         child: Text(
-          'Choose Your Product',
+          context.translate(LocalizationKeys.chooseProducts),
           style: context.textStyle.copyWith(
             color: Colors.white,
             fontSize: 20.sp,
