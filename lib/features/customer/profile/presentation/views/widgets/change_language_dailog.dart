@@ -18,6 +18,7 @@ class ChangeLanguageDailog extends StatelessWidget {
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         return AlertDialog(
+          backgroundColor: context.themeColors.mainColor,
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -27,7 +28,7 @@ class ChangeLanguageDailog extends StatelessWidget {
                 style: context.textStyle.copyWith(
                   fontSize: 16.sp,
                   fontWeight: FontWeightHelper.bold,
-                  color: context.themeColors.mainColor,
+                  color: context.themeColors.textColor,
                 ),
               ),
               SizedBox(height: 16.h),
@@ -57,7 +58,7 @@ class ChangeLanguageDailog extends StatelessWidget {
               const SizedBox(height: 16),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.grey,
                   fixedSize: Size(double.maxFinite, 50.h),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.r),
