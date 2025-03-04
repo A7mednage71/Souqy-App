@@ -28,7 +28,7 @@ class DarkAndLightMode extends StatelessWidget {
               context.translate(LocalizationKeys.darkMode),
               style: context.textStyle.copyWith(
                 fontSize: 18.sp,
-                fontWeight: FontWeightHelper.bold,
+                fontWeight: FontWeightHelper.regular,
               ),
             ),
           ],
