@@ -21,15 +21,16 @@ class ChangeLanguageDailog extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              SizedBox(height: 16.h),
               Text(
                 context.translate(LocalizationKeys.changeToTheLanguage),
                 style: context.textStyle.copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeightHelper.bold,
                   color: context.themeColors.mainColor,
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
