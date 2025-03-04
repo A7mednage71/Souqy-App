@@ -4,7 +4,10 @@ import 'package:lottie/lottie.dart';
 import 'package:my_store/core/style/images/app_images.dart';
 
 class FailureState extends StatelessWidget {
-  const FailureState({super.key});
+  const FailureState({this.message, super.key, this.failureHeight});
+
+  final double? failureHeight;
+  final String? message;
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +17,13 @@ class FailureState extends StatelessWidget {
         children: [
           Lottie.asset(
             AppImages.imagesCoreFailureState,
-            height: 150.h,
-            width: 150.w,
+            height: failureHeight ?? 150.h,
+            width: failureHeight ?? 150.w,
             fit: BoxFit.contain,
           ),
           Text(
-            'Something went wrong \nPlease try again later...!',
-            style: TextStyle(fontSize: 20.sp, color: Colors.white),
+            message ?? 'Something went wrong \nPlease try again later...!',
+            style: const TextStyle(color: Colors.white),
           ),
         ],
       ),

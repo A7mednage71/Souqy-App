@@ -30,13 +30,13 @@ class AppTheme {
   static ThemeData darkTheme() {
     return ThemeData(
       scaffoldBackgroundColor: ColorsDark.mainColor,
-      extensions: const <ThemeExtension<dynamic>>[
+      extensions: <ThemeExtension<dynamic>>[
         MyColors.dark,
         MyAssets.dark,
         SkeletonizerConfigData.dark(
           effect: ShimmerEffect(
-            highlightColor: Colors.white,
-            baseColor: Colors.grey,
+            highlightColor: Colors.white.withOpacity(0.7),
+            baseColor: Colors.white24,
           ),
         ),
       ],

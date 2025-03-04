@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:googleapis_auth/auth_io.dart' as auth;
+import 'package:my_store/core/extensions/localization_context.dart';
+import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/core/services/cloud_messaging/notification_request_body_model.dart';
 import 'package:my_store/features/auth/widgets/show_toast.dart';
 
@@ -46,10 +48,16 @@ class FirebaseMessagingHelper {
     } else {
       if (isTopicSubscribed.value) {
         await unsubscribeFromTopic();
-        ShowToast.showSuccessToast('Notification Unsubscribed');
+        if (!context.mounted) return;
+        ShowToast.showSuccessToast(
+          context.translate(LocalizationKeys.unsubscribedToNotifications),
+        );
       } else {
         await _subscribeToTopic();
-        ShowToast.showSuccessToast('Notification Subscribed');
+        if (!context.mounted) return;
+        ShowToast.showSuccessToast(
+          context.translate(LocalizationKeys.subscribedToNotifications),
+        );
       }
     }
   }

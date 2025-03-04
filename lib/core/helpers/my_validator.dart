@@ -11,7 +11,7 @@ class MyValidator {
   }
 
   static bool isNamevalidator(String value) {
-    return RegExp(r'^[a-zA-Z0-9._-]{3,}$').hasMatch(value);
+    return RegExp(r'^[a-zA-Z0-9._-]+( [a-zA-Z0-9._-]+)*$').hasMatch(value);
   }
 
   static bool isCategoryNameValid(String value) {
