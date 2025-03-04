@@ -12,6 +12,7 @@ import 'package:my_store/features/customer/profile/presentation/views/widgets/ap
 import 'package:my_store/features/customer/profile/presentation/views/widgets/build_developer.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/build_version.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/dark_and_light_mode.dart';
+import 'package:my_store/features/customer/profile/presentation/views/widgets/logout.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/notification_state.dart';
 import 'package:my_store/features/customer/profile/presentation/views/widgets/user_profile_info_bloc_builder.dart';
 
@@ -26,19 +27,17 @@ class ProfileScreen extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const UserProfileInfoBlocBuilder(),
+            const Align(child: UserProfileInfoBlocBuilder()),
             SizedBox(height: 50.h),
-            Align(
-              alignment: Alignment.topLeft,
-              child: CustomFadeInRight(
-                duration: 400,
-                child: Text(
-                  context.translate(LocalizationKeys.applicationFeatures),
-                  style: context.textStyle.copyWith(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeightHelper.bold,
-                  ),
+            CustomFadeInRight(
+              duration: 400,
+              child: Text(
+                context.translate(LocalizationKeys.applicationFeatures),
+                style: context.textStyle.copyWith(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeightHelper.bold,
                 ),
               ),
             ),
@@ -52,6 +51,8 @@ class ProfileScreen extends StatelessWidget {
             const NotificationsState(),
             SizedBox(height: 20.h),
             const BuildVersion(),
+            SizedBox(height: 20.h),
+            const Logout(),
           ],
         ),
       ),
