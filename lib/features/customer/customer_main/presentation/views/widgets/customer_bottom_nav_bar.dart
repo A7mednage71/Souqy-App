@@ -33,28 +33,32 @@ class CustomerBottomNavBar extends StatelessWidget {
               ),
               Positioned(
                 top: -30.h,
-                child: Container(
-                  width: 100.w,
-                  height: 100.h,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        context.themeAssets.bigNavBar!,
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 100.w,
+                      height: 100.h,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            context.themeAssets.bigNavBar!,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: -10.h,
-                left: 35.w,
-                child: SvgPicture.asset(
-                  AppImages.imagesSvgCarShop,
-                  height: 25.h,
-                  width: 25.w,
-                  // ignore: deprecated_member_use
-                  color: Colors.white,
+                    Positioned(
+                      top: 20.h,
+                      left: 35.w,
+                      child: SvgPicture.asset(
+                        AppImages.imagesSvgCarShop,
+                        height: 25.h,
+                        width: 25.w,
+                        // ignore: deprecated_member_use
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
