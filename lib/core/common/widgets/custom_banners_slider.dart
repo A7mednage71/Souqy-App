@@ -4,15 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 
-class HomeScreenBannersSlider extends StatefulWidget {
-  const HomeScreenBannersSlider({super.key});
-
+class CustomBannersSlider extends StatefulWidget {
+  const CustomBannersSlider({super.key, this.images});
+  final List<String>? images;
   @override
-  State<HomeScreenBannersSlider> createState() =>
-      _HomeScreenBannersSliderState();
+  State<CustomBannersSlider> createState() => _CustomBannersSliderState();
 }
 
-class _HomeScreenBannersSliderState extends State<HomeScreenBannersSlider> {
+class _CustomBannersSliderState extends State<CustomBannersSlider> {
   late CarouselSliderController carouselController;
   int _currentIndex = 0;
   @override
@@ -43,9 +42,11 @@ class _HomeScreenBannersSliderState extends State<HomeScreenBannersSlider> {
               });
             },
           ),
-          itemCount: banners.length,
+          itemCount:
+              widget.images != null ? widget.images!.length : banners.length,
           itemBuilder: (context, index, realIndex) {
-            final dannerImage = banners[index];
+            final dannerImage =
+                widget.images != null ? widget.images![index] : banners[index];
             return Padding(
               padding: EdgeInsets.all(5.r),
               child: Container(
