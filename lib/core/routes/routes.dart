@@ -5,4 +5,5 @@ class Routes {
   static const String sighnUp = 'sighnUp_Screen';
   static const String buildDeveloperWebView = 'Build_Developer_Web_View';
   static const String productDetails = 'Product_Details';
+  static const String categorySpecificProducts = 'Category_Specific_Products';
 }
