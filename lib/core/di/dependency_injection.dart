@@ -29,6 +29,8 @@ import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
 import 'package:my_store/features/auth/register/presentation/bloc/sighn_up_bloc.dart';
+import 'package:my_store/features/customer/category_products/data/repos/category_products.dart';
+import 'package:my_store/features/customer/category_products/presentation/bloc/get_category_products/get_category_products_bloc.dart';
 import 'package:my_store/features/customer/customer_home/data/repos/customer_home_repo.dart';
 import 'package:my_store/features/customer/customer_home/presentation/bloc/get_customer_categories/get_customer_categories_bloc.dart';
 import 'package:my_store/features/customer/customer_home/presentation/bloc/get_first_ten_products/get_first_ten_products_bloc.dart';
@@ -150,5 +152,10 @@ Future<void> setGetIt() async {
     )
     ..registerFactory(
       () => GetFirstTenProductsBloc(getIt<CustomerHomeRepo>()),
+    )
+    // get products by category
+    ..registerLazySingleton(() => CategoryProductsRepo(getIt<ApiService>()))
+    ..registerFactory(
+      () => GetCategoryProductsBloc(getIt<CategoryProductsRepo>()),
     );
 }
