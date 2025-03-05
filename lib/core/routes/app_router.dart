@@ -7,6 +7,7 @@ import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/routes/base_material_page_route.dart';
 import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/features/admin/home_admin/presentation/admin_home_screen.dart';
+import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/login/presentation/views/login_screen.dart';
@@ -15,6 +16,7 @@ import 'package:my_store/features/auth/register/presentation/bloc/sighn_up_bloc.
 import 'package:my_store/features/auth/register/presentation/views/sighn_up_screen.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/customer_main/presentation/views/customer_main_screen.dart';
+import 'package:my_store/features/customer/product_details/presentation/views/product_details.dart';
 import 'package:my_store/features/customer/profile/presentation/views/build_developer_web_view.dart';
 
 class AppRouter {
@@ -54,6 +56,11 @@ class AppRouter {
       case Routes.buildDeveloperWebView:
         return BaseRoute(
           page: const BuildDeveloperWebView(),
+        );
+      case Routes.productDetails:
+        final product = argument! as ProductModel;
+        return BaseRoute(
+          page: ProductDetails(product: product),
         );
       default:
         return BaseRoute(page: const NoRouteScreen());
