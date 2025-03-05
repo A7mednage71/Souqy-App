@@ -55,7 +55,7 @@ class CustomerProductItem extends StatelessWidget {
             ),
             SizedBox(height: 5.h),
             Text(
-              productModel.description ?? '',
+              productModel.category?.name ?? '',
               style: context.textStyle.copyWith(
                 fontSize: 14.sp,
                 color: Colors.grey,
