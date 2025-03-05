@@ -23,7 +23,9 @@ class CustomContainerWithGradient extends StatelessWidget {
         ),
         gradient: LinearGradient(
           colors: [
+            // ignore: deprecated_member_use
             ColorsDark.black1.withOpacity(0.8),
+            // ignore: deprecated_member_use
             ColorsDark.black2.withOpacity(0.8),
           ],
           begin: const Alignment(0.36, 0.27),

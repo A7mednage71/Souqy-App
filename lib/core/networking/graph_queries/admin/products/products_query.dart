@@ -22,6 +22,28 @@ class ProductsQuery {
     };
   }
 
+  static Map<String, dynamic> getProductsWithPaginationQuery({
+    required int offset,
+  }) {
+    return {
+      'query': '''
+        {
+          products(limit: 10, offset: $offset){
+            id
+            title
+            price
+            images
+            description
+            category{
+              id
+              name
+            }
+          }
+        }
+      ''',
+    };
+  }
+
   static Map<String, dynamic> createProductQuery({
     required CreateProductRequestModel model,
   }) {

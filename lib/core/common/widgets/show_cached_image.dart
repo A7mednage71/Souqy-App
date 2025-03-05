@@ -8,15 +8,19 @@ class ShowCachedNetworkImage extends StatelessWidget {
   const ShowCachedNetworkImage({
     required this.image,
     super.key,
+    this.height,
+    this.width,
   });
   final String image;
+  final double? height;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: image.fixImageFormate(),
       imageBuilder: (context, imageProvider) => Container(
-        height: 90.h,
-        width: 120.w,
+        height: height ?? 90.h,
+        width: width ?? 120.w,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,
@@ -31,8 +35,8 @@ class ShowCachedNetworkImage extends StatelessWidget {
           highlightColor: Colors.white,
           period: const Duration(seconds: 2),
           child: Container(
-            height: 90.h,
-            width: 120.w,
+            height: height ?? 90.h,
+            width: width ?? 120.w,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               color: Colors.white,
@@ -42,8 +46,8 @@ class ShowCachedNetworkImage extends StatelessWidget {
       },
       errorWidget: (context, url, error) {
         return Container(
-          height: 90.h,
-          width: 120.w,
+          height: height ?? 90.h,
+          width: width ?? 120.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.r),
             color: Colors.grey,
