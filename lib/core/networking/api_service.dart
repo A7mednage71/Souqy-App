@@ -85,6 +85,11 @@ abstract class ApiService {
   );
 
   @POST(ApiConstants.graphQl)
+  Future<ProductsResponseModel> getAllProductsWithPagination(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
   Future<CreateProductResponseModel> createProduct(
     @Body() Map<String, dynamic> body,
   );

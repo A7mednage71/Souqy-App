@@ -4,11 +4,15 @@ import 'package:my_store/core/common/widgets/custom_customer_container_with_grad
 import 'package:my_store/core/common/widgets/show_cached_image.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 
 class CustomerProductItem extends StatelessWidget {
   const CustomerProductItem({
+    required this.productModel,
     super.key,
   });
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +36,16 @@ class CustomerProductItem extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10.h),
-            const Align(
+            Align(
               child: ShowCachedNetworkImage(
-                image: 'https://picsum.photos/200/300',
+                image: productModel.images!.first,
                 height: 130,
                 width: 150,
               ),
             ),
             SizedBox(height: 10.h),
             Text(
-              'product name',
+              productModel.title ?? '',
               style: context.textStyle.copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeightHelper.bold,
@@ -51,7 +55,7 @@ class CustomerProductItem extends StatelessWidget {
             ),
             SizedBox(height: 5.h),
             Text(
-              'product category',
+              productModel.description ?? '',
               style: context.textStyle.copyWith(
                 fontSize: 14.sp,
                 color: Colors.grey,
@@ -61,7 +65,7 @@ class CustomerProductItem extends StatelessWidget {
             ),
             SizedBox(height: 5.h),
             Text(
-              r'$ 100',
+              r'$' '${productModel.price}',
               style: context.textStyle.copyWith(
                 fontSize: 12.sp,
                 fontWeight: FontWeightHelper.bold,
