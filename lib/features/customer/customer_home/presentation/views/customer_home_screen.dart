@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/features/customer/customer_home/presentation/bloc/get_customer_categories/get_customer_categories_bloc.dart';
+import 'package:my_store/features/customer/customer_home/presentation/bloc/get_first_ten_products/get_first_ten_products_bloc.dart';
 import 'package:my_store/features/customer/customer_home/presentation/views/widgets/customer_home_categories_list_view.dart';
 import 'package:my_store/features/customer/customer_home/presentation/views/widgets/customer_home_products_grid_view.dart';
 import 'package:my_store/features/customer/customer_home/presentation/views/widgets/home_screen_banners_slider.dart';
@@ -34,13 +35,16 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 0.h),
       child: Stack(
         children: [
           RefreshIndicator(
             onRefresh: () async {
               context.read<GetCustomerCategoriesBloc>().add(
                     const GetCustomerCategoriesEvent.getCategories(),
+                  );
+              context.read<GetFirstTenProductsBloc>().add(
+                    const GetFirstTenProductsEvent.getFirstTenProducts(),
                   );
             },
             child: SingleChildScrollView(
