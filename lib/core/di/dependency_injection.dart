@@ -29,6 +29,8 @@ import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
 import 'package:my_store/features/auth/register/presentation/bloc/sighn_up_bloc.dart';
+import 'package:my_store/features/customer/customer_home/data/repos/customer_home_repo.dart';
+import 'package:my_store/features/customer/customer_home/presentation/bloc/get_customer_categories/get_customer_categories_bloc.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/profile/data/repos/profile_repo.dart';
 import 'package:my_store/features/customer/profile/presentation/bloc/get_user_profile/get_user_profile_bloc.dart';
@@ -137,5 +139,12 @@ Future<void> setGetIt() async {
     )
     // customer profile repo and bloc
     ..registerLazySingleton(() => ProfileRepo(getIt<ApiService>()))
-    ..registerFactory(() => GetUserProfileBloc(getIt<ProfileRepo>()));
+    ..registerFactory(() => GetUserProfileBloc(getIt<ProfileRepo>()))
+
+    // start in customer home
+    // customer home repo and bloc
+    ..registerLazySingleton(() => CustomerHomeRepo(getIt<ApiService>()))
+    ..registerFactory(
+      () => GetCustomerCategoriesBloc(getIt<CustomerHomeRepo>()),
+    );
 }
