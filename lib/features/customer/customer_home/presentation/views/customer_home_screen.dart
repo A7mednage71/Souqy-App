@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
+import 'package:my_store/features/customer/customer_home/presentation/views/widgets/customer_home_categories_list_view.dart';
 import 'package:my_store/features/customer/customer_home/presentation/views/widgets/home_screen_banners_slider.dart';
 
 class CustomerHomeScreen extends StatelessWidget {
@@ -13,9 +14,11 @@ class CustomerHomeScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       child: Stack(
         children: [
-          const Column(
+          Column(
             children: [
-              HomeScreenBannersSlider(),
+              const HomeScreenBannersSlider(),
+              SizedBox(height: 20.h),
+              const CustomerHomeCategoriesListView(),
             ],
           ),
           Align(
