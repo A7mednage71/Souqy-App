@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_customer_container_with_gradient.dart';
+import 'package:my_store/core/common/widgets/custom_favorite_button.dart';
+import 'package:my_store/core/common/widgets/custom_share_button.dart';
 import 'package:my_store/core/common/widgets/show_cached_image.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
@@ -18,24 +20,17 @@ class CustomerProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCustomerContainerWithgradient(
       child: Padding(
-        padding: EdgeInsets.all(10.r),
+        padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 10.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.share,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.favorite_outline,
-                  color: Colors.white,
-                ),
+                CustomShareButton(size: 20.r),
+                CustomFavoriteButton(size: 20.r),
               ],
             ),
-            SizedBox(height: 10.h),
             Align(
               child: ShowCachedNetworkImage(
                 image: productModel.images!.first,
