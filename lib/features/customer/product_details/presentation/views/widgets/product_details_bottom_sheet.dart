@@ -6,9 +6,10 @@ import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 
 class ProductDetailsBottomSheet extends StatelessWidget {
   const ProductDetailsBottomSheet({
+    required this.price,
     super.key,
   });
-
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +26,7 @@ class ProductDetailsBottomSheet extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            r'$ 100.0',
+            r'$ ' '$price',
             style: context.textStyle.copyWith(
               fontSize: 20.sp,
               color: context.themeColors.bluePinkLight,
