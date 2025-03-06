@@ -37,6 +37,7 @@ import 'package:my_store/features/customer/customer_home/presentation/bloc/get_f
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/profile/data/repos/profile_repo.dart';
 import 'package:my_store/features/customer/profile/presentation/bloc/get_user_profile/get_user_profile_bloc.dart';
+import 'package:my_store/features/customer/view_all_products/presentation/bloc/get_all_products/get_all_products_with_pagination_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -157,5 +158,8 @@ Future<void> setGetIt() async {
     ..registerLazySingleton(() => CategoryProductsRepo(getIt<ApiService>()))
     ..registerFactory(
       () => GetCategoryProductsBloc(getIt<CategoryProductsRepo>()),
+    )
+    ..registerFactory(
+      () => GetAllProductsWithPaginationBloc(getIt<CustomerHomeRepo>()),
     );
 }

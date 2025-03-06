@@ -21,6 +21,8 @@ import 'package:my_store/features/customer/customer_main/presentation/cubit/bott
 import 'package:my_store/features/customer/customer_main/presentation/views/customer_main_screen.dart';
 import 'package:my_store/features/customer/product_details/presentation/views/product_details.dart';
 import 'package:my_store/features/customer/profile/presentation/views/build_developer_web_view.dart';
+import 'package:my_store/features/customer/view_all_products/presentation/bloc/get_all_products/get_all_products_with_pagination_bloc.dart';
+import 'package:my_store/features/customer/view_all_products/presentation/views/view_all_products.dart';
 
 class AppRouter {
   static Route<void> getRoute(RouteSettings settings) {
@@ -64,6 +66,14 @@ class AppRouter {
         final product = argument! as ProductModel;
         return BaseRoute(
           page: ProductDetails(product: product),
+        );
+      case Routes.viewAllProducts:
+        return BaseRoute(
+          page: BlocProvider(
+            create: (context) => getIt<GetAllProductsWithPaginationBloc>()
+              ..add(const GetProducts(isRefresh: true)),
+            child: const ViewAllProducts(),
+          ),
         );
       case Routes.categorySpecificProducts:
         final category = argument! as Category;
