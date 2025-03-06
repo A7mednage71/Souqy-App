@@ -28,25 +28,35 @@ class CategorySpecificProductsScreen extends StatelessWidget {
               loading: () => const CustomerHomeProductsLoading(),
               success: (products) {
                 if (products.isEmpty) return const EmptyData();
-                return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 15.w,
-                    mainAxisSpacing: 15.w,
-                    childAspectRatio: 0.7,
-                  ),
-                  itemCount: products.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
-                          Routes.productDetails,
-                          arguments: products[index],
+                return RefreshIndicator(
+                  onRefresh: () async {
+                    context.read<GetCategoryProductsBloc>().add(
+                          GetProductsByCategory(
+                            categoryId: int.parse(category.id),
+                          ),
                         );
-                      },
-                      child: CustomerProductItem(productModel: products[index]),
-                    );
                   },
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 15.w,
+                      mainAxisSpacing: 15.w,
+                      childAspectRatio: 0.7,
+                    ),
+                    itemCount: products.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          context.pushNamed(
+                            Routes.productDetails,
+                            arguments: products[index],
+                          );
+                        },
+                        child:
+                            CustomerProductItem(productModel: products[index]),
+                      );
+                    },
+                  ),
                 );
               },
             );
