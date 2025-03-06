@@ -44,6 +44,29 @@ class ProductsQuery {
     };
   }
 
+  static Map<String, dynamic> getCategorySpecificProducts({required int id}) {
+    return {
+      'query': r'''
+      query GetProductsByCategory($id: Float!) {
+        products(categoryId: $id) {
+          id
+          title
+          price
+          images
+          description
+          category {
+            id
+            name
+          }
+        }
+      }
+    ''',
+      'variables': {
+        'id': id,
+      },
+    };
+  }
+
   static Map<String, dynamic> createProductQuery({
     required CreateProductRequestModel model,
   }) {
