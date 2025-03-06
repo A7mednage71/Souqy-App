@@ -15,6 +15,7 @@ import 'package:my_store/features/auth/login/presentation/views/login_screen.dar
 import 'package:my_store/features/auth/register/data/repos/sighn_up_repo.dart';
 import 'package:my_store/features/auth/register/presentation/bloc/sighn_up_bloc.dart';
 import 'package:my_store/features/auth/register/presentation/views/sighn_up_screen.dart';
+import 'package:my_store/features/customer/category_products/presentation/bloc/get_category_products/get_category_products_bloc.dart';
 import 'package:my_store/features/customer/category_products/presentation/views/category_specific_products_screen.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/customer_main/presentation/views/customer_main_screen.dart';
@@ -67,7 +68,11 @@ class AppRouter {
       case Routes.categorySpecificProducts:
         final category = argument! as Category;
         return BaseRoute(
-          page: CategorySpecificProductsScreen(category: category),
+          page: BlocProvider(
+            create: (context) => getIt<GetCategoryProductsBloc>()
+              ..add(GetProductsByCategory(categoryId: int.parse(category.id))),
+            child: CategorySpecificProductsScreen(category: category),
+          ),
         );
       default:
         return BaseRoute(page: const NoRouteScreen());

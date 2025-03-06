@@ -44,25 +44,26 @@ class ProductsQuery {
     };
   }
 
-  static Map<String, dynamic> getCategorySpecificProducts({
-    required int id,
-  }) {
+  static Map<String, dynamic> getCategorySpecificProducts({required int id}) {
     return {
       'query': r'''
-        {
-          products(categoryId: $id){
+      query GetProductsByCategory($id: Float!) {
+        products(categoryId: $id) {
+          id
+          title
+          price
+          images
+          description
+          category {
             id
-            title
-            price
-            images
-            description
-            category{
-              id
-              name
-            }
+            name
           }
         }
-      ''',
+      }
+    ''',
+      'variables': {
+        'id': id,
+      },
     };
   }
 

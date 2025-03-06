@@ -14,6 +14,7 @@ class CustomAppbarWithGradientBackButton extends StatelessWidget
     return AppBar(
       elevation: 0,
       backgroundColor: context.themeColors.mainColor,
+      surfaceTintColor: context.themeColors.mainColor,
       title: Text(
         title ?? '',
         style: context.textStyle.copyWith(

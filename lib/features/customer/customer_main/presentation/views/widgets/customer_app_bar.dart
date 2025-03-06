@@ -22,9 +22,11 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
         return cubit.selectedBottomNavBar == BottomNavBarItems.profile
             ? AppBar(
                 backgroundColor: context.themeColors.mainColor,
+                surfaceTintColor: context.themeColors.mainColor,
               )
             : AppBar(
                 backgroundColor: context.themeColors.mainColor,
+                surfaceTintColor: context.themeColors.mainColor,
                 elevation: 0,
                 title: CustomFadeInRight(
                   duration: 200,
