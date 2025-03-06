@@ -7,4 +7,5 @@ class Routes {
   static const String productDetails = 'Product_Details';
   static const String categorySpecificProducts = 'Category_Specific_Products';
   static const String viewAllProducts = 'View_All_Products';
+  static const String searchScreen = 'Search_Screen';
 }
