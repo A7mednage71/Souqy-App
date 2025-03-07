@@ -29,7 +29,7 @@ class CustomerHomeProductsGridView extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 15.w,
                 mainAxisSpacing: 15.w,
-                childAspectRatio: 0.7,
+                childAspectRatio: 0.6,
               ),
               itemCount: 10,
               itemBuilder: (context, index) {

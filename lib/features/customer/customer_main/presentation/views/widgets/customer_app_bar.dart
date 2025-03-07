@@ -35,7 +35,6 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: Text(
                     context.translate(LocalizationKeys.chooseProducts),
                     style: context.textStyle.copyWith(
-                      color: Colors.white,
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
                     ),

@@ -28,7 +28,7 @@ class SearchResult extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 10.w,
                 mainAxisSpacing: 10.w,
-                childAspectRatio: 0.65,
+                childAspectRatio: 0.6,
               ),
               itemCount: products.length,
               itemBuilder: (context, index) {

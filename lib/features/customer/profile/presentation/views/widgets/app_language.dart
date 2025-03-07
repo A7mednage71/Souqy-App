@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_store/core/app/app_cubit/cubit/app_cubit.dart';
 import 'package:my_store/core/common/widgets/custom_dailog.dart';
+import 'package:my_store/core/extensions/navigation_context.dart';
 import 'package:my_store/core/languages/app_localizations.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
 import 'package:my_store/core/style/images/app_images.dart';
@@ -28,6 +29,7 @@ class AppLanguage extends StatelessWidget {
               } else {
                 appCubit.changeLanguageToEnglish();
               }
+              context.pop();
             },
           ),
         );

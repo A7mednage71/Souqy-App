@@ -16,7 +16,7 @@ class ProductAddToCart extends StatelessWidget {
       width: double.infinity,
       height: 90.h,
       decoration: BoxDecoration(
-        color: context.themeColors.containerShadow1,
+        color: context.themeColors.mainColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.r),
           topRight: Radius.circular(25.r),
