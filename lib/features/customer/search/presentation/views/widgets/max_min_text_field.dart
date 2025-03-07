@@ -28,7 +28,7 @@ class MaxAndMinPriceTextField extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter product price';
+                    return 'Please enter min Price';
                   }
                   return null;
                 },
@@ -45,7 +45,7 @@ class MaxAndMinPriceTextField extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter product price';
+                    return 'Please enter max Price';
                   }
                   return null;
                 },
