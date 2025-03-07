@@ -18,12 +18,19 @@ class SearchResult extends StatelessWidget {
     return BlocBuilder<SearchProductsBloc, SearchProductsState>(
       builder: (context, state) {
         return state.when(
-          initial: () => const SearchLottie(),
+          initial: () => Column(
+            children: [
+              SizedBox(height: 50.h),
+              const SearchLottie(),
+            ],
+          ),
           failure: (message) => const FailureState(),
           loading: () => const CustomerHomeProductsLoading(),
           success: (products) {
             if (products.isEmpty) return const EmptyData();
             return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10.w,

@@ -14,18 +14,21 @@ class SearchScreen extends StatelessWidget {
       appBar: const CustomAppbarWithGradientBackButton(title: 'Search'),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          children: [
-            SizedBox(height: 20.h),
-            const SearchTypeToggle(),
-            SizedBox(height: 10.h),
-            const Align(
-              alignment: Alignment.centerRight,
-              child: SearchButton(),
-            ),
-            SizedBox(height: 20.h),
-            const Expanded(child: SearchResult()),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 20.h),
+              const SearchTypeToggle(),
+              SizedBox(height: 10.h),
+              const Align(
+                alignment: Alignment.centerRight,
+                child: SearchButton(),
+              ),
+              SizedBox(height: 20.h),
+              const SearchResult(),
+              SizedBox(height: 10.h),
+            ],
+          ),
         ),
       ),
     );
