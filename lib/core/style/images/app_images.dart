@@ -63,5 +63,7 @@ class AppImages {
   static const String imagesSvgProfileTabIcon = "assets/images/svg/profile_tab_icon.svg";
 
   static const String imagesSvgSearch = "assets/images/svg/search.svg";
+
+  static const String imagesSvgSearchLottie = "assets/images/svg/searchLottie.json";
 }
 

@@ -6,8 +6,10 @@ import 'package:my_store/core/animations/animate_do.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/enums/bottom_nav_bar_items.dart';
 import 'package:my_store/core/extensions/localization_context.dart';
+import 'package:my_store/core/extensions/navigation_context.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
+import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/core/style/images/app_images.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 
@@ -43,7 +45,9 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
                   CustomFadeInLeft(
                     duration: 200,
                     child: CustomLinearButton(
-                      onTap: () {},
+                      onTap: () {
+                        context.pushNamed(Routes.searchScreen);
+                      },
                       width: 40.w,
                       child: SvgPicture.asset(
                         AppImages.imagesSvgSearch,
