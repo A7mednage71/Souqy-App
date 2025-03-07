@@ -11,6 +11,7 @@ import 'package:my_store/core/app/network_connection_checker.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/services/cloud_messaging/firebase_messaging_helper.dart';
 import 'package:my_store/core/services/hive_database/hive_database.dart';
+import 'package:my_store/core/services/local_notifications/local_notifications.dart';
 import 'package:my_store/core/services/secure_storage/secure_storage.dart';
 import 'package:my_store/core/services/secure_storage/secure_storage_keys.dart';
 import 'package:my_store/core/services/shared_pref/shared_pref.dart';
@@ -32,6 +33,7 @@ void main() async {
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   );
   await HiveDatabase.init();
+  await LocalNotifications.initialize();
   log('Token : ${await SecureStorage.getSecuredData(SecureStorageKeys.accessToken)}');
   await FirebaseMessagingHelper.instance.initNotifications();
   runApp(const MyStore());
