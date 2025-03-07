@@ -10,6 +10,8 @@ import 'package:my_store/core/routes/app_router.dart';
 import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/core/style/theme/app_theme.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyStore extends StatelessWidget {
   const MyStore({super.key});
   @override
@@ -33,8 +35,8 @@ class MyStore extends StatelessWidget {
                 theme:
                     isDarkTheme ? AppTheme.darkTheme() : AppTheme.lightTheme(),
                 onGenerateRoute: AppRouter.getRoute,
-                initialRoute: Routes.customerMainScreen,
-                navigatorKey: GlobalKey<NavigatorState>(),
+                initialRoute: Routes.login,
+                navigatorKey: navigatorKey,
                 locale: Locale(language),
                 localeResolutionCallback:
                     AppLocalizationsSetup.localeResolutionCallback,
