@@ -11,23 +11,25 @@ class EmptyData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Opacity(
       opacity: 0.6,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            AppImages.imagesCoreEmptyScreen,
-            height: 200.h,
-            width: 200.w,
-          ),
-          Text(
-            message ?? 'No data',
-            style: context.textStyle.copyWith(
-              fontSize: 20.sp,
-              fontWeight: FontWeightHelper.medium,
-              color: context.themeColors.textColor,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              AppImages.imagesCoreEmptyScreen,
+              height: 200.h,
+              width: 200.w,
             ),
-          ),
-        ],
+            Text(
+              message ?? 'No data',
+              style: context.textStyle.copyWith(
+                fontSize: 20.sp,
+                fontWeight: FontWeightHelper.medium,
+                color: context.themeColors.textColor,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

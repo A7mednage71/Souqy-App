@@ -27,7 +27,7 @@ class CategorySpecificProductsScreen extends StatelessWidget {
               failure: (message) => const FailureState(),
               loading: () => const CustomerHomeProductsLoading(),
               success: (products) {
-                if (products.isEmpty) return const EmptyData();
+                if (products.isEmpty) return const Center(child: EmptyData());
                 return RefreshIndicator(
                   onRefresh: () async {
                     context.read<GetCategoryProductsBloc>().add(
