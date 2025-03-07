@@ -4,8 +4,8 @@ import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 
-class ProductDetailsBottomSheet extends StatelessWidget {
-  const ProductDetailsBottomSheet({
+class ProductAddToCart extends StatelessWidget {
+  const ProductAddToCart({
     required this.price,
     super.key,
   });

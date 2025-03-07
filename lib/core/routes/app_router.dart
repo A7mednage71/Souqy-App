@@ -8,7 +8,6 @@ import 'package:my_store/core/routes/base_material_page_route.dart';
 import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/features/admin/categories/data/models/categories_response_model.dart';
 import 'package:my_store/features/admin/home_admin/presentation/admin_home_screen.dart';
-import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/auth/login/data/repos/login_repo.dart';
 import 'package:my_store/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:my_store/features/auth/login/presentation/views/login_screen.dart';
@@ -19,6 +18,7 @@ import 'package:my_store/features/customer/category_products/presentation/bloc/g
 import 'package:my_store/features/customer/category_products/presentation/views/category_specific_products_screen.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/customer_main/presentation/views/customer_main_screen.dart';
+import 'package:my_store/features/customer/product_details/presentation/views/bloc/get_product_data/get_product_data_bloc.dart';
 import 'package:my_store/features/customer/product_details/presentation/views/product_details.dart';
 import 'package:my_store/features/customer/profile/presentation/views/build_developer_web_view.dart';
 import 'package:my_store/features/customer/search/presentation/bloc/search_products/search_products_bloc.dart';
@@ -72,9 +72,13 @@ class AppRouter {
           ),
         );
       case Routes.productDetails:
-        final product = argument! as ProductModel;
+        final productId = argument! as String;
         return BaseRoute(
-          page: ProductDetails(product: product),
+          page: BlocProvider(
+            create: (context) =>
+                getIt<GetProductDataBloc>()..add(GetProductData(id: productId)),
+            child: const ProductDetails(),
+          ),
         );
       case Routes.viewAllProducts:
         return BaseRoute(

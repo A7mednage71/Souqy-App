@@ -66,7 +66,7 @@ class _AllProductsGridViewState extends State<AllProductsGridView> {
             onTap: () {
               context.pushNamed(
                 Routes.productDetails,
-                arguments: widget.products[index],
+                arguments: widget.products[index].id,
               );
             },
             child: CustomerProductItem(productModel: widget.products[index]),

@@ -49,7 +49,7 @@ class CategorySpecificProductsScreen extends StatelessWidget {
                         onTap: () {
                           context.pushNamed(
                             Routes.productDetails,
-                            arguments: products[index],
+                            arguments: products[index].id,
                           );
                         },
                         child:

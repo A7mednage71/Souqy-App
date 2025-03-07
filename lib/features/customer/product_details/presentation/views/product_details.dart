@@ -1,67 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:my_store/core/common/screens/failure_state.dart';
 import 'package:my_store/core/common/widgets/custom_appbar_with_gradient_back_button.dart';
-import 'package:my_store/core/common/widgets/custom_banners_slider.dart';
-import 'package:my_store/core/common/widgets/custom_favorite_button.dart';
-import 'package:my_store/core/common/widgets/custom_share_button.dart';
-import 'package:my_store/core/extensions/theme_context.dart';
-import 'package:my_store/core/style/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
-import 'package:my_store/features/customer/product_details/presentation/views/widgets/product_details_bottom_sheet.dart';
+import 'package:my_store/features/customer/product_details/presentation/views/bloc/get_product_data/get_product_data_bloc.dart';
+import 'package:my_store/features/customer/product_details/presentation/views/widgets/product_details_body.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({
-    required this.product,
     super.key,
   });
-  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbarWithGradientBackButton(),
-      body: Padding(
-        padding: EdgeInsets.all(10.r),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomShareButton(size: 30.r),
-                CustomFavoriteButton(size: 30.r),
-              ],
-            ),
-            20.h.verticalSpace,
-            CustomBannersSlider(images: product.images),
-            20.h.verticalSpace,
-            Text(
-              '${product.title}',
-              style: context.textStyle.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeightHelper.bold,
+      body: BlocBuilder<GetProductDataBloc, GetProductDataState>(
+        builder: (context, state) {
+          return state.when(
+            initial: () => const SizedBox.shrink(),
+            failure: (message) => const FailureState(),
+            loading: () => const Center(
+              child: SpinKitCircle(
+                color: Colors.white,
               ),
             ),
-            10.h.verticalSpace,
-            Text(
-              '${product.category!.name}',
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.bold,
-                color: context.themeColors.bluePinkLight,
-              ),
-            ),
-            30.h.verticalSpace,
-            Text(
-              '${product.description}',
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.medium,
-              ),
-            ),
-          ],
-        ),
+            sccess: (product) => ProductDetailsBody(product: product),
+          );
+        },
       ),
-      bottomSheet: ProductDetailsBottomSheet(price: product.price.toString()),
     );
   }
 }
