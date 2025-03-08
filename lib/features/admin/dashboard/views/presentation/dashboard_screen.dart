@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
+import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_categories/fetch_number_of_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_products/fetch_number_of_products_bloc.dart';
 import 'package:my_store/features/admin/dashboard/views/bloc/number_of_users/fetch_number_of_users_bloc.dart';
@@ -27,11 +28,21 @@ class DashboardScreen extends StatelessWidget {
             ..add(const FetchNumberOfUsersEvent.fetchNumberOfUsers()),
         ),
       ],
-      child: const Scaffold(
-        appBar: CustomAdminAppBar(title: 'Dashboard'),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: DashBoardScreenBody(),
+      child: Scaffold(
+        appBar: const CustomAdminAppBar(title: 'Dashboard'),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                context.themeAssets.homeBg!,
+              ),
+            ),
+          ),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: DashBoardScreenBody(),
+          ),
         ),
       ),
     );

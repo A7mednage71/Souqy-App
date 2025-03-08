@@ -22,7 +22,6 @@ class CustomAdminAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: context.textStyle.copyWith(
-          color: Colors.white,
           fontSize: 24,
           fontWeight: FontWeight.w600,
         ),
@@ -37,9 +36,9 @@ class CustomAdminAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () {
                 ZoomDrawer.of(context)!.toggle();
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.menu,
-                color: Colors.white,
+                color: context.themeColors.textColor,
               ),
             )
           : null,

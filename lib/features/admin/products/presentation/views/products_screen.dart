@@ -27,27 +27,37 @@ class ProductsScreen extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: const CustomAdminAppBar(title: 'Products'),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Get All Products',
-                    style: context.textStyle.copyWith(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeightHelper.bold,
-                    ),
-                  ),
-                  const Spacer(),
-                  const AddProduct(),
-                ],
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                context.themeAssets.homeBg!,
               ),
-              SizedBox(height: 20.h),
-              // const ProductItem(),
-              const ProductsGridView(),
-            ],
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Get All Products',
+                      style: context.textStyle.copyWith(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeightHelper.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    const AddProduct(),
+                  ],
+                ),
+                SizedBox(height: 20.h),
+                // const ProductItem(),
+                const ProductsGridView(),
+              ],
+            ),
           ),
         ),
       ),

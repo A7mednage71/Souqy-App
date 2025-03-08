@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/delete_category/delete_category_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
-import 'package:my_store/features/admin/categories/presentation/views/widgets/delete_dialog.dart';
+import 'package:my_store/core/common/widgets/custom_alert_dailog.dart';
 import 'package:my_store/features/auth/widgets/show_toast.dart';
 
 class DeleteCategoryButton extends StatelessWidget {
@@ -54,10 +54,22 @@ class DeleteCategoryButton extends StatelessWidget {
           },
           orElse: () => IconButton(
             onPressed: () {
-              showDeleteCategoryDialog(
-                context,
-                categoryId,
-                context.read<DeleteCategoryBloc>(),
+              final bloc = context.read<DeleteCategoryBloc>();
+              // ignore: inference_failure_on_function_invocation
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return CustomAlertDialog(
+                    title: 'Delete category',
+                    message: 'Are you sure you want to delete this category?',
+                    onPressed: () {
+                      bloc.add(
+                        DeleteCategoryEvent.deleteCategory(id: categoryId),
+                      );
+                      Navigator.pop(context);
+                    },
+                  );
+                },
               );
             },
             icon: const Icon(

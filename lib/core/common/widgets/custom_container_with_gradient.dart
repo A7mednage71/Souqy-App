@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/style/colors/colors_dark.dart';
+import 'package:my_store/core/extensions/theme_context.dart';
 
 class CustomContainerWithGradient extends StatelessWidget {
   const CustomContainerWithGradient({
@@ -24,23 +24,25 @@ class CustomContainerWithGradient extends StatelessWidget {
         gradient: LinearGradient(
           colors: [
             // ignore: deprecated_member_use
-            ColorsDark.black1.withOpacity(0.8),
+            context.themeColors.containerLinear1!.withOpacity(0.8),
             // ignore: deprecated_member_use
-            ColorsDark.black2.withOpacity(0.8),
+            context.themeColors.containerLinear2!.withOpacity(0.8),
           ],
           begin: const Alignment(0.36, 0.27),
           end: const Alignment(0.58, 0.85),
         ),
-        shadows: const [
+        shadows: [
           BoxShadow(
-            blurRadius: 2,
-            offset: Offset(0, 4),
-            color: ColorsDark.black1,
+            // ignore: deprecated_member_use
+            color: context.themeColors.containerShadow1!.withOpacity(0.3),
+            offset: const Offset(0, 4),
+            blurRadius: 8,
           ),
           BoxShadow(
-            blurRadius: 4,
-            offset: Offset(0, -1),
-            color: ColorsDark.black1,
+            // ignore: deprecated_member_use
+            color: context.themeColors.containerShadow1!.withOpacity(0.3),
+            offset: const Offset(0, 4),
+            blurRadius: 2,
           ),
         ],
       ),

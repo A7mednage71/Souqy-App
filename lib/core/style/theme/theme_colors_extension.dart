@@ -106,8 +106,8 @@ class MyColors extends ThemeExtension<MyColors> {
     textFormBorder: ColorsLight.pinkLight,
     navBarbg: ColorsLight.mainColor,
     navBarSelectedTab: ColorsLight.pinkDark,
-    containerShadow1: ColorsLight.white,
-    containerShadow2: ColorsLight.white,
+    containerShadow1: ColorsLight.white1,
+    containerShadow2: ColorsLight.white2,
     containerLinear1: ColorsLight.pinkDark,
     containerLinear2: ColorsLight.pinkLight,
   );
