@@ -1,4 +1,4 @@
-![WhatsApp Image 2025-03-08 at 07 29 09_29306d30](https://github.com/user-attachments/assets/3c03df8e-68dd-4107-9d5d-f536c948a849)# Souqy App
+# Souqy App
 
 Souqy is a modern e-commerce mobile application built with **Flutter** and powered by **Firebase** and **Graph APIs**. It offers a seamless shopping experience with user-friendly features, real-time updates, and a responsive design.
 
