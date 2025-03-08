@@ -11,9 +11,16 @@ class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       scaffoldBackgroundColor: ColorsLight.mainColor,
-      extensions: const <ThemeExtension<dynamic>>[
+      extensions: <ThemeExtension<dynamic>>[
         MyColors.light,
         MyAssets.light,
+        // ignore: deprecated_member_use
+        SkeletonizerConfigData.light(
+          effect: ShimmerEffect(
+            highlightColor: Colors.white,
+            baseColor: Colors.grey[300]!,
+          ),
+        ),
       ],
       useMaterial3: true,
       textTheme: TextTheme(

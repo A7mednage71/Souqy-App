@@ -16,6 +16,12 @@ class ShowUserImage extends StatelessWidget {
         radius: 40.r,
         backgroundColor: Colors.transparent,
       ),
+      placeholder: (context, url) {
+        return CircleAvatar(
+          backgroundColor: Colors.grey,
+          radius: 40.r,
+        );
+      },
       errorWidget: (context, url, error) {
         return CircleAvatar(
           backgroundColor: Colors.grey,

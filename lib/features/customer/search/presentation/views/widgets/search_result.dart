@@ -18,17 +18,24 @@ class SearchResult extends StatelessWidget {
     return BlocBuilder<SearchProductsBloc, SearchProductsState>(
       builder: (context, state) {
         return state.when(
-          initial: () => const SearchLottie(),
+          initial: () => Column(
+            children: [
+              SizedBox(height: 50.h),
+              const SearchLottie(),
+            ],
+          ),
           failure: (message) => const FailureState(),
           loading: () => const CustomerHomeProductsLoading(),
           success: (products) {
             if (products.isEmpty) return const EmptyData();
             return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10.w,
                 mainAxisSpacing: 10.w,
-                childAspectRatio: 0.65,
+                childAspectRatio: 0.6,
               ),
               itemCount: products.length,
               itemBuilder: (context, index) {
@@ -36,7 +43,7 @@ class SearchResult extends StatelessWidget {
                   onTap: () {
                     context.pushNamed(
                       Routes.productDetails,
-                      arguments: products[index],
+                      arguments: products[index].id,
                     );
                   },
                   child: CustomerProductItem(productModel: products[index]),

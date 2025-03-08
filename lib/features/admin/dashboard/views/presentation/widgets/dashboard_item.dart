@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_container_with_gradient.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class DashboardItem extends StatelessWidget {
   const DashboardItem({
@@ -46,15 +46,13 @@ class DashboardItem extends StatelessWidget {
                     ),
                   ),
                 if (isloading)
-                  Shimmer.fromColors(
-                    baseColor: Colors.grey[700]!,
-                    highlightColor: Colors.grey[500]!,
-                    child: Container(
-                      width: 50.w,
-                      height: 30.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.r),
+                  Skeletonizer(
+                    child: Text(
+                      'Loading',
+                      style: context.textStyle.copyWith(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                        color: context.themeColors.textColor,
                       ),
                     ),
                   ),

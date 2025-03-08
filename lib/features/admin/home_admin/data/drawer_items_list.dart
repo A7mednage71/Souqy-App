@@ -4,6 +4,7 @@ import 'package:my_store/features/admin/dashboard/views/presentation/dashboard_s
 import 'package:my_store/features/admin/home_admin/data/models/drawer_item_model.dart';
 import 'package:my_store/features/admin/notifications/presentation/views/notifications_screen.dart';
 import 'package:my_store/features/admin/products/presentation/views/products_screen.dart';
+import 'package:my_store/features/admin/settings/admin_settings_screen.dart';
 import 'package:my_store/features/admin/users/presentation/views/users_screen.dart';
 
 class DrawerItemsList {
@@ -49,9 +50,9 @@ class DrawerItemsList {
       widget: const NotificationsScreen(),
     ),
     DrawerItemModel(
-      title: 'Logout',
-      icon: const Icon(Icons.logout, color: Colors.white),
-      widget: Container(),
+      title: 'Settings',
+      icon: const Icon(Icons.settings, color: Colors.white),
+      widget: const AdminSettingScreen(),
     ),
   ];
 }

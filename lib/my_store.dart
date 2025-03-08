@@ -4,16 +4,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/app/app_cubit/cubit/app_cubit.dart';
 import 'package:my_store/core/app/network_connection_checker.dart';
 import 'package:my_store/core/common/screens/no_network_connection.dart';
+import 'package:my_store/core/constants/app_constants.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/languages/app_localizations_setup.dart';
 import 'package:my_store/core/routes/app_router.dart';
 import 'package:my_store/core/routes/routes.dart';
+import 'package:my_store/core/services/shared_pref/shared_pref.dart';
+import 'package:my_store/core/services/shared_pref/shared_pref_keys.dart';
 import 'package:my_store/core/style/theme/app_theme.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class MyStore extends StatelessWidget {
   const MyStore({super.key});
   @override
   Widget build(BuildContext context) {
+    final userRole = SharedPrefService.getString(SharedPrefKeys.userRole);
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -33,8 +40,12 @@ class MyStore extends StatelessWidget {
                 theme:
                     isDarkTheme ? AppTheme.darkTheme() : AppTheme.lightTheme(),
                 onGenerateRoute: AppRouter.getRoute,
-                initialRoute: Routes.customerMainScreen,
-                navigatorKey: GlobalKey<NavigatorState>(),
+                initialRoute: AppConstants.isUserlogged
+                    ? userRole == 'customer'
+                        ? Routes.customerMainScreen
+                        : Routes.homeAdmin
+                    : Routes.login,
+                navigatorKey: navigatorKey,
                 locale: Locale(language),
                 localeResolutionCallback:
                     AppLocalizationsSetup.localeResolutionCallback,

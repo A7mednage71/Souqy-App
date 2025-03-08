@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_text_field.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/helpers/my_validator.dart';
-import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/create_product/create_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/create_product/create_product_button.dart';
@@ -28,7 +27,7 @@ class CreateProductBottomSheet extends StatelessWidget {
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
       decoration: BoxDecoration(
-        color: ColorsDark.blueDark,
+        color: context.themeColors.bottomSheetBackground,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.r),
           topRight: Radius.circular(20.r),

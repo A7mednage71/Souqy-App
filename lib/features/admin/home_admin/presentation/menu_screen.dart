@@ -20,7 +20,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsDark.blueDark,
+      backgroundColor: context.themeColors.bluePinkLight,
       appBar: const CustomAdminAppBar(
         title: 'Souqy',
         isMainScreen: false,
@@ -40,10 +40,12 @@ class _MenuScreenState extends State<MenuScreen> {
                   title: Text(
                     e.value.title,
                     style: context.textStyle.copyWith(
-                      fontSize: 18.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeightHelper.bold,
                       color: Colors.white,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   selected: selectedIndex == e.key,
                   selectedTileColor: ColorsDark.mainColor.withOpacity(0.8),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
-import 'package:my_store/core/style/colors/colors_dark.dart';
 
 class CustomDropdownButtonFormField extends StatefulWidget {
   const CustomDropdownButtonFormField({
@@ -37,7 +36,7 @@ class _CustomDropdownButtonFormFieldState
       iconEnabledColor: context.themeColors.textColor,
       style: context.textStyle.copyWith(
         fontSize: 14.sp,
-        color: Colors.white,
+        color: context.themeColors.textColor,
       ),
       validator: (value) {
         if (value == null) {
@@ -46,7 +45,7 @@ class _CustomDropdownButtonFormFieldState
         return null;
       },
       iconDisabledColor: Colors.transparent,
-      dropdownColor: ColorsDark.navBarDark,
+      dropdownColor: context.themeColors.textFormBorder,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.r),

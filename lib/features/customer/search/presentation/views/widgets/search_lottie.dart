@@ -10,7 +10,7 @@ class SearchLottie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Center(
       child: Lottie.asset(
         AppImages.imagesSvgSearchLottie,
         height: 250.h,

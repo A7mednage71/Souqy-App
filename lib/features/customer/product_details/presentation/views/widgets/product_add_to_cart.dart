@@ -4,8 +4,8 @@ import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 
-class ProductDetailsBottomSheet extends StatelessWidget {
-  const ProductDetailsBottomSheet({
+class ProductAddToCart extends StatelessWidget {
+  const ProductAddToCart({
     required this.price,
     super.key,
   });
@@ -16,7 +16,7 @@ class ProductDetailsBottomSheet extends StatelessWidget {
       width: double.infinity,
       height: 90.h,
       decoration: BoxDecoration(
-        color: context.themeColors.containerShadow1,
+        color: context.themeColors.mainColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.r),
           topRight: Radius.circular(25.r),

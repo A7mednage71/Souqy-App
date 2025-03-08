@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_admin_appbar.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
+import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/delete_category/delete_category_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/views/widgets/categories_list_view.dart';
@@ -25,14 +26,24 @@ class CategoriesScreen extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: const CustomAdminAppBar(title: 'Categories'),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-          child: Column(
-            children: [
-              const AddCategory(),
-              SizedBox(height: 20.h),
-              const CategoriesListView(),
-            ],
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                context.themeAssets.homeBg!,
+              ),
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+            child: Column(
+              children: [
+                const AddCategory(),
+                SizedBox(height: 20.h),
+                const CategoriesListView(),
+              ],
+            ),
           ),
         ),
       ),

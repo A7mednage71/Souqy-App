@@ -35,6 +35,8 @@ import 'package:my_store/features/customer/customer_home/data/repos/customer_hom
 import 'package:my_store/features/customer/customer_home/presentation/bloc/get_customer_categories/get_customer_categories_bloc.dart';
 import 'package:my_store/features/customer/customer_home/presentation/bloc/get_first_ten_products/get_first_ten_products_bloc.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
+import 'package:my_store/features/customer/product_details/data/repos/product_details_repo.dart';
+import 'package:my_store/features/customer/product_details/presentation/views/bloc/get_product_data/get_product_data_bloc.dart';
 import 'package:my_store/features/customer/profile/data/repos/profile_repo.dart';
 import 'package:my_store/features/customer/profile/presentation/bloc/get_user_profile/get_user_profile_bloc.dart';
 import 'package:my_store/features/customer/search/data/repos/search_products_repo.dart';
@@ -165,5 +167,9 @@ Future<void> setGetIt() async {
       () => GetAllProductsWithPaginationBloc(getIt<CustomerHomeRepo>()),
     )
     ..registerLazySingleton(() => SearchProductsRepo(getIt<ApiService>()))
-    ..registerFactory(() => SearchProductsBloc(getIt<SearchProductsRepo>()));
+    ..registerFactory(() => SearchProductsBloc(getIt<SearchProductsRepo>()))
+
+    // product details service and repo
+    ..registerLazySingleton(() => ProductDetailsRepo(getIt<ApiService>()))
+    ..registerFactory(() => GetProductDataBloc(getIt<ProductDetailsRepo>()));
 }

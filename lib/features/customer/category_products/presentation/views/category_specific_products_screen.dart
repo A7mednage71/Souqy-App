@@ -27,7 +27,7 @@ class CategorySpecificProductsScreen extends StatelessWidget {
               failure: (message) => const FailureState(),
               loading: () => const CustomerHomeProductsLoading(),
               success: (products) {
-                if (products.isEmpty) return const EmptyData();
+                if (products.isEmpty) return const Center(child: EmptyData());
                 return RefreshIndicator(
                   onRefresh: () async {
                     context.read<GetCategoryProductsBloc>().add(
@@ -41,7 +41,7 @@ class CategorySpecificProductsScreen extends StatelessWidget {
                       crossAxisCount: 2,
                       crossAxisSpacing: 15.w,
                       mainAxisSpacing: 15.w,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.6,
                     ),
                     itemCount: products.length,
                     itemBuilder: (context, index) {
@@ -49,7 +49,7 @@ class CategorySpecificProductsScreen extends StatelessWidget {
                         onTap: () {
                           context.pushNamed(
                             Routes.productDetails,
-                            arguments: products[index],
+                            arguments: products[index].id,
                           );
                         },
                         child:

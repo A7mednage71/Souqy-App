@@ -65,5 +65,7 @@ class AppImages {
   static const String imagesSvgSearch = "assets/images/svg/search.svg";
 
   static const String imagesSvgSearchLottie = "assets/images/svg/searchLottie.json";
+
+  static const String imagesSvgWorningLottie = "assets/images/svg/worning_lottie.json";
 }
 

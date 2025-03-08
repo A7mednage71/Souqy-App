@@ -58,7 +58,7 @@ class _AllProductsGridViewState extends State<AllProductsGridView> {
           crossAxisCount: 2,
           crossAxisSpacing: 15.w,
           mainAxisSpacing: 15.w,
-          childAspectRatio: 0.7,
+          childAspectRatio: 0.6,
         ),
         itemCount: widget.products.length,
         itemBuilder: (context, index) {
@@ -66,7 +66,7 @@ class _AllProductsGridViewState extends State<AllProductsGridView> {
             onTap: () {
               context.pushNamed(
                 Routes.productDetails,
-                arguments: widget.products[index],
+                arguments: widget.products[index].id,
               );
             },
             child: CustomerProductItem(productModel: widget.products[index]),
