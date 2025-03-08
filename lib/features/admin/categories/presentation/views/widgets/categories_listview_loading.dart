@@ -20,6 +20,7 @@ class CategoriesListViewLoading extends StatelessWidget {
       ),
     );
     return Skeletonizer(
+      ignoreContainers: true,
       child: ListView.builder(
         itemCount: categories.length,
         itemBuilder: (context, index) => Padding(
