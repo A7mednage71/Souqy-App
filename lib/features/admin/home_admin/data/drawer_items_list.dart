@@ -51,7 +51,10 @@ class DrawerItemsList {
     DrawerItemModel(
       title: 'Logout',
       icon: const Icon(Icons.logout, color: Colors.white),
-      widget: Container(),
+      widget: Container(
+        alignment: Alignment.center,
+        child: const Text('Logout'),
+      ),
     ),
   ];
 }

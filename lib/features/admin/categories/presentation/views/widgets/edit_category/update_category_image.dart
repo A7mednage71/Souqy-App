@@ -27,6 +27,7 @@ class UpdateCategoryImage extends StatelessWidget {
           style: context.textStyle.copyWith(
             fontSize: 16.sp,
             fontWeight: FontWeightHelper.regular,
+            color: Colors.white,
           ),
         ),
         SizedBox(height: 10.h),

@@ -54,7 +54,7 @@ class UsersTable extends StatelessWidget {
                       child: Text(
                         users[index].userName,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -68,7 +68,7 @@ class UsersTable extends StatelessWidget {
                       child: Text(
                         users[index].userEmail,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         maxLines: 2,
                       ),

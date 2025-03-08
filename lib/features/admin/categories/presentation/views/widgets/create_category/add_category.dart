@@ -5,7 +5,6 @@ import 'package:my_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
-import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/create_category/create_category_bloc.dart';
 import 'package:my_store/features/admin/categories/presentation/bloc/get_categories/get_categories_bloc.dart';
@@ -48,7 +47,7 @@ class AddCategory extends StatelessWidget {
   Future<dynamic> showBottomSheet(BuildContext context) {
     // ignore: inference_failure_on_function_invocation
     return showModalBottomSheet(
-      backgroundColor: ColorsDark.blueDark,
+      backgroundColor: context.themeColors.bottomSheetBackground,
       isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

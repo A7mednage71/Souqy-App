@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/common/widgets/custom_linear_button.dart';
 import 'package:my_store/core/di/dependency_injection.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
-import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/features/admin/notifications/presentation/bloc/add_notification/add_notifications_bloc.dart';
 import 'package:my_store/features/admin/notifications/presentation/bloc/get_notifications/get_notifications_bloc.dart';
@@ -51,7 +50,7 @@ class AddNotificationItem extends StatelessWidget {
     await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: ColorsDark.blueDark,
+      backgroundColor: context.themeColors.bottomSheetBackground,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
       ),

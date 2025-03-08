@@ -15,6 +15,7 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.containerShadow2,
     required this.containerLinear1,
     required this.containerLinear2,
+    required this.bottomSheetBackground,
   });
 
   final Color? mainColor;
@@ -28,6 +29,7 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color? containerShadow2;
   final Color? containerLinear1;
   final Color? containerLinear2;
+  final Color? bottomSheetBackground;
 
   @override
   ThemeExtension<MyColors> copyWith({
@@ -41,6 +43,7 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? containerShadow1,
     Color? containerShadow2,
     Color? containerLinear1,
+    Color? bottomSheetBackground,
   }) {
     return MyColors(
       mainColor: mainColor,
@@ -54,6 +57,7 @@ class MyColors extends ThemeExtension<MyColors> {
       containerShadow2: containerShadow2,
       containerLinear1: containerLinear1,
       containerLinear2: containerLinear2,
+      bottomSheetBackground: bottomSheetBackground,
     );
   }
 
@@ -81,6 +85,7 @@ class MyColors extends ThemeExtension<MyColors> {
       containerShadow2: containerShadow2,
       containerLinear1: containerLinear1,
       containerLinear2: containerLinear2,
+      bottomSheetBackground: bottomSheetBackground,
     );
   }
 
@@ -96,6 +101,7 @@ class MyColors extends ThemeExtension<MyColors> {
     containerShadow2: ColorsDark.black2,
     containerLinear1: ColorsDark.black1,
     containerLinear2: ColorsDark.black2,
+    bottomSheetBackground: ColorsDark.blueDark,
   );
 
   static const MyColors light = MyColors(
@@ -103,12 +109,13 @@ class MyColors extends ThemeExtension<MyColors> {
     bluePinkDark: ColorsLight.pinkDark,
     bluePinkLight: ColorsLight.pinkLight,
     textColor: ColorsLight.black,
-    textFormBorder: ColorsLight.pinkLight,
+    textFormBorder: ColorsLight.white1,
     navBarbg: ColorsLight.mainColor,
     navBarSelectedTab: ColorsLight.pinkDark,
     containerShadow1: ColorsLight.white1,
     containerShadow2: ColorsLight.white2,
     containerLinear1: ColorsLight.pinkDark,
     containerLinear2: ColorsLight.pinkLight,
+    bottomSheetBackground: ColorsLight.white,
   );
 }

@@ -20,7 +20,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsDark.blueDark,
+      backgroundColor: context.themeColors.bluePinkLight,
       appBar: const CustomAdminAppBar(
         title: 'Souqy',
         isMainScreen: false,

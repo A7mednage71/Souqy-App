@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/style/colors/colors_dark.dart';
+import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/features/admin/products/data/models/products_response_model.dart';
 import 'package:my_store/features/admin/products/presentation/bloc/update_product/update_product_bloc.dart';
 import 'package:my_store/features/admin/products/presentation/views/widgets/update_product/update_product_form.dart';
@@ -51,7 +51,7 @@ class _UpdateProductBottomSheetState extends State<UpdateProductBottomSheet> {
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
       decoration: BoxDecoration(
-        color: ColorsDark.blueDark,
+        color: context.themeColors.bottomSheetBackground,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.r),
           topRight: Radius.circular(20.r),
