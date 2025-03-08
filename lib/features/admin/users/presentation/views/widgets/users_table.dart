@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/colors/colors_dark.dart';
 import 'package:my_store/features/admin/users/data/models/get_users_response_model.dart';
 import 'package:my_store/features/admin/users/presentation/bloc/get_users/get_users_bloc.dart';
@@ -53,8 +54,8 @@ class UsersTable extends StatelessWidget {
                       padding: EdgeInsets.all(8.r),
                       child: Text(
                         users[index].userName,
-                        style: const TextStyle(
-                          color: Colors.black,
+                        style: TextStyle(
+                          color: context.themeColors.textColor,
                         ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -67,8 +68,8 @@ class UsersTable extends StatelessWidget {
                       padding: EdgeInsets.all(8.r),
                       child: Text(
                         users[index].userEmail,
-                        style: const TextStyle(
-                          color: Colors.black,
+                        style: TextStyle(
+                          color: context.themeColors.textColor,
                         ),
                         maxLines: 2,
                       ),
