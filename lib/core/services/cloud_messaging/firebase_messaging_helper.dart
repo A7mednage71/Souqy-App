@@ -6,8 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:googleapis_auth/auth_io.dart' as auth;
 import 'package:my_store/core/extensions/localization_context.dart';
 import 'package:my_store/core/languages/localization_keys.dart';
+import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/core/services/cloud_messaging/notification_request_body_model.dart';
+import 'package:my_store/core/services/local_notifications/local_notifications.dart';
 import 'package:my_store/features/auth/widgets/show_toast.dart';
+import 'package:my_store/my_store.dart';
 
 class FirebaseMessagingHelper {
   FirebaseMessagingHelper._();
@@ -26,6 +29,9 @@ class FirebaseMessagingHelper {
     await requestPermission();
     final firebaseMessagingToken = await fcm.getToken();
     log('firebaseMessagingToken : $firebaseMessagingToken');
+    await handelForegroundNotification();
+    await handelBackgroundNotificationClick();
+    await handelterminatedNotificationClick();
   }
 
   // request permission
@@ -72,6 +78,53 @@ class FirebaseMessagingHelper {
     isTopicSubscribed.value = false;
     await FirebaseMessaging.instance.unsubscribeFromTopic(subscribeKey);
     log('====🔕 Notification Unsubscribed 🔕=====');
+  }
+
+  /// handel Foreground Notification
+  Future<void> handelForegroundNotification() async {
+    FirebaseMessaging.onMessage.listen(handleMessage);
+  }
+
+  /// handle FCM message
+  Future<void> handleMessage(RemoteMessage? message) async {
+    log('Foreground Notification Called');
+    if (message == null) return;
+    if (message.notification != null) {
+      await LocalNotifications.showNotification(
+        title: message.notification!.title!,
+        body: message.notification!.body!,
+        payload: message.data['productId'].toString(),
+      );
+    }
+  }
+
+  Future<void> handelBackgroundNotificationClick() async {
+    FirebaseMessaging.onMessageOpenedApp.listen(handleMessageOpen);
+  }
+
+  /// handle Interaction with FCM message
+  void handleMessageOpen(RemoteMessage? message) {
+    log('Background Notification Click Called');
+    if (message == null) return;
+    if (message.notification != null) {
+      final productId = message.data['productId'].toString();
+      if (productId == '-1') return;
+      navigatorKey.currentState
+          ?.pushNamed(Routes.productDetails, arguments: productId);
+    }
+  }
+
+  Future<void> handelterminatedNotificationClick() async {
+    await FirebaseMessaging.instance.getInitialMessage().then((message) {
+      log('terminated Notification Called');
+      if (message != null) {
+        final productId = message.data['productId'].toString();
+
+        if (productId == '-1') return;
+        navigatorKey.currentState
+            ?.pushNamed(Routes.productDetails, arguments: productId);
+      }
+    });
   }
 
   /// get access token
