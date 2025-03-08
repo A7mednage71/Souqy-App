@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,18 +34,34 @@ class UserCircleAvatar extends StatelessWidget {
           final image = cubit.uploadImageUrl;
           return state.maybeWhen(
             loading: () {
-              return CircleAvatar(
-                backgroundColor: Colors.grey.shade400,
-                radius: 40.r,
-                child: const Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
+              return Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.grey.shade400,
+                    radius: 40.r,
+                    backgroundImage: image.isNotEmpty
+                        ? NetworkImage(image)
+                        : const NetworkImage(AppConstants.userAvatar),
                   ),
-                ),
+                  SizedBox(
+                    width: 80.r,
+                    height: 80.r,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(
+                        context.themeColors.bluePinkLight,
+                      ),
+                      strokeWidth: 4.r,
+                      backgroundColor: Colors.grey.shade400,
+                    ),
+                  ),
+                ],
               );
             },
             orElse: () {
               return Stack(
+                clipBehavior: Clip.none,
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.grey.shade400,
@@ -54,17 +72,18 @@ class UserCircleAvatar extends StatelessWidget {
                   ),
                   Positioned(
                     top: -15,
-                    right: -12,
+                    right: -15,
                     child: IconButton(
                       onPressed: () async {
+                        log('onPressed');
                         image != ''
                             ? cubit.deleteImage()
                             : await cubit.uploadImage();
                       },
                       icon: Icon(
-                        image != '' ? Icons.delete : Icons.add_a_photo,
+                        image != '' ? Icons.remove_circle : Icons.camera_alt,
                         color: context.themeColors.bluePinkLight,
-                        size: 25,
+                        size: 25.r,
                       ),
                     ),
                   ),

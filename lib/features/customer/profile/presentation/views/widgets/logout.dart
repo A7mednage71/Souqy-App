@@ -25,7 +25,9 @@ class Logout extends StatelessWidget {
             onPressed: () {
               SecureStorage.clearAllData();
               SharedPrefService.clearAllData();
-              context.pushReplacementNamed(Routes.login);
+              context
+                ..pop()
+                ..pushReplacementNamed(Routes.login);
             },
           ),
         );
