@@ -38,5 +38,6 @@
     "notifications": "Notifications",
     "subscribed_to_notifications": "Notifications have been subscribed",
     "unsubscribed_to_notifications": "Notifications have been unsubscribed",
-    "view_all": "View all"
+    "view_all": "View all",
+    "favorites": "Favorite Products"
 }

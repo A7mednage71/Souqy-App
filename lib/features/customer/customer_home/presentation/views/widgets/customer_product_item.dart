@@ -28,7 +28,10 @@ class CustomerProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomShareButton(size: 20.r),
-                CustomFavoriteButton(size: 20.r),
+                CustomFavoriteButton(
+                  size: 20.r,
+                  product: productModel,
+                ),
               ],
             ),
             Align(

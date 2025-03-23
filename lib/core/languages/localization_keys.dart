@@ -40,4 +40,5 @@ class LocalizationKeys {
   static const String unsubscribedToNotifications =
       'unsubscribed_to_notifications';
   static const String viewAll = 'view_all';
+  static const String favorites = 'favorites';
 }
