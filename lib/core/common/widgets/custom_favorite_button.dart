@@ -34,7 +34,9 @@ class CustomFavoriteButton extends StatelessWidget {
           },
           icon: Icon(
             isFavorite ? Icons.favorite : Icons.favorite_outline,
-            color: isFavorite ? Colors.red : context.themeColors.textColor,
+            color: isFavorite
+                ? context.themeColors.bluePinkLight
+                : context.themeColors.textColor,
             size: size,
           ),
         );
