@@ -31,7 +31,7 @@ class FavoritesScreen extends StatelessWidget {
           scucess: (favorites) {
             if (favorites.isEmpty) {
               return const Center(
-                child: EmptyData(message: 'No notifications'),
+                child: EmptyData(message: 'No favorites yet'),
               );
             }
             return RefreshIndicator(
@@ -45,7 +45,7 @@ class FavoritesScreen extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 20.h,
                     crossAxisSpacing: 10.w,
-                    childAspectRatio: 0.7,
+                    childAspectRatio: 0.65,
                   ),
                   itemCount: favorites.length,
                   itemBuilder: (context, index) {

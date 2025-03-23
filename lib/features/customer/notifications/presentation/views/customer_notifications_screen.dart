@@ -24,7 +24,7 @@ class CustomerNotificationsScreen extends StatelessWidget {
         }
 
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: EmptyData());
+          return const Center(child: EmptyData(message: 'No notifications'));
         }
 
         if (snapshot.hasError) {
