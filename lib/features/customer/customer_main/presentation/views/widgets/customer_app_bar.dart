@@ -26,38 +26,52 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
                 backgroundColor: context.themeColors.mainColor,
                 surfaceTintColor: context.themeColors.mainColor,
               )
-            : AppBar(
-                backgroundColor: context.themeColors.mainColor,
-                surfaceTintColor: context.themeColors.mainColor,
-                elevation: 0,
-                title: CustomFadeInRight(
-                  duration: 200,
-                  child: Text(
-                    context.translate(LocalizationKeys.chooseProducts),
-                    style: context.textStyle.copyWith(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                actions: [
-                  CustomFadeInLeft(
-                    duration: 200,
-                    child: CustomLinearButton(
-                      onTap: () {
-                        context.pushNamed(Routes.searchScreen);
-                      },
-                      width: 40.w,
-                      child: SvgPicture.asset(
-                        AppImages.imagesSvgSearch,
+            : cubit.selectedBottomNavBar == BottomNavBarItems.favorites
+                ? AppBar(
+                    backgroundColor: context.themeColors.mainColor,
+                    surfaceTintColor: context.themeColors.mainColor,
+                    elevation: 0,
+                    centerTitle: true,
+                    title: Text(
+                      context.translate(LocalizationKeys.favorites),
+                      style: context.textStyle.copyWith(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                ],
-              );
+                  )
+                : AppBar(
+                    backgroundColor: context.themeColors.mainColor,
+                    surfaceTintColor: context.themeColors.mainColor,
+                    elevation: 0,
+                    title: CustomFadeInRight(
+                      duration: 200,
+                      child: Text(
+                        context.translate(LocalizationKeys.chooseProducts),
+                        style: context.textStyle.copyWith(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      CustomFadeInLeft(
+                        duration: 200,
+                        child: CustomLinearButton(
+                          onTap: () {
+                            context.pushNamed(Routes.searchScreen);
+                          },
+                          width: 40.w,
+                          child: SvgPicture.asset(
+                            AppImages.imagesSvgSearch,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                    ],
+                  );
       },
     );
   }
