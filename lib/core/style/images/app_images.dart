@@ -54,6 +54,8 @@ class AppImages {
 
   static const String imagesSvgHomeTabIcon = "assets/images/svg/home_tab_icon.svg";
 
+  static const String imagesSvgIconsNotification = "assets/images/svg/icons-notification.svg";
+
   static const String imagesSvgLanguage = "assets/images/svg/language.svg";
 
   static const String imagesSvgLogout = "assets/images/svg/logout.svg";

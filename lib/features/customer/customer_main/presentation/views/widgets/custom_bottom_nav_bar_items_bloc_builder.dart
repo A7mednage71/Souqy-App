@@ -26,10 +26,10 @@ class CustomBottomNavBarItemsBlocBuilder extends StatelessWidget {
                 onTap: navCubit.navigateToHome,
               ),
               BottomNavBarItem(
-                icon: AppImages.imagesSvgCategoriesTapIcon,
+                icon: AppImages.imagesSvgIconsNotification,
                 isSelected: navCubit.selectedBottomNavBar ==
-                    BottomNavBarItems.categories,
-                onTap: navCubit.navigateToCategories,
+                    BottomNavBarItems.notifications,
+                onTap: navCubit.navigateToNotifications,
               ),
               BottomNavBarItem(
                 icon: AppImages.imagesSvgFavouriteTabIcon,
