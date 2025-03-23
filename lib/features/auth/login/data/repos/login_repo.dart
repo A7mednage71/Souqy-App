@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:my_store/core/networking/api_error.dart';
 import 'package:my_store/core/networking/api_result.dart';
@@ -32,5 +35,15 @@ class LoginRepo {
   Future<UserRoleModel> userRole() async {
     final result = await _apiService.userRole();
     return result;
+  }
+
+  // add user id to firebase account
+  Future<void> addUserIdToFirebaseAccount({required String userId}) async {
+    final firestore = FirebaseFirestore.instance;
+    try {
+      await firestore.collection('users').doc(userId).set({});
+    } catch (e) {
+      log('Firebase error : $e');
+    }
   }
 }

@@ -52,6 +52,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         // save user id and user role to shared storage to use in get profile
         await SharedPrefService.setData(SharedPrefKeys.userId, user.userId);
         await SharedPrefService.setData(SharedPrefKeys.userRole, user.userRole);
+        // add user id to firebase account
+        await _loginRepo.addUserIdToFirebaseAccount(
+          userId: user.userId.toString(),
+        );
         emit(LoginState.success(user.userRole));
       },
       failure: (failure) {
