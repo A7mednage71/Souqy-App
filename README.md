@@ -37,6 +37,10 @@ Souqy is a modern e-commerce mobile application built with **Flutter** and power
    ```sh
    flutter run
    ```
+4. **Souqy App Release Link :**
+   ```sh
+   https://appdistribution.firebase.dev/i/fd57f904cacdc440
+   ```
 
 ## Screenshots
 (Add app screenshots here)
