@@ -23,7 +23,10 @@ class ProductDetailsBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomShareButton(size: 30.r),
-              CustomFavoriteButton(size: 30.r),
+              CustomFavoriteButton(
+                size: 30.r,
+                product: product,
+              ),
             ],
           ),
           20.h.verticalSpace,

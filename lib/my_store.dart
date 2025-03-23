@@ -12,6 +12,7 @@ import 'package:my_store/core/routes/routes.dart';
 import 'package:my_store/core/services/shared_pref/shared_pref.dart';
 import 'package:my_store/core/services/shared_pref/shared_pref_keys.dart';
 import 'package:my_store/core/style/theme/app_theme.dart';
+import 'package:my_store/features/customer/favorites/presentation/cubit/favorites_cubit.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -26,10 +27,18 @@ class MyStore extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return BlocProvider(
-          create: (context) => getIt<AppCubit>()
-            ..loadTheme()
-            ..loadLanguage(),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<AppCubit>()
+                ..loadTheme()
+                ..loadLanguage(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  getIt<FavoritesCubit>()..getFavoritesProducts(),
+            ),
+          ],
           child: BlocBuilder<AppCubit, AppState>(
             builder: (context, state) {
               final isDarkTheme = context.read<AppCubit>().isDarkTheme;
