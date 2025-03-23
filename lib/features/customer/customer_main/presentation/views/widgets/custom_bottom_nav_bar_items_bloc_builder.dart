@@ -4,6 +4,7 @@ import 'package:my_store/core/enums/bottom_nav_bar_items.dart';
 import 'package:my_store/core/style/images/app_images.dart';
 import 'package:my_store/features/customer/customer_main/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:my_store/features/customer/customer_main/presentation/views/widgets/bottom_nav_bar_item.dart';
+import 'package:my_store/features/customer/customer_main/presentation/views/widgets/notifications_nav_bar_item.dart';
 
 class CustomBottomNavBarItemsBlocBuilder extends StatelessWidget {
   const CustomBottomNavBarItemsBlocBuilder({
@@ -25,12 +26,7 @@ class CustomBottomNavBarItemsBlocBuilder extends StatelessWidget {
                     navCubit.selectedBottomNavBar == BottomNavBarItems.home,
                 onTap: navCubit.navigateToHome,
               ),
-              BottomNavBarItem(
-                icon: AppImages.imagesSvgIconsNotification,
-                isSelected: navCubit.selectedBottomNavBar ==
-                    BottomNavBarItems.notifications,
-                onTap: navCubit.navigateToNotifications,
-              ),
+              NotificationsNavBarItem(navCubit: navCubit),
               BottomNavBarItem(
                 icon: AppImages.imagesSvgFavouriteTabIcon,
                 isSelected: navCubit.selectedBottomNavBar ==
