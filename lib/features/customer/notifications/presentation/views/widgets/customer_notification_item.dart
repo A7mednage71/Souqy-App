@@ -4,10 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:my_store/core/extensions/theme_context.dart';
 import 'package:my_store/core/style/fonts/font_weight_helper.dart';
 import 'package:my_store/core/style/images/app_images.dart';
+import 'package:my_store/features/customer/notifications/data/models/customer_notification_model.dart';
 
 class CustomerNotificationItem extends StatelessWidget {
-  const CustomerNotificationItem({super.key});
-
+  const CustomerNotificationItem({required this.notificationModel, super.key});
+  final CustomerNotificationModel notificationModel;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -26,7 +27,7 @@ class CustomerNotificationItem extends StatelessWidget {
         ),
       ),
       title: Text(
-        'title',
+        notificationModel.title,
         style: context.textStyle.copyWith(fontWeight: FontWeightHelper.bold),
       ),
       subtitle: Column(
@@ -35,12 +36,12 @@ class CustomerNotificationItem extends StatelessWidget {
         children: [
           5.h.verticalSpace,
           Text(
-            'body',
+            notificationModel.body,
             style: context.textStyle,
           ),
           5.h.verticalSpace,
           Text(
-            'Created At',
+            notificationModel.createdAt,
             style: context.textStyle,
           ),
           5.h.verticalSpace,
