@@ -38,7 +38,7 @@ class NotificationItem extends StatelessWidget {
             const Spacer(),
             NotificatonItemRowText(
               title: 'Created At',
-              body: notification.createdAt.getFormat(),
+              body: notification.createdAt.convertDataFormate(),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

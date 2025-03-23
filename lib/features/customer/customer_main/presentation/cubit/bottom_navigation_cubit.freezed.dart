@@ -19,7 +19,7 @@ mixin _$BottomNavigationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() home,
-    required TResult Function() categories,
+    required TResult Function() notifications,
     required TResult Function() favorites,
     required TResult Function() profile,
   }) =>
@@ -27,7 +27,7 @@ mixin _$BottomNavigationState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
-    TResult? Function()? categories,
+    TResult? Function()? notifications,
     TResult? Function()? favorites,
     TResult? Function()? profile,
   }) =>
@@ -35,7 +35,7 @@ mixin _$BottomNavigationState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
-    TResult Function()? categories,
+    TResult Function()? notifications,
     TResult Function()? favorites,
     TResult Function()? profile,
     required TResult orElse(),
@@ -44,7 +44,7 @@ mixin _$BottomNavigationState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeState value) home,
-    required TResult Function(CategoriesState value) categories,
+    required TResult Function(NotificationsState value) notifications,
     required TResult Function(FavoritesState value) favorites,
     required TResult Function(ProfileState value) profile,
   }) =>
@@ -52,7 +52,7 @@ mixin _$BottomNavigationState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeState value)? home,
-    TResult? Function(CategoriesState value)? categories,
+    TResult? Function(NotificationsState value)? notifications,
     TResult? Function(FavoritesState value)? favorites,
     TResult? Function(ProfileState value)? profile,
   }) =>
@@ -60,7 +60,7 @@ mixin _$BottomNavigationState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeState value)? home,
-    TResult Function(CategoriesState value)? categories,
+    TResult Function(NotificationsState value)? notifications,
     TResult Function(FavoritesState value)? favorites,
     TResult Function(ProfileState value)? profile,
     required TResult orElse(),
@@ -132,7 +132,7 @@ class _$HomeStateImpl implements HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() home,
-    required TResult Function() categories,
+    required TResult Function() notifications,
     required TResult Function() favorites,
     required TResult Function() profile,
   }) {
@@ -143,7 +143,7 @@ class _$HomeStateImpl implements HomeState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
-    TResult? Function()? categories,
+    TResult? Function()? notifications,
     TResult? Function()? favorites,
     TResult? Function()? profile,
   }) {
@@ -154,7 +154,7 @@ class _$HomeStateImpl implements HomeState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
-    TResult Function()? categories,
+    TResult Function()? notifications,
     TResult Function()? favorites,
     TResult Function()? profile,
     required TResult orElse(),
@@ -169,7 +169,7 @@ class _$HomeStateImpl implements HomeState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeState value) home,
-    required TResult Function(CategoriesState value) categories,
+    required TResult Function(NotificationsState value) notifications,
     required TResult Function(FavoritesState value) favorites,
     required TResult Function(ProfileState value) profile,
   }) {
@@ -180,7 +180,7 @@ class _$HomeStateImpl implements HomeState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeState value)? home,
-    TResult? Function(CategoriesState value)? categories,
+    TResult? Function(NotificationsState value)? notifications,
     TResult? Function(FavoritesState value)? favorites,
     TResult? Function(ProfileState value)? profile,
   }) {
@@ -191,7 +191,7 @@ class _$HomeStateImpl implements HomeState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeState value)? home,
-    TResult Function(CategoriesState value)? categories,
+    TResult Function(NotificationsState value)? notifications,
     TResult Function(FavoritesState value)? favorites,
     TResult Function(ProfileState value)? profile,
     required TResult orElse(),
@@ -208,18 +208,18 @@ abstract class HomeState implements BottomNavigationState {
 }
 
 /// @nodoc
-abstract class _$$CategoriesStateImplCopyWith<$Res> {
-  factory _$$CategoriesStateImplCopyWith(_$CategoriesStateImpl value,
-          $Res Function(_$CategoriesStateImpl) then) =
-      __$$CategoriesStateImplCopyWithImpl<$Res>;
+abstract class _$$NotificationsStateImplCopyWith<$Res> {
+  factory _$$NotificationsStateImplCopyWith(_$NotificationsStateImpl value,
+          $Res Function(_$NotificationsStateImpl) then) =
+      __$$NotificationsStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CategoriesStateImplCopyWithImpl<$Res>
-    extends _$BottomNavigationStateCopyWithImpl<$Res, _$CategoriesStateImpl>
-    implements _$$CategoriesStateImplCopyWith<$Res> {
-  __$$CategoriesStateImplCopyWithImpl(
-      _$CategoriesStateImpl _value, $Res Function(_$CategoriesStateImpl) _then)
+class __$$NotificationsStateImplCopyWithImpl<$Res>
+    extends _$BottomNavigationStateCopyWithImpl<$Res, _$NotificationsStateImpl>
+    implements _$$NotificationsStateImplCopyWith<$Res> {
+  __$$NotificationsStateImplCopyWithImpl(_$NotificationsStateImpl _value,
+      $Res Function(_$NotificationsStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of BottomNavigationState
@@ -228,18 +228,18 @@ class __$$CategoriesStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CategoriesStateImpl implements CategoriesState {
-  const _$CategoriesStateImpl();
+class _$NotificationsStateImpl implements NotificationsState {
+  const _$NotificationsStateImpl();
 
   @override
   String toString() {
-    return 'BottomNavigationState.categories()';
+    return 'BottomNavigationState.notifications()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CategoriesStateImpl);
+        (other.runtimeType == runtimeType && other is _$NotificationsStateImpl);
   }
 
   @override
@@ -249,35 +249,35 @@ class _$CategoriesStateImpl implements CategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() home,
-    required TResult Function() categories,
+    required TResult Function() notifications,
     required TResult Function() favorites,
     required TResult Function() profile,
   }) {
-    return categories();
+    return notifications();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
-    TResult? Function()? categories,
+    TResult? Function()? notifications,
     TResult? Function()? favorites,
     TResult? Function()? profile,
   }) {
-    return categories?.call();
+    return notifications?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
-    TResult Function()? categories,
+    TResult Function()? notifications,
     TResult Function()? favorites,
     TResult Function()? profile,
     required TResult orElse(),
   }) {
-    if (categories != null) {
-      return categories();
+    if (notifications != null) {
+      return notifications();
     }
     return orElse();
   }
@@ -286,42 +286,42 @@ class _$CategoriesStateImpl implements CategoriesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeState value) home,
-    required TResult Function(CategoriesState value) categories,
+    required TResult Function(NotificationsState value) notifications,
     required TResult Function(FavoritesState value) favorites,
     required TResult Function(ProfileState value) profile,
   }) {
-    return categories(this);
+    return notifications(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeState value)? home,
-    TResult? Function(CategoriesState value)? categories,
+    TResult? Function(NotificationsState value)? notifications,
     TResult? Function(FavoritesState value)? favorites,
     TResult? Function(ProfileState value)? profile,
   }) {
-    return categories?.call(this);
+    return notifications?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeState value)? home,
-    TResult Function(CategoriesState value)? categories,
+    TResult Function(NotificationsState value)? notifications,
     TResult Function(FavoritesState value)? favorites,
     TResult Function(ProfileState value)? profile,
     required TResult orElse(),
   }) {
-    if (categories != null) {
-      return categories(this);
+    if (notifications != null) {
+      return notifications(this);
     }
     return orElse();
   }
 }
 
-abstract class CategoriesState implements BottomNavigationState {
-  const factory CategoriesState() = _$CategoriesStateImpl;
+abstract class NotificationsState implements BottomNavigationState {
+  const factory NotificationsState() = _$NotificationsStateImpl;
 }
 
 /// @nodoc
@@ -366,7 +366,7 @@ class _$FavoritesStateImpl implements FavoritesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() home,
-    required TResult Function() categories,
+    required TResult Function() notifications,
     required TResult Function() favorites,
     required TResult Function() profile,
   }) {
@@ -377,7 +377,7 @@ class _$FavoritesStateImpl implements FavoritesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
-    TResult? Function()? categories,
+    TResult? Function()? notifications,
     TResult? Function()? favorites,
     TResult? Function()? profile,
   }) {
@@ -388,7 +388,7 @@ class _$FavoritesStateImpl implements FavoritesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
-    TResult Function()? categories,
+    TResult Function()? notifications,
     TResult Function()? favorites,
     TResult Function()? profile,
     required TResult orElse(),
@@ -403,7 +403,7 @@ class _$FavoritesStateImpl implements FavoritesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeState value) home,
-    required TResult Function(CategoriesState value) categories,
+    required TResult Function(NotificationsState value) notifications,
     required TResult Function(FavoritesState value) favorites,
     required TResult Function(ProfileState value) profile,
   }) {
@@ -414,7 +414,7 @@ class _$FavoritesStateImpl implements FavoritesState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeState value)? home,
-    TResult? Function(CategoriesState value)? categories,
+    TResult? Function(NotificationsState value)? notifications,
     TResult? Function(FavoritesState value)? favorites,
     TResult? Function(ProfileState value)? profile,
   }) {
@@ -425,7 +425,7 @@ class _$FavoritesStateImpl implements FavoritesState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeState value)? home,
-    TResult Function(CategoriesState value)? categories,
+    TResult Function(NotificationsState value)? notifications,
     TResult Function(FavoritesState value)? favorites,
     TResult Function(ProfileState value)? profile,
     required TResult orElse(),
@@ -483,7 +483,7 @@ class _$ProfileStateImpl implements ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() home,
-    required TResult Function() categories,
+    required TResult Function() notifications,
     required TResult Function() favorites,
     required TResult Function() profile,
   }) {
@@ -494,7 +494,7 @@ class _$ProfileStateImpl implements ProfileState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? home,
-    TResult? Function()? categories,
+    TResult? Function()? notifications,
     TResult? Function()? favorites,
     TResult? Function()? profile,
   }) {
@@ -505,7 +505,7 @@ class _$ProfileStateImpl implements ProfileState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
-    TResult Function()? categories,
+    TResult Function()? notifications,
     TResult Function()? favorites,
     TResult Function()? profile,
     required TResult orElse(),
@@ -520,7 +520,7 @@ class _$ProfileStateImpl implements ProfileState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeState value) home,
-    required TResult Function(CategoriesState value) categories,
+    required TResult Function(NotificationsState value) notifications,
     required TResult Function(FavoritesState value) favorites,
     required TResult Function(ProfileState value) profile,
   }) {
@@ -531,7 +531,7 @@ class _$ProfileStateImpl implements ProfileState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeState value)? home,
-    TResult? Function(CategoriesState value)? categories,
+    TResult? Function(NotificationsState value)? notifications,
     TResult? Function(FavoritesState value)? favorites,
     TResult? Function(ProfileState value)? profile,
   }) {
@@ -542,7 +542,7 @@ class _$ProfileStateImpl implements ProfileState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeState value)? home,
-    TResult Function(CategoriesState value)? categories,
+    TResult Function(NotificationsState value)? notifications,
     TResult Function(FavoritesState value)? favorites,
     TResult Function(ProfileState value)? profile,
     required TResult orElse(),

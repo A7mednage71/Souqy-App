@@ -14,9 +14,9 @@ class BottomNavigationCubit extends Cubit<BottomNavigationState> {
     emit(const BottomNavigationState.home());
   }
 
-  void navigateToCategories() {
-    selectedBottomNavBar = BottomNavBarItems.categories;
-    emit(const BottomNavigationState.categories());
+  void navigateToNotifications() {
+    selectedBottomNavBar = BottomNavBarItems.notifications;
+    emit(const BottomNavigationState.notifications());
   }
 
   void navigateToFavorites() {

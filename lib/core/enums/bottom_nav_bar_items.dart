@@ -1,6 +1,6 @@
 enum BottomNavBarItems {
   home,
-  categories,
+  notifications,
   favorites,
   profile,
 }
