@@ -14,10 +14,10 @@ Souqy is a modern e-commerce mobile application built with **Flutter** and power
 ## Technologies Used
 
 - **Flutter** (Dart)
-- **Firebase** (Firestore, Authentication, FCM)
+- **Firebase** (FCM)
 - **Bloc** for state management
 - **Hive** for local storage
-- **Stripe/PayPal** for payments
+- **Stripe/PayPal** for payments 'in future'
 - **Graph APIs** for backend communication
 
 ## Installation
