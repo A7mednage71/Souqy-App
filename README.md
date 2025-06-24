@@ -2,6 +2,11 @@
 
 Souqy is a modern e-commerce mobile application built with **Flutter** and powered by **Firebase** and **Graph APIs**. It offers a seamless shopping experience with user-friendly features, real-time updates, and a responsive design.
 
+## Screenshots
+
+![Group 1](https://github.com/user-attachments/assets/ed440979-6216-4bbd-ad19-8f0ad39cb686)
+![Group 2](https://github.com/user-attachments/assets/afaa7b38-9cd1-45fa-9b8c-19b7eac671c1)
+
 ## Features
 
 - **User Authentication** (Email)
@@ -45,14 +50,6 @@ Souqy is a modern e-commerce mobile application built with **Flutter** and power
    ```sh
       https://appdistribution.firebase.google.com/testerapps/1:908225876428:android:c19a5671cd8197588a4d69/releases/7kcb1ahj3m78g?utm_source=firebase-console
    ```
-
-## Screenshots
-
-![Group 1](https://github.com/user-attachments/assets/ed440979-6216-4bbd-ad19-8f0ad39cb686)
-![Group 2](https://github.com/user-attachments/assets/afaa7b38-9cd1-45fa-9b8c-19b7eac671c1)
-
-
-
 
 ## Contribution!
 Feel free to contribute to Souqy by submitting issues and pull requests.
